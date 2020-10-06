@@ -47,7 +47,7 @@ export class ConfigApi {
             recover: `${this.URL_API}/api/user/recover/step01`,
             recoverConfirm: `${this.URL_API}/api/user/recover/step02`,
 
-            ipjson: 'https://ipapi.co/json'
+            ipjson: 'https://api.ipify.org?format=json'
         }
     }
 }

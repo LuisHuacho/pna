@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
     sipAddress: '',
     sappServer: 'PREMIO',
     ssistOperativo: '',
-    linkAplicativo: 'http://google.com'
+    linkAplicativo: ''
   };
   loginProccess:boolean = false;
 
@@ -45,10 +45,17 @@ export class LoginPageComponent implements OnInit {
     _root.tools.showPreloader();
 
     _root.loginProccess = true;
-    _root.user.sipAddress = '192.100.20.5';
     _root.user.ssistOperativo = _root.tools.getOperatingSystem();
+    _root.user.linkAplicativo = _root.tools.getHostname();
 
-    _root.userService.login(this.user)
+    _root.globalService.getIpJson()
+    .then((res:any) => {
+      if(res.ip !== undefined) {
+        _root.user.sipAddress = res.ip;
+      }
+
+      return _root.userService.login(_root.user);
+    })
     .then((res:any) => {
       _root.loginProccess = false;
       if(res.token !== undefined) {
@@ -64,7 +71,8 @@ export class LoginPageComponent implements OnInit {
         _root.tools.showToastr('ERROR', err.error.mensaje, 'error', 2000);
       }
       _root.tools.hidePreloader();
-    });
+    })
+    
   }
 
 }
