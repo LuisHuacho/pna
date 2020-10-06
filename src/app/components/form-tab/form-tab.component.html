@@ -350,7 +350,7 @@
                         <small class="text-gray"><strong>a) Contexto en el que se desarrolla la experiencia. -</strong> Presente su experiencia de manera sintètica; destacando de forma abreviada, objetiva y precisa el ambiente en el que la historia se desarrolla (contexto), las caracterìsticas y atributos principales y conclusiones. Debe guardar correspondencia con los criterios de evaluaciòn generales y especìficos señalados en las Bases del Concurso para la categoria y menciòn a la cual postula (Use hasta 300 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.contexto_experiencia" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.contexto_experiencia" (change)="onChange($event)" (keyup)="onKeyUp($event, 300)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -358,7 +358,7 @@
                         <small class="text-gray"><strong>b) Aporte a la solución del problema ambiental identificado.-</strong> Señale cual es el problema o la necesidad identificados, sus causas, y las posibles soluciones planteadas desde la experiencia (Use hasta 200 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.aporte_solucion" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.aporte_solucion" (change)="onChange($event)" (keyup)="onKeyUp($event, 200)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -366,7 +366,7 @@
                         <small class="text-gray"><strong>c) Principales resultados.-</strong> Señale los principales resultados y/o logros conseguidos tras la aplicación de la experiencia (Use hasta 300 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_principales_result" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_principales_result" (change)="onChange($event)" (keyup)="onKeyUp($event, 300)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -374,7 +374,7 @@
                         <small class="text-gray"><strong>d) Resumen de la experiencia.-</strong> Señale los cambios positivos respecto al problema socioambiental identificado logrados tras desplegar la experiencia. (Use hasta 300 palabras) La experiencia ha logrado</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_resumen_experiencia" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_resumen_experiencia" (change)="onChange($event)" (keyup)="onKeyUp($event, 300)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -382,7 +382,7 @@
                         <small class="text-gray"><strong>e) Características de la población beneficiaria.-</strong> Describa los impactos positivos de la experiencia sobre la población beneficiaria y señale ésta si se encuentra en situación de pobreza y/o vulnerabilidad (Use hasta 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.poblacion_beneficiada" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.poblacion_beneficiada" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -407,7 +407,7 @@
                         <small class="text-gray"><strong>a) Fuentes de financiamiento.-</strong> Señale si esta asegurado al financiamiento externo y/o interno para continuar con la experiencia (use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.fuentes_financiamiento" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.fuentes_financiamiento" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -434,7 +434,7 @@
                         <small class="text-gray"><strong>c) Recursos accesibles en el mercado.-</strong> Señale si los insumos, materiales y recursos utilizados son accesibles, y especifique si se encuentran en el mercado local, nacional o internacional (use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.recursos_accesibles" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.recursos_accesibles" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -442,7 +442,7 @@
                         <small class="text-gray"><strong>d) Desarrollo de capacidades.-</strong> Señale si se han desarrollado capacidades de gestión en los beneficiarios para continuar con el desarrollo de la experiencia. (use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.desarrollo_capacidades" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.desarrollo_capacidades" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -450,7 +450,7 @@
                         <small class="text-gray"><strong>e) Incentivos económicos.-</strong> Señale si se han desarrollado incentivos económicos u honoríficos para retribuir el trabajo necesario para el funcionamiento de la experiencia. (use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.incentvos_economicos" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.incentvos_economicos" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -458,7 +458,7 @@
                         <small class="text-gray"><strong>f) Apropiación de la experiencia.-</strong> Indique la forma en la que los beneficiarios del proyecto se apropian de la experiencia (use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_apropiacion_exp" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_apropiacion_exp" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
             </div>
@@ -477,7 +477,7 @@
                         <small class="text-gray"><strong>a) Cambios positivos.-</strong> Señale la situación encontrada antes de la experiencia y los cambios positivos a partir de la aplicación de la misma (Use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.cambios_positivos" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.cambios_positivos" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -485,7 +485,7 @@
                         <small class="text-gray"><strong>b) Factores de riesgo.-</strong> Señale los puntos débiles o factores que ponen en riesgo el desarrollo de la experiencia. (use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.factores_riesgo" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.factores_riesgo" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -493,7 +493,7 @@
                         <small class="text-gray"><strong>c) Factores de éxito.-</strong> Destaque los puntos determinantes que permiten el éxito de la experiencia. (use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.factores_exito" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.factores_exito" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -501,7 +501,7 @@
                         <small class="text-gray"><strong>d) Condiciones para que la experiencia pueda ser reproducida.-</strong> Señale las condiciones organizativas, institucionales, económicas y/o sociales que tienen que darse para que la experiencia pueda ser reproducida en otros contextos. (use máximo 150 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.condiciones_experiencia" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.condiciones_experiencia" (change)="onChange($event)" (keyup)="onKeyUp($event, 150)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -509,7 +509,7 @@
                         <small class="text-gray"><strong>e) Actividades necesarias.-</strong> Señale las actividades que son necesarias para la expansión de la experiencia a otras localidades/regiones (use máximo 100 palabras)</small>
                     </p>
                     <p>
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.actividades_necesarias" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.actividades_necesarias" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -615,7 +615,7 @@
                         </small>
                     </p>
                     <p *ngIf="a3">
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle3" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle3" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -642,7 +642,7 @@
                         </small>
                     </p>
                     <p *ngIf="a4">
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle4" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle4" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                     <p class="app-txt-dark">
                         <small class="text-gray">- En la definición del problema ambiental o en el diseño de las soluciones han participado representantes de organizaciones de los grupos étnicos concernidos.</small><br>
@@ -661,7 +661,7 @@
                         </small>
                     </p>
                     <p *ngIf="a5">
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle5" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle5" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                     <p class="app-txt-dark">
                         <small class="text-gray">- Los recursos educativos y/o comunicacionales desarrollados en la experiencia han tomado en cuenta la diversidad lingüística y cultural, así como características físicas y vestimenta de las poblaciones.</small><br>
@@ -680,7 +680,7 @@
                         </small>
                     </p>
                     <p *ngIf="a6">
-                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle6" (change)="onChange($event)"></textarea>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle6" (change)="onChange($event)" (keyup)="onKeyUp($event, 100)"></textarea>
                     </p>
                 </div>
             </div>
