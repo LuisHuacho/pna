@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<div class="page-content">
+    <div class="left-content">
+        <app-side-menu></app-side-menu>
+    </div>
+    <div class="right-content">
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 col-sm-12">
+                    <div class="content-title text-center mt-5 mb-5">FICHA DE POSTULACIÓN DEL PREMIO NACIONAL AMBIENTAL ANTONIO BRACK EGG</div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col col-12 col-sm-12">
+                    <div *ngIf="showStepInfo" class="form-step-info">
+                        <div>
+                            <span>{{ active }} de {{ tabs.length }}</span>
+                            <p>PASOS COMPLETADOS | <i class="fa fa-times" aria-hidden="true" (click)="hideStepInfo()"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-12 col-sm-12">
+                    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                        <li *ngFor="let tab of tabs" [ngbNavItem]="tab.id" (click)="onSaveContinue(tab, (tab.id - 1))">
+                            <a ngbNavLink>{{ tab.tabLabel }}</a>
+                            <ng-template ngbNavContent>
+                                <div *ngIf="tab.formType == 'static'" class="tab-content">
+                                    <div *ngIf="tab.tabName != 'info_esp'" class="tab-title mb-3">{{ tab.tabLabel }}</div>
+                                    <small *ngIf="((tab.tabDescription !== undefined) && (tab.tabName != 'info_esp'))" class="mb-3 app-txt-dark">{{ tab.tabDescription }}</small>
+                                    
+                                    <app-form-tab [formName]="tab.tabName" [idPostulacion]="idPostulacion"></app-form-tab>
+
+                                    <div class="row justify-content-end mt-5 mb-5">
+                                        <div class="actions-btn-form pr-3">
+                                            <button type="button" class="btn btn-primary btn-sm pt-2 pb-2 pl-4 pr-4 ml-2" (click)="onSaveContinue(tab, tab.id, 'Y')">Guardar y salir</button>
+                                            <!-- <button type="button" class="btn btn-primary btn-sm pt-2 pb-2 pl-4 pr-4 ml-2" (click)="onSaveContinue(tab, tab.id)" [disabled]="(tab.isComplete) ? false : true">Guardar y continuar</button> -->
+                                            <button type="button" *ngIf="(tab.id < tabs.length)" class="btn btn-primary btn-sm pt-2 pb-2 pl-4 pr-4 ml-2 btn-has-preloader" (click)="onSaveContinue(tab, tab.id)" [disabled]="saveExpProccess ? 'disabled' : null">
+                                                <span class="ml-4 mr-4">Guardar y continuar</span>
+                                                <app-preloader-widget *ngIf="saveExpProccess" [type]="'button'"></app-preloader-widget>
+                                            </button>
+                                            <button *ngIf="(tab.id == tabs.length)" type="button" class="btn btn-primary btn-sm pt-2 pb-2 pl-4 pr-4 ml-2" (click)="onSaveFinish(tab, tab.id)">Guardar y enviar a revisión</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                      </ul>
+                      
+                      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
+<!--<app-postulacion-download id="pdfdownload"></app-postulacion-download>-->

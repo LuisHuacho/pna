@@ -1,0 +1,146 @@
+app-postulation-page {
+    .postulation-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: $app_blue;
+    }
+
+    .nav-tabs {
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: block;
+        white-space: nowrap;
+        width: 100%;
+        margin-bottom: 20px;
+
+        li {
+            display: inline-block;
+            margin-right: 2px;
+            margin-bottom: 4px;
+
+            .nav-link {
+                background-color: $app_gray_light!important;
+                border-radius: 0!important;
+                color: $app_gray_dark!important;
+
+                &.active {
+                    background-color: $app_blue!important;
+                    color: #ffffff!important;
+                }
+            }
+        }
+    }
+
+    .form-step-info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 10px;
+            background-color: $app_gray_dark;
+
+            span {
+                margin-right: 5px;
+                padding: 4px;
+                background-color: $app_red;
+                border-radius: 4px;
+                color: #ffffff;
+            }
+
+            p {
+                padding: 0;
+                margin: 0;
+                color: $app_gray_light;
+            } 
+        }
+    }
+
+    .tab-content {
+
+        .tab-title {
+            font-weight: bold;
+            color: $app_blue;
+        }
+
+        .tab-form-group {
+            position: relative;
+            box-sizing: border-box;
+            padding: 40px 40px 20px 40px;
+            border: solid 1px $app_blue;
+            border-radius: 5px;
+
+            .tab-form-group-title {
+                position: absolute;
+                top: -13px;
+                left: 50px;
+                padding: 0px 15px;
+                background-color: #ffffff;
+                font-weight: bold;
+                color: $app_blue;
+            }
+
+            &.fcollapse {
+                padding: 15px 20px;
+                .tab-form-group-title {
+                    cursor: pointer;
+                    position: initial;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .actions-btn-form {
+        button {
+            border: solid 1px $app_gray_light!important;
+            background-color: $app_gray_light!important;
+            box-shadow: none!important;
+            color: $app_blue!important;
+
+            &:hover {
+                border: solid 1px $app_blue!important;
+                background-color: #ffffff!important;
+            }
+        }
+    }
+
+    .desc-group {
+        // padding: 10px;
+        // background-color: $app_blue!important;
+        // color: #000000!important;
+
+        .group-title {
+            color: $app_blue!important;
+        }
+    }
+
+    table.table {
+        thead {
+            th {
+                td{
+                    font-size: 0.9em!important;
+                }
+                td *{
+                    font-size: 0.9em!important;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td{
+                    font-size: 0.9em!important;
+                    input, textarea {
+                        width: 100%!important;
+                    }
+                }
+                td *{
+                    font-size: 0.9em!important;
+                }
+            }
+        }
+    }
+}

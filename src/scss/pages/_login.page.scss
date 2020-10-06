@@ -1,0 +1,77 @@
+app-login-page {
+    .login-info {
+        .login-title-info {
+            text-align: center;
+            font-weight: bold;
+            color: $app_blue;
+        }
+        .login-subtitle-info {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            color: $app_txt_dark;
+        }
+        .login-orientaciones {
+            list-style: none;
+            counter-reset: item;
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: 500px;
+            margin: 0 0 1rem 0;
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            border: solid 1px $app_blue;
+            li {
+                display: flex;
+                font-size: 0.9em;
+                color: $app_txt_light;
+                span {
+                    color: $app_blue;
+                    * {
+                        color: $app_blue;
+                    }
+                    a {
+                        text-decoration: none;
+                    }
+                }
+                &:before {
+                    content: counter(item) ". ";
+                    counter-increment: item;
+                    margin-right: 0.5rem;
+                    color: $app_blue!important;
+                }
+            }
+        }
+    }
+
+    .login-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $app_green;
+
+        > div {
+            width: 75%;
+
+            > .col-auto {
+                > label {
+                    color: #ffffff;
+                }
+
+                .input-group {
+                    .input-group-text {
+                        background-color: #ffffff!important;
+                        border: none!important;
+                        color: $app_txt_dark;
+                    }
+                    .form-control {
+                        background-color: #ffffff!important;
+                        box-shadow: none!important;
+                        border: none!important;
+                        color: $app_txt_dark;
+                    }
+                }
+            }
+        }
+    }
+}

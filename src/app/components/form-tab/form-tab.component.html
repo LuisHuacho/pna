@@ -1,0 +1,925 @@
+<div *ngIf="formName == 'datos_gen'" class="tab-form mt-3">
+    <div class="tab-form">
+        <div class="tab-form-group mt-5">
+           <div class="tab-form-group-title">1. Persona que efectúa la postulación</div>
+           <div class="tab-form-group-fields">
+              <div class="row">
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Tipo de documento <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7">
+                           <select class="form-control form-control-sm" [(ngModel)]="userProfile.id_tipo_documento" readonly disabled>
+                              <option selected="" disabled="" value="">seleccionar...</option>
+                              <option value="1">DNI</option>
+                           </select>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Domicilio <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="userProfile.domicilio" readonly disabled></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="userProfile.numero_documento" readonly disabled></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Teléfono fijo y/o celular <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="userProfile.telefono1" readonly disabled></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Nombres y apellidos <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="userProfile.nombres" readonly disabled></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Correo electrónico <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="userProfile.correo" readonly disabled></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Nacionalidad <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="userProfile.nacionalidad" readonly disabled></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                            Sexo <span class="text-danger">*</span>
+                         </label>
+                         <div class="col-sm-7">
+                            <select class="form-control form-control-sm" [(ngModel)]="userProfile.sexo" readonly disabled>
+                               <option value="2">Hombre</option>
+                               <option value="1">Mujer</option>
+                            </select>
+                         </div>
+                     </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+     <div class="tab-form">
+        <div class="tab-form-group mt-5">
+           <div class="tab-form-group-title">2. Categoria y mención a la que pertenece la experiencia</div>
+           <div class="tab-form-group-fields">
+              <div class="row">
+                <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <div class="col-sm-7">
+                           <nz-tree-select
+                                [nzNodes]="categorias"
+                                [nzDefaultExpandAll]="true"
+                                nzDropdownClassName="desplegable"
+                                nzShowSearch
+                                nzPlaceHolder="seleccionar categoria..."
+                                [(ngModel)]="postulacion.categoria"
+                                (ngModelChange)="onChange($event, 'categoria')"
+                            >
+                            </nz-tree-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-sm-12"></div>
+                <div *ngIf="menciones.length > 0" class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <div class="col-sm-9">
+                           <nz-tree-select
+                                [nzNodes]="menciones"
+                                [nzDefaultExpandAll]="true"
+                                nzDropdownClassName=""
+                                nzShowSearch
+                                nzPlaceHolder="seleccionar mención..."
+                                [(ngModel)]="postulacion.mencion"
+                                (ngModelChange)="onChange($event)"
+                            >
+                            </nz-tree-select>
+                        </div>
+                    </div>
+                </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+     <div class="tab-form">
+        <div class="tab-form-group mt-5">
+           <div class="tab-form-group-title">3. Título de la experiencia</div>
+           <div class="tab-form-group-fields">
+              <div class="row">
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Título <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.titulo" (change)="onChange($event)"></div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="tab-form">
+        <div class="tab-form-group mt-5">
+           <div class="tab-form-group-title">4. Localización de la experiencia</div>
+           <div class="tab-form-group-fields">
+              <div class="row">
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Departamento <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7">
+                           <select class="form-control form-control-sm" name="departamento" [(ngModel)]="postulacion.departamento" (change)="onChange($event)">
+                              <option selected disabled value="">seleccionar...</option>
+                              <option *ngFor="let item of departamentos" [value]="item.departamento_id">{{ item.departamento_nombre }}</option>
+                           </select>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Localidad <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.localidad" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Provincia <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7">
+                           <select class="form-control form-control-sm" name="provincia" [(ngModel)]="postulacion.provincia" (change)="onChange($event)">
+                              <option selected="" disabled="" value="">seleccionar...</option>
+                              <option *ngFor="let item of provincias" [value]="item.provincia_id">{{ item.provincia_nombre }}</option>
+                           </select>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Dirección sede <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.direccion" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-6 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Distrito <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7">
+                           <select class="form-control form-control-sm" name="distrito" [(ngModel)]="postulacion.distrito" (change)="onChange($event)">
+                              <option selected disabled value>seleccionar...</option>
+                              <option *ngFor="let item of distritos" [value]="item.distrito_id">{{ item.distrito_nombre }}</option>
+                           </select>
+                        </div>
+                     </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="tab-form">
+        <div class="tab-form-group mt-5">
+           <div class="tab-form-group-title">5. Identificación del postulante</div>
+           <div class="tab-form-group-fields">
+              <div class="row">
+                 <div class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Tipo persona <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7">
+                           <select class="form-control form-control-sm" [(ngModel)]="postulacion.tipo_persona" name="tipo_persona" (change)="onChange($event)">
+                              <option selected="" disabled="" value="">seleccionar...</option>
+                              <option value="1">Persona Natural</option>
+                              <option value="2">Persona Jurídica</option>
+                           </select>
+                        </div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '1'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Tipo de experiencia <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7">
+                           <select class="form-control form-control-sm" [(ngModel)]="postulacion.tipo_experiencia" (change)="onChange($event)">
+                              <option selected="" disabled="" value="">seleccionar...</option>
+                              <option value="1">Individual</option>
+                              <option value="2">Grupal</option>
+                           </select>
+                        </div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '2'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                            Nombre de la entidad <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.nombre_organizacion" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '1'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Nombre de su organización <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.nombre_organizacion" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '1'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Nombres y apellidos de quien lidera o coordina la experiencia <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.nombre_completo" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '1'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Cargo <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.cargo_postulante" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '2'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           N° de RUC <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" mask="00000000000" type="text" [(ngModel)]="postulacion.numero_documento" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '2'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Domicilio legal <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.domicilio_legal" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '2'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Representante legal <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.nom_representante" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Teléfono <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="tel" class="form-control form-control-sm" mask="000000000" [(ngModel)]="postulacion.telefono" autocomplete="off" (change)="onChange($event)" />
+                            <!--<input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.telefono" (change)="onChange($event)">-->
+                        </div>
+                     </div>
+                 </div>
+                 <div class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Correo electrónico <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="email" [(ngModel)]="postulacion.email" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '1'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                           Redes sociales de la organización (opcional)
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.red_social_postulante" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+                 <div *ngIf="tipoPersona == '2'" class="col col-12 col-md-9 col-sm-12">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label col-form-label-sm">
+                            Sitio Web de la organización (link)
+                        </label>
+                        <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.sitio_web_postulante" (change)="onChange($event)"></div>
+                     </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+</div>
+
+<div *ngIf="formName == 'info_gen'" class="tab-form mt-3">
+    <div class="tab-form-group fcollapse mb-3">
+        <div class="tab-form-group-title" (click)="onClickCollapse($event)">1. RELEVANCIA DE LA EXPERIENCIA</div>
+        <div class="tab-form-group-fields mt-4">
+            <div class="row">
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray">Se refiere al aporte de la experiencia a la solución del problema cocio-ambiental identificado, las características de la población beneficiada y el alcance geográfico de la intervención. Describa los aspectos de evaluación que han sido considerados.</small>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>a) Contexto en el que se desarrolla la experiencia. -</strong> Presente su experiencia de manera sintètica; destacando de forma abreviada, objetiva y precisa el ambiente en el que la historia se desarrolla (contexto), las caracterìsticas y atributos principales y conclusiones. Debe guardar correspondencia con los criterios de evaluaciòn generales y especìficos señalados en las Bases del Concurso para la categoria y menciòn a la cual postula (Use hasta 300 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.contexto_experiencia" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>b) Aporte a la solución del problema ambiental identificado.-</strong> Señale cual es el problema o la necesidad identificados, sus causas, y las posibles soluciones planteadas desde la experiencia (Use hasta 200 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.aporte_solucion" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>c) Principales resultados.-</strong> Señale los principales resultados y/o logros conseguidos tras la aplicación de la experiencia (Use hasta 300 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_principales_result" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>d) Resumen de la experiencia.-</strong> Señale los cambios positivos respecto al problema socioambiental identificado logrados tras desplegar la experiencia. (Use hasta 300 palabras) La experiencia ha logrado</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_resumen_experiencia" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>e) Características de la población beneficiaria.-</strong> Describa los impactos positivos de la experiencia sobre la población beneficiaria y señale ésta si se encuentra en situación de pobreza y/o vulnerabilidad (Use hasta 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.poblacion_beneficiada" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>f) Consigue el Nº de personas beneficiadas directamente:</strong> 
+                        <input type="text" mask="0000" class="form-control" [(ngModel)]="experiencia.nro_personas_benef" (change)="onChange($event)"></small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-form-group fcollapse mb-3">
+        <div class="tab-form-group-title" (click)="onClickCollapse($event)">2. SOSTENIBILIDAD DE LA EXPERIENCIA</div>
+        <div class="tab-form-group-fields collapse mt-4">
+            <div class="row">
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray">Se refiere al grado en el que los beneficios generados con la experiencia se pueden mantener en el futuro a partir de los factores de sostenibilidad que a continuaciòn desplegamos:</small>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>a) Fuentes de financiamiento.-</strong> Señale si esta asegurado al financiamiento externo y/o interno para continuar con la experiencia (use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.fuentes_financiamiento" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>b) Documentos orientadores.-</strong> Señale si se han elaborado guías, manuales u otros documentos que permitan orientar y gestionar la réplica de la experiencia</small>
+                    </p>
+                    <!--<p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.documentos_orientadores" (change)="onChange($event)"></textarea>
+                    </p>-->
+                </div>
+                <div class="col col-12 col-sm-6">
+                    <div *ngFor="let item of documentosOrientados" style="display: flex;" class="mb-4">
+                        <input class="form-control" [(ngModel)]="item.value" name="experiencia.documentos_orientadores" (change)="onChange($event)">
+                        <!--<div class="ml-2" style="cursor: pointer; color: #008bd2;">
+                            <i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 2.5em;"></i>
+                        </div>
+                        <div class="ml-2" style="cursor: pointer; color: #008bd2;">
+                            <i class="fa fa-minus-circle" aria-hidden="true" style="font-size: 2.5em;"></i>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>c) Recursos accesibles en el mercado.-</strong> Señale si los insumos, materiales y recursos utilizados son accesibles, y especifique si se encuentran en el mercado local, nacional o internacional (use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.recursos_accesibles" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>d) Desarrollo de capacidades.-</strong> Señale si se han desarrollado capacidades de gestión en los beneficiarios para continuar con el desarrollo de la experiencia. (use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.desarrollo_capacidades" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>e) Incentivos económicos.-</strong> Señale si se han desarrollado incentivos económicos u honoríficos para retribuir el trabajo necesario para el funcionamiento de la experiencia. (use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.incentvos_economicos" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>f) Apropiación de la experiencia.-</strong> Indique la forma en la que los beneficiarios del proyecto se apropian de la experiencia (use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_apropiacion_exp" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-form-group fcollapse mb-3">
+        <div class="tab-form-group-title" (click)="onClickCollapse($event)">3. REPLICABILIDAD DE LA EXPERIENCIA</div>
+        <div class="tab-form-group-fields collapse mt-4">
+            <div class="row">
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray">Es el potencial de repetición y adaptación de la experiencia ante problemas ambientales de la misma o similar naturaleza, y/o a mayor escala territorial. Cuéntenos sobre el potencial de repetición y adaptación, considerando los siguientes aspectos:</small>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>a) Cambios positivos.-</strong> Señale la situación encontrada antes de la experiencia y los cambios positivos a partir de la aplicación de la misma (Use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.cambios_positivos" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>b) Factores de riesgo.-</strong> Señale los puntos débiles o factores que ponen en riesgo el desarrollo de la experiencia. (use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.factores_riesgo" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>c) Factores de éxito.-</strong> Destaque los puntos determinantes que permiten el éxito de la experiencia. (use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.factores_exito" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>d) Condiciones para que la experiencia pueda ser reproducida.-</strong> Señale las condiciones organizativas, institucionales, económicas y/o sociales que tienen que darse para que la experiencia pueda ser reproducida en otros contextos. (use máximo 150 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.condiciones_experiencia" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>e) Actividades necesarias.-</strong> Señale las actividades que son necesarias para la expansión de la experiencia a otras localidades/regiones (use máximo 100 palabras)</small>
+                    </p>
+                    <p>
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.actividades_necesarias" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>f) Datos de contacto.-</strong> Escriba los datos de hasta 3 personas clave que puedan brindar información adicional o facilitar visitas de campo, en el lugar donde <strong>se da la experiencia.</strong></small>
+                    </p>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Teléfono</th>
+                                    <th>Correo electrónico</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input class="form-control" type="text" [(ngModel)]="experiencia.contacto_nombre1" (change)="onChange($event)"/></td>
+                                    <td><input class="form-control" mask="000000000" type="text" [(ngModel)]="experiencia.contacto_telefono1" (change)="onChange($event)"/></td>
+                                    <td><input class="form-control" type="text" [(ngModel)]="experiencia.contacto_correo1" (change)="onChange($event)"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-control" type="text" [(ngModel)]="experiencia.contacto_nombre2"/></td>
+                                    <td><input class="form-control" type="text" mask="000000000" [(ngModel)]="experiencia.contacto_telefono2" (change)="onChange($event)"/></td>
+                                    <td><input class="form-control" type="text" [(ngModel)]="experiencia.contacto_correo2"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-control" type="text" [(ngModel)]="experiencia.contacto_nombre3"/></td>
+                                    <td><input class="form-control" type="text" mask="000000000" [(ngModel)]="experiencia.contacto_telefono3" (change)="onChange($event)"/></td>
+                                    <td><input class="form-control" type="text" [(ngModel)]="experiencia.contacto_correo3"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-form-group fcollapse mb-3">
+        <div class="tab-form-group-title" (click)="onClickCollapse($event)">4. ENFOQUES TRANSVERSALES DE GÉNERO E INTERCULTURALIDAD</div>
+        <div class="tab-form-group-fields collapse mt-4">
+            <div class="row">
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray">Se refiere las formas en que se han tenido en cuenta en la experiencia los intereses, necesidades y prioridades tanto de hombres como mujeres, reconociendo la diversidad cultural existente entre los diferentes grupos de hombres y mujeres, como condición para contribuir a la igualdad social, económica y política en el país. Responda y complete la información tomando en cuenta los siguientes aspectos:</small>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>a) Sobre sensibilidad al género.-</strong> Señale si en la experiencia:</small>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray">- Se han identificado diferentes roles, necesidades y brechas concernientes a hombres y mujeres.</small><br>
+                        <small class="text-gray mt-2" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Describa (use hasta 100 palabras):</span>
+                            <span>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label mr-1">SI</label>
+                                    <input class="form-check-input" type="radio" name="a1" value="SI" [(ngModel)]="experiencia.seccion4_cuenta1" (change)="onChangeYesNo($event)">
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <label class="form-check-label mr-1">NO</label>
+                                    <input class="form-check-input" type="radio" name="a1" value="NO" [(ngModel)]="experiencia.seccion4_cuenta1" (change)="onChangeYesNo($event)">
+                                  </div>
+                            </span>
+                        </small>
+                    </p>
+                    <p *ngIf="a1">
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle1" (change)="onChange($event)"></textarea>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray">- Se han desarrollado acciones específicas para favorecer la participación de la mujer.</small><br>
+                        <small class="text-gray mt-2" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Detalle las acciones (use hasta 100 palabras):</span>
+                            <span>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label mr-1">SI</label>
+                                    <input class="form-check-input" type="radio" name="a2" value="SI" [(ngModel)]="experiencia.seccion4_cuenta2" (change)="onChangeYesNo($event)">
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                      <label class="form-check-label mr-1">NO</label>
+                                    <input class="form-check-input" type="radio" name="a2" value="NO" [(ngModel)]="experiencia.seccion4_cuenta2" (change)="onChangeYesNo($event)">
+                                  </div>
+                            </span>
+                        </small>
+                    </p>
+                    <p *ngIf="a2">
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle2" (change)="onChange($event)"></textarea>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray">- Se ha tenido en cuenta los diferentes niveles de información o conocimiento que tienen los hombres y las mujeres sobre el problema ambiental.</small><br>
+                        <small class="text-gray mt-2" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Describa (use hasta 100 palabras):</span>
+                            <span>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label mr-1">SI</label>
+                                    <input class="form-check-input" type="radio" name="a3" value="SI" [(ngModel)]="experiencia.seccion4_cuenta3" (change)="onChangeYesNo($event)">
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                      <label class="form-check-label mr-1">NO</label>
+                                    <input class="form-check-input" type="radio" name="a3" value="NO" [(ngModel)]="experiencia.seccion4_cuenta3" (change)="onChangeYesNo($event)">
+                                  </div>
+                            </span>
+                        </small>
+                    </p>
+                    <p *ngIf="a3">
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle3" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+                <div class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray">Se refiere las formas en que se han tenido en cuenta en la experiencia los intereses, necesidades y prioridades tanto de hombres como mujeres, reconociendo la diversidad cultural existente entre los diferentes grupos de hombres y mujeres, como condición para contribuir a la igualdad social, económica y política en el país. Responda y complete la información tomando en cuenta los siguientes aspectos:</small>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><strong>b) Reconocimiento de la diversidad cultural.-</strong> Señale si en la experiencia:</small>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray">- Se han implementado acciones diferenciadas según grupos étnicos para atender necesidades específicas y acortar brechas con referencia al problema ambiental.</small><br>
+                        <small class="text-gray mt-2" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Describa las acciones <strong>implementadas</strong> (use hasta 100 palabras):</span>
+                            <span>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label mr-1">SI</label>
+                                    <input class="form-check-input" type="radio" name="a4" value="SI" [(ngModel)]="experiencia.seccion4_cuenta4" (change)="onChangeYesNo($event)">
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                      <label class="form-check-label mr-1">NO</label>
+                                    <input class="form-check-input" type="radio" name="a4" value="NO" [(ngModel)]="experiencia.seccion4_cuenta4" (change)="onChangeYesNo($event)">
+                                  </div>
+                            </span>
+                        </small>
+                    </p>
+                    <p *ngIf="a4">
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle4" (change)="onChange($event)"></textarea>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray">- En la definición del problema ambiental o en el diseño de las soluciones han participado representantes de organizaciones de los grupos étnicos concernidos.</small><br>
+                        <small class="text-gray mt-2" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Describa cómo ha <strong>sido la participación</strong> (use hasta 100 palabras):</span>
+                            <span>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label mr-1">SI</label>
+                                    <input class="form-check-input" type="radio" name="a5" value="SI" [(ngModel)]="experiencia.seccion4_cuenta5" (change)="onChangeYesNo($event)">
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                      <label class="form-check-label mr-1">NO</label>
+                                    <input class="form-check-input" type="radio" name="a5" value="NO" [(ngModel)]="experiencia.seccion4_cuenta5" (change)="onChangeYesNo($event)">
+                                  </div>
+                            </span>
+                        </small>
+                    </p>
+                    <p *ngIf="a5">
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle5" (change)="onChange($event)"></textarea>
+                    </p>
+                    <p class="app-txt-dark">
+                        <small class="text-gray">- Los recursos educativos y/o comunicacionales desarrollados en la experiencia han tomado en cuenta la diversidad lingüística y cultural, así como características físicas y vestimenta de las poblaciones.</small><br>
+                        <small class="text-gray mt-2" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>Describa <strong>cómo</strong> (use hasta 100 palabras):</span>
+                            <span>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label mr-1">SI</label>
+                                    <input class="form-check-input" type="radio" name="a6" value="SI" [(ngModel)]="experiencia.seccion4_cuenta6" (change)="onChangeYesNo($event)">
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                      <label class="form-check-label mr-1">NO</label>
+                                    <input class="form-check-input" type="radio" name="a6" value="NO" [(ngModel)]="experiencia.seccion4_cuenta6" (change)="onChangeYesNo($event)">
+                                  </div>
+                            </span>
+                        </small>
+                    </p>
+                    <p *ngIf="a6">
+                        <textarea maxlength="1000" class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle6" (change)="onChange($event)"></textarea>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="formName == 'info_esp'" class="tab-form">
+    <div class="tab-title mb-3">{{ mencionTitle }}</div>
+    <small class="mb-3 app-txt-dark">{{ mencionDesc }}</small>
+    <div class="tab-form-group fcollapse mt-4 mb-3">
+        <!--<div class="tab-form-group-title" (click)="onClickCollapse($event)">1. SOBRE LA PERTINENCIA DE LA EXPERIENCIA EDUCATIVA</div>-->
+        <div class="tab-form-group-fields mt-4">
+            <div class="row">
+                <div *ngFor="let item of preguntasMencion" class="col col-12 col-sm-12">
+                    <p class="app-txt-dark">
+                        <small class="text-gray"><span *ngIf="item.descripcion != ''" [innerHTML]="item.descripcion"></span></small>
+                    </p>
+
+                    <div *ngIf="item.sino !== undefined" class='ml-5'>
+                        <div class='form-check form-check-inline'>
+                            <input class='form-check-input' type='radio' [checked]="(getValueAnswer(item.value, 'sino') == 'si') ? true : false" name='{{ item.id_sino }}' value='si' (change)="onChangeYesNoMencion($event, item)">
+                            <label class='form-check-label'>SI</label>
+                        </div>
+                        <div class='form-check form-check-inline'>
+                            <input class='form-check-input' type='radio' [checked]="(getValueAnswer(item.value, 'sino') == 'no') ? true : false" name='{{ item.id_sino }}' value='no' (change)="onChangeYesNoMencion($event, item)">
+                            <label class='form-check-label'>NO</label>
+                        </div>
+                        <br>
+                        <small class="text-gray mt-3"><span *ngIf="item.titulo_campo != ''" [innerHTML]="item.titulo_campo"></span></small>
+                    </div>
+                    
+                    <p *ngIf="item.tipo_campo == 'texto'">
+                        <textarea *ngIf="item.sino !== undefined" id="{{ item.id_sino }}" maxlength="1000" class="form-control" cols="30" rows="5" [style]="(getValueAnswer(item.value, 'sino') == 'si') ? 'display: block' : 'display: none'" (change)="onChangeAnswer($event, item, 'SN')">{{ getValueAnswer(item.value) }}</textarea>
+                        <textarea *ngIf="item.sino === undefined" maxlength="1000" class="form-control" cols="30" rows="5" (change)="onChangeAnswer($event, item)">{{ getValueAnswer(item.value) }}</textarea>
+                    </p>
+
+                    <div *ngIf="item.tipo_campo == 'tabla'">
+                        <!--<textarea class="form-control" cols="30" rows="5">{{ item.value }}</textarea>-->
+                        <table class="table">
+                            <thead>
+                              <tr *ngIf="item.tabla.header_filas !== null">
+                                <th *ngFor="let itemh of [].constructor((item.tabla.nro_columnas + 1)); let i = index;">
+                                    <span *ngIf="i == 0"></span>
+                                    <span *ngIf="i != 0">{{ item.tabla[('titulo_col_' + (i))] }}</span>
+                                </th>
+                              </tr>
+                              <tr *ngIf="item.tabla.header_filas === null">
+                                <th *ngFor="let itemh of [].constructor(item.tabla.nro_columnas); let i = index;">
+                                    {{ item.tabla[('titulo_col_' + (i + 1))] }}
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody *ngIf="item.tabla.header_filas !== null">
+                                <tr *ngFor="let itemr of [].constructor(item.tabla.nro_filas); let i = index;">
+                                    <td *ngFor="let itemri of [].constructor((item.tabla.nro_columnas + 1)); let j = index;">
+                                        <p *ngIf="j == 0">{{ item.tabla[('titulo_fila_' + (i + 1))] }}</p>
+                                        <!--<p *ngIf="j != 0"><input type="text" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''"></p>-->
+                                        
+                                        <p *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j))]) == 'date' && j != 0"><input type="date" class="form-control form-control-sm field-table" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''"></p>
+                                        <p *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j))]) == 'text' && j != 0"><input type="text" class="form-control form-control-sm field-table" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''"></p>
+                                        <div *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j))]) == 'sino' && j != 0">
+                                            <!--<select class="form-control form-control-sm" name="{{ (i + 1) }}-{{ j }}" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''">
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>-->
+                                            <input 
+                                                [checked]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j )) ? true : false"
+                                                [class]="'field-table'" 
+                                                type='radio' 
+                                                name="{{ (i + 1) }}-{{ j }}" 
+                                                id="{{ item.tabla.id_campo }}" 
+                                                (change)="onChangeAnswer($event, item.tabla.answers, 'tabla', 'sn')" 
+                                                [value]="getValueSiNo(item.tabla[('titulo_col_' + (j))])" 
+                                                [attr.data-class]="item.tabla.id_campo + '_tf_' + (i + 1) + '_sn'" 
+                                                [attr.data-value]="getValueSiNo(item.tabla[('titulo_col_' + (j))])" 
+                                                [attr.data-item]="convertJsonToString(item.tabla.answers)">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf="item.tabla.header_filas === null">
+                                <tr *ngFor="let itemr of [].constructor(item.tabla.nro_filas); let i = index;">
+                                    <td *ngFor="let itemri of [].constructor(item.tabla.nro_columnas); let j = index;" id="{{ item.tabla[('titulo_fila_' + (i + 1))] }}">
+                                        <p *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j + 1))]) == 'date'"><input type="date" class="form-control form-control-sm field-table" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''"></p>
+                                        <p *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j + 1))]) == 'text'"><input type="text" class="form-control form-control-sm field-table" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''"></p>
+                                        <div *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j + 1))]) == 'sino'">
+                                            <!--<input type="text" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')">-->
+                                            <!--<select class="form-control form-control-sm" name="{{ (i + 1) }}-{{ j }}" id="{{ item.tabla.id_campo }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''">
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>-->
+                                            <input 
+                                                [checked]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) != '') ? true : false"
+                                                [class]="'field-table'" 
+                                                type='radio' 
+                                                name="{{ (i + 1) }}-{{ j }}" 
+                                                id="{{ item.tabla.id_campo }}" 
+                                                (change)="onChangeAnswer($event, item.tabla.answers, 'tabla', 'sn')" 
+                                                [value]="getValueSiNo(item.tabla[('titulo_col_' + (j + 1))])" 
+                                                [attr.data-class]="item.tabla.id_campo + '_tf_' + (i + 1) + '_sn'" 
+                                                [attr.data-value]="getValueSiNo(item.tabla[('titulo_col_' + (j + 1))])" 
+                                                [attr.data-item]="convertJsonToString(item.tabla.answers)">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="formName == 'anex_sust'" class="tab-form">
+    <ngx-dropzone (change)="onSelect($event, 'SU')" class="mt-3">
+        <ngx-dropzone-label>
+            <p>
+                <small class="app-txt-dark">Arrastre Archivos aquí para subirlos</small>
+            </p>
+            <p>
+                <small class="app-txt-dark">ó</small>
+            </p>
+            <p>
+                <button type="button" class="btn btn-outline-primary">Seleccionar archivos</button>
+            </p>
+            <p>
+                <small class="app-txt-dark" style="font-size: 0.7em;">Tamaño máximo del fichero: 10 MB</small>
+            </p>
+        </ngx-dropzone-label>
+    </ngx-dropzone>
+    <div class="row">
+        <div class="col col-sm-6 col-md-3" *ngFor="let f of documents">
+            <ngx-dropzone-preview [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label (click)="onClickFile(f)">{{ f.nombre_documento }}</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+        </div>
+    </div>
+    <div class="mt-5">
+        <p>
+            <small class="app-txt-dark">Enlaces a páginas web o redes sociales:</small>
+        </p>
+    </div>
+    <div class="conatiner-fluid mt-2">
+        <div class="row">
+            <div class="col col-12 col-sm-12 col-md-7">
+                <p>
+                    <span style="display: flex; align-items: center;"><i style="font-size: 2.5em;" class="fa fa-facebook-square mr-2 app-txt-dark" aria-hidden="true"></i> <input type="text" class="form-control" [(ngModel)]="postulacion.link_video1" (change)="onChange($event)"></span>
+                </p>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-7">
+                <p>
+                    <span style="display: flex; align-items: center;"><i style="font-size: 2.5em;" class="fa fa-twitter-square mr-2 app-txt-dark" aria-hidden="true"></i> <input type="text" class="form-control" [(ngModel)]="postulacion.link_video2" (change)="onChange($event)"></span>
+                </p>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-7">
+                <p>
+                    <span style="display: flex; align-items: center;"><i style="font-size: 2.5em;" class="fa fa-linkedin-square mr-2 app-txt-dark" aria-hidden="true"></i> <input type="text" class="form-control" [(ngModel)]="postulacion.link_video3" (change)="onChange($event)"></span>
+                </p>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-7">
+                <p>
+                    <span style="display: flex; align-items: center;"><i style="font-size: 2.5em;" class="fa fa-instagram mr-2 app-txt-dark" aria-hidden="true"></i> <input type="text" class="form-control" [(ngModel)]="postulacion.link_video4" (change)="onChange($event)"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="formName == 'dec_jur'" class="tab-form">
+    <div class="conatiner-fluid mt-2">
+        <div class="row mb-2">
+            <div class="col col-12 col-sm-12 col-md-2">
+                <small class="app-txt-dark">Tipo de documento</small>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-2">
+                <select class="form-control" name="tipo_documento_declara" [(ngModel)]="tipoNumeroDocumentoDeclara" (change)="onChange($event)">
+                    <option value="" selected disabled></option>
+                    <option value="1">DNI</option>
+                    <option value="2">Carnet de extranjería</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col col-12 col-sm-12 col-md-2">
+                <small class="app-txt-dark">Número</small>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-3">
+                <input *ngIf="tipoNumeroDocumentoDeclara == '1'" type="tel" mask="00000000" class="form-control" name="numero_documento_declara" [(ngModel)]="numeroDocumentoDeclara" (change)="onChange($event)">
+                <input *ngIf="tipoNumeroDocumentoDeclara == '2'" type="tel" class="form-control" name="numero_documento_declara" [(ngModel)]="numeroDocumentoDeclara" (change)="onChange($event)">
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col col-12 col-sm-12 col-md-2">
+                <small class="app-txt-dark">Nombre completo</small>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-3">
+                <input type="text" class="form-control" [(ngModel)]="postulacion.nombre_postulante_declara" (change)="onChange($event)">
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col col-12 col-sm-12 col-md-2">
+                <small class="app-txt-dark">Domicilio</small>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-3">
+                <input type="text" class="form-control" [(ngModel)]="postulacion.direccion_postulante_declara" (change)="onChange($event)">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col col-12 col-sm-12">
+                <small class="app-txt-dark"><input id="aceptacion_declara" type="checkbox" name="aceptacion_declara" (change)="onChange($event)" [(ngModel)]="postulacion.aceptacion_declara"> Declaro bajo juramento que la información consignada en la presente Ficha de Postulación es veraz. Cualquier inexactitud no compromete la responsabilidad de Sector Ambiental, del equipo técnico evaluador del jurado o de los organizadores, patrocinadores y auspiciadores del Premio</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="formName == 'img_repre'" class="tab-form">
+    <ngx-dropzone (change)="onSelect($event, 'IR')" class="mt-3">
+        <ngx-dropzone-label>
+            <p>
+                <small class="app-txt-dark">Arrastre Archivos aquí para subirlos</small>
+            </p>
+            <p>
+                <small class="app-txt-dark">ó</small>
+            </p>
+            <p>
+                <button type="button" class="btn btn-outline-primary">Seleccionar archivos</button>
+            </p>
+            <p>
+                <small class="app-txt-dark" style="font-size: 0.7em;">Tamaño máximo del fichero: 2 MB</small>
+            </p>
+        </ngx-dropzone-label>
+    </ngx-dropzone>
+    <div class="row">
+        <div class="col col-sm-6 col-md-3" *ngFor="let f of images_repre">
+            <ngx-dropzone-preview [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label (click)="onClickFile(f)">{{ f.nombre_documento }}</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+        </div>
+    </div>
+</div>

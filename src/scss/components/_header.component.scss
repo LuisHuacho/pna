@@ -1,0 +1,51 @@
+app-header {
+    position: relative;
+    z-index: 20;
+    display: block;
+    box-shadow: 2px 2px 15px #888888;
+    .app-logo {
+        width: 300px;
+        height: auto;
+    }
+
+    .default-login {
+        .container {
+            > .row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                > div {
+                    flex: unset;
+                    max-width: initial;
+                    width: auto;
+                }
+            }
+
+            #profile_options {
+                background: none!important;
+                border: none!important;
+                box-shadow: none!important;
+                color: $app_txt_dark!important;
+
+                .username {
+                    font-weight: bold;
+                }
+
+                .document {
+                    color: $app_txt_light!important;
+                }
+
+                .usericon {
+                    font-size: 1.2em;
+                    color: $app_blue;
+                }
+            }
+
+            .dropdown-menu.show {
+                left: unset!important;
+                right: 0px!important;
+            }
+        }
+    }
+}

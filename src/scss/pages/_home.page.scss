@@ -1,0 +1,51 @@
+app-home-page {
+    .add-expierence-btn {
+        text-decoration: none!important;
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.7em;
+        color: $app_blue!important;
+
+        .fa {
+            margin-left: 10px;
+            font-size: 2em;
+        }
+    }
+    .user-experience-table {
+        border-radius: 8px;
+        border: solid 1px $app_blue;
+        * {
+            // font-weight: 600;
+            color: $app_txt_dark;
+        }
+
+        thead {
+            th {
+                background-color: rgba($app_blue, 0.1);
+                border: solid 1px $app_blue!important;
+
+                th {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        tbody {
+            td {
+                border: solid 1px $app_blue!important;
+
+                .status-tag {
+                    padding: 8px 10px;
+                    background-color: $app_gray_light;
+                    border-radius: 8px;
+                    // font-weight: 600;
+                    color: $app_txt_dark;
+
+                    &.process {
+                        background-color: $app_yellow;
+                    }
+                }
+            }
+        }
+    }
+}

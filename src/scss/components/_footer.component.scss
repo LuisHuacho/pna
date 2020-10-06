@@ -1,0 +1,27 @@
+app-footer {
+    display: block;
+    background-color: $app_dark;
+
+    .footer-title {
+        font-weight: bold;
+        text-align: center;
+        color: $app_txt_light;
+    }
+
+    .footer-panel {
+        .footer-panel-title {
+            font-weight: bold;
+            font-size: 0.8em;
+            color: $app_txt_light;
+        }
+        .footer-panel-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                font-size: 0.8em;
+                color: $app_txt_light;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+<app-header [type]="'default-login'"></app-header>
+
+<div class="page-content">
+    <div class="left-content">
+        <app-side-menu></app-side-menu>
+    </div>
+    <div class="right-content">
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 col-sm-12">
+                    <div class="content-title text-center mt-5 mb-5">BIENVENIDO(A): PREMIO NACIONAL AMBIENTAL ANTONIO BRACK EGG</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-12 col-sm-12 mb-3 text-right">
+                    <a href="{{ _win.relativePath }}/postulacion" class="btn btn-link add-expierence-btn">AGREGAR NUEVA EXPERIENCIA <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-12 col-sm-12">
+                    <table class="table user-experience-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">REGIÓN</th>
+                                <th scope="col">CATEGORÍA</th>
+                                <th scope="col">FECHA</th>
+                                <th scope="col">ESTADO</th>
+                                <th scope="col">ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let expierence of expierences">
+                                <td>{{ expierence.titulo_postulacion }}</td>
+                                <td>{{ expierence.desc_departamento }}</td>
+                                <!--<td>{{ expierence.desc_categoria }}</td>-->
+                                <td>{{ getMencionByCategorie(expierence.id_mencion) }}</td>
+                                <td>{{ expierence.date }}</td>
+                                <td>
+                                    <span *ngIf="expierence.estado_sistema == '2'" class="status-tag draft">Enviado</span>
+                                    <span *ngIf="expierence.estado_sistema == '1'" class="status-tag process">En proceso</span>
+                                </td>
+                                <td>
+                                    <div ngbDropdown class="d-inline-block">
+                                        <button *ngIf="expierence.estado_sistema == '1'" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acciones</button>
+                                        <div *ngIf="expierence.estado_sistema == '1'" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                            <a [href]="_win.relativePath + '/postulacion?id=' + expierence.id_postulacion" ngbDropdownItem>Editar</a>
+                                            <button ngbDropdownItem (click)="deletePostulacion(expierence.id_postulacion)">Eliminar</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,115 @@
+<app-header></app-header>
+
+<div class="page-content">
+    <div class="left-content">
+        <app-side-menu></app-side-menu>
+    </div>
+    <div class="right-content">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col col-12 col-sm-12">
+                    <h5 class="text-center text-white p-4 title-register">PERFÍL DE USUARIO</h5>
+                </div>
+            </div>
+            <div class="row mt-3">
+        
+                <div class="col col-12 col-sm-12 mb-3">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label col-form-label-sm">
+                            Nombres<span class="text-danger"></span>
+                        </label>
+                        <div class="col-sm-8" style="display: flex;">
+                            <input type='text' class="form-control" [(ngModel)]="userProfile.nombres">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col col-12 col-sm-12 mb-3">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label col-form-label-sm">
+                            Apellidos <span class="text-danger"></span>
+                        </label>
+                        <div class="col-sm-8" style="display: flex;">
+                            <input type='text' class="form-control" [(ngModel)]="userProfile.apellidos">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col col-12 col-sm-12 mb-3">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label col-form-label-sm">
+                            Nacionalidad
+                        </label>
+                        <div class="col-sm-8" style="display: flex;">
+                            <input type='text' class="form-control" [(ngModel)]="userProfile.nacionalidad">
+                        </div>
+                    </div>
+                </div>
+        
+                <!--<div class="col col-12 col-sm-12 mb-3">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label col-form-label-sm">
+                            Sexo <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-8" style="display: flex;">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="genero" id="hombre" value="2" [(ngModel)]="userRegister.sexo">
+                                <label class="form-check-label" for="hombre">Hombre</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="genero" id="mujer" value="1" [(ngModel)]="userRegister.sexo">
+                                <label class="form-check-label" for="mujer">Mujer</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+        
+                <div class="col col-12 col-sm-12 mb-3">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label col-form-label-sm">
+                            Domicilio
+                        </label>
+                        <div class="col-sm-8" style="display: flex;">
+                            <input type='text' class="form-control" [(ngModel)]="userProfile.domicilio">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col col-12 col-sm-12 mb-3">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label col-form-label-sm">
+                            Teléfono fijo y/o celular <span class="text-danger"></span>
+                        </label>
+                        <div class="col-sm-8" style="display: flex;">
+                            <input type='text' class="form-control" mask="000000000" [(ngModel)]="userProfile.telefono1">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col col-12 col-sm-12 mb-3">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label col-form-label-sm">
+                            Correo electrónico <span class="text-danger"></span>
+                        </label>
+                        <div class="col-sm-8" style="display: flex;">
+                            <input type="email" class="form-control" [(ngModel)]="userProfile.correo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row justify-content-end mt-3 mb-5">
+                <div class="actions-btn-form pr-3">
+                    <a href="/" class="btn btn-primary btn-sm pt-2 pb-2 pl-4 pr-4 ml-2"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Regresar</a>
+                    <button type="button" class="btn btn-primary btn-sm pt-2 pb-2 pl-5 pr-5 ml-2 btn-has-preloader" (click)="update($event)">
+                        ACTUALIZAR
+                        <app-preloader-widget *ngIf="updateProccess" [type]="'button'"></app-preloader-widget>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

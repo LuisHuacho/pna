@@ -1,0 +1,51 @@
+<app-header [type]="'default'"></app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-12 col-md-6 pt-5 pb-5 pl-4 pr-4 login-info">
+            <div class="login-title-info">ORIENTACIONES PARA LA POSTULACIÓN VIRTUAL</div>
+            <small class="login-subtitle-info pt-4">Para presentar una postulación al Premio Nacional Ambiental Antonio Brack Egg:</small>
+            <ol class="login-orientaciones mt-3" *ngIf="orientaciones.length > 0">
+                <li *ngFor="let orientacion of orientaciones" [innerHTML]="orientacion.content"></li>
+            </ol>
+        </div>
+        <div class="col col-12 col-sm-12 col-md-6 pt-5 pb-5 pl-4 pr-4 login-form">
+            <div>
+                <h5 class="text-center text-white">REGISTRE SU POSTULACIÓN</h5>
+                <div class="col-auto">
+                    <label for="username">Usuario</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                      </div>
+                      <!--<input type="text" class="form-control" id="username" [(ngModel)]="user.username" autocomplete="off">-->
+                      <input type="text" class="form-control" mask="00000000000" id="username" [(ngModel)]="user.username" autocomplete="off" placeholder="Escribe tu DNI" />
+                    </div>
+                </div>
+                <div class="col-auto mt-4">
+                    <label for="password">Contraseña</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                      </div>
+                      <input type="password" class="form-control" id="password" [(ngModel)]="user.password" placeholder="Escribe tu contraseña aquí">
+                    </div>
+                </div>
+                <div class="col-auto mt-5 btn-has-preloader">
+                    <button class="btn btn-light btn-block login-btn" (click)="onClickLogin($event)" [disabled]="loginProccess ? 'disabled' : null">
+                        Iniciar sesión 
+                    </button>
+                    <app-preloader-widget *ngIf="loginProccess" [type]="'button'"></app-preloader-widget>
+                </div>
+                <div class="col-auto mt-4 text-center">
+                    <a href="{{ _win.relativePath }}/password-recover" class="text-white">¿Ha extraviado su contraseña?</a>
+                </div>
+                <div class="col-auto mt-4">
+                    <a href="{{ _win.relativePath }}/register" class="btn btn-primary btn-block login-btn">¿Nuevo usuario?, REGÍSTRATE!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,12 @@
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome.scss';
+@import '~toastr/build/toastr.min.css';
+
+@import '~ng-zorro-antd/ng-zorro-antd.min.css';
+
+@import './scss/variables';
+@import './scss/utils';
+@import './scss/globals';
+@import './scss/components/include.components';
+@import './scss/pages/include.pages';

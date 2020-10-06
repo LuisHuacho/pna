@@ -1,0 +1,33 @@
+<div class="default">
+    <div *ngIf="type == 'default'" class="container">
+        <div class="row">
+            <div class="col col-12 col-sm-12">
+                <a href="{{ _win.relativePath }}/"><img class="app-logo" src="assets/logo.png" alt="logo"></a>
+                <a href="{{ _win.relativePath }}/"><img class="app-logo-premio" src="assets/logo-premio.png" alt="logo premio"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="default-login">
+    <div *ngIf="type == 'default-login'" class="container">
+        <div class="row">
+            <div class="col col-12 col-sm-12">
+                <a href="{{ _win.relativePath }}/"><img class="app-logo" src="assets/logo.png" alt="logo"></a>
+                <a href="{{ _win.relativePath }}/"><img class="app-logo-premio" src="assets/logo-premio.png" alt="logo premio"></a>
+            </div>
+            <div class="col col-12 col-sm-12">
+                <div ngbDropdown class="d-flex">
+                    <button class="btn btn-outline-primary" id="profile_options" ngbDropdownToggle>
+                        <span *ngIf="userName != ''" class="username">{{ userProfile.nombres }} {{ userProfile.apellidos }}</span>
+                        <small *ngIf="userName != ''" class="document ml-2 mr-2">(DNI {{ userName }})</small>
+                        <span class="usericon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="profile_options">
+                        <button ngbDropdownItem (click)="logout($event)"><i class="fa fa-arrow-right" aria-hidden="true"></i> Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
