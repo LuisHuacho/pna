@@ -687,6 +687,12 @@ export class FormTabComponent implements OnInit, OnChanges {
         break;
     }
 
+    if(title !== undefined) {
+      if( title.indexOf('con una X') !== -1 ) {
+        type = 'check';
+      }
+    }
+
     return type;
   }
 
@@ -704,6 +710,12 @@ export class FormTabComponent implements OnInit, OnChanges {
       case 'No':
         type = 'NO';
         break;
+    }
+
+    if(title !== undefined) {
+      if( title.indexOf('con una X') !== -1 ) {
+        type = 'SI';
+      }
     }
 
     return type;
@@ -1042,9 +1054,18 @@ export class FormTabComponent implements OnInit, OnChanges {
         }
       }
 
-      _target.value = _target.getAttribute('data-value');
+      
       _target.checked = true;
       _value = _target.value;
+    }
+
+    if(to == 'ch') {
+      if( !_target.checked ) {
+        _target.value = '';
+      }
+      else {
+        _target.value = _target.getAttribute('data-value');
+      }
     }
 
     // if(_target.value.length > 0) {
