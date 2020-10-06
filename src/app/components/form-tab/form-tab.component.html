@@ -765,8 +765,8 @@
                             <tbody *ngIf="item.tabla.header_filas === null">
                                 <tr *ngFor="let itemr of [].constructor(item.tabla.nro_filas); let i = index;">
                                     <td *ngFor="let itemri of [].constructor(item.tabla.nro_columnas); let j = index;" id="{{ item.tabla[('titulo_fila_' + (i + 1))] }}">
-                                        <p *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j + 1))]) == 'date'"><input type="date" class="form-control form-control-sm field-table" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''"></p>
-                                        <p *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j + 1))]) == 'text'"><input type="text" class="form-control form-control-sm field-table" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''"></p>
+                                        <p *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j + 1))]) == 'date'"><input type="date" class="form-control form-control-sm field-table" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ (j + 1) }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), (j + 1) ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), (j + 1) ) : ''"></p>
+                                        <p *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j + 1))]) == 'text'"><input type="text" class="form-control form-control-sm field-table" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ (j + 1) }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), (j + 1) ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), (j + 1) ) : ''"></p>
                                         <div *ngIf="getTypeInput(item.tabla[('titulo_col_' + (j + 1))]) == 'sino'">
                                             <!--<input type="text" id="{{ item.tabla.id_campo }}" name="{{ (i + 1) }}-{{ j }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')">-->
                                             <!--<select class="form-control form-control-sm" name="{{ (i + 1) }}-{{ j }}" id="{{ item.tabla.id_campo }}" (change)="onChangeAnswer($event, item.tabla.answers, 'tabla')" [value]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) !== undefined) ? getValueTablaRow( item.tabla.id_campo, (i + 1), j ) : ''">
@@ -777,7 +777,7 @@
                                                 [checked]="(getValueTablaRow( item.tabla.id_campo, (i + 1), j ) != '') ? true : false"
                                                 [class]="'field-table'" 
                                                 type='radio' 
-                                                name="{{ (i + 1) }}-{{ j }}" 
+                                                name="{{ (i + 1) }}-{{ (j + 1) }}" 
                                                 id="{{ item.tabla.id_campo }}" 
                                                 (change)="onChangeAnswer($event, item.tabla.answers, 'tabla', 'sn')" 
                                                 [value]="getValueSiNo(item.tabla[('titulo_col_' + (j + 1))])" 

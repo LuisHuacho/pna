@@ -1016,7 +1016,19 @@ export class FormTabComponent implements OnInit, OnChanges {
     if(type == 'SN') {
       if(_target.name !== undefined) {
         if(_target.name != '') {
-          _value = `${_value}|${_target.name}`
+          _value = `${_value}|${_target.name}`;
+
+          let _obj = {
+            id_campo: (item.id_campo).toString(),
+            id_postulacion: _root.idPostulacion,
+            valor_si_no: '1',
+            valor_texto: _value
+          };
+          _root.apiService.preguntaSave(_obj)
+          .then((res:any) => {
+          })
+          .catch((err:any) => {
+          });
         }
       }
     }
