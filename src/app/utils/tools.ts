@@ -149,4 +149,16 @@ export default class Tools {
     getHostname() {
         return window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
     }
+
+    showPreloader() {
+        if( document.getElementById('preloader-page') ) {
+            document.getElementById('preloader-page').style.display = 'flex';
+        }
+    }
+
+    hidePreloader() {
+        setTimeout(() => {
+            document.getElementById('preloader-page').style.display = 'none';
+        }, 1000);
+    }
 }

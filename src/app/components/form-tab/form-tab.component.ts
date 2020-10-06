@@ -181,6 +181,8 @@ export class FormTabComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     let _root = this;
 
+    _root.tools.showPreloader();
+
     if(_root.formName == 'datos_gen') {
       _root.apiService.departamentos()
       .then((res:any) => {
@@ -212,7 +214,7 @@ export class FormTabComponent implements OnInit, OnChanges {
         }
       })
       .catch((err:any) => {
-  
+        _root.tools.hidePreloader();
       });
     }
     else {
@@ -528,10 +530,15 @@ export class FormTabComponent implements OnInit, OnChanges {
             localStorage.setItem('experiencia', _root.tools.cryptrData( JSON.stringify(_root.experiencia) ));
           }
         }
+
+        _root.tools.hidePreloader();
       })
       .catch((err:any) => {
-
+        _root.tools.hidePreloader();
       });
+    }
+    else {
+      _root.tools.hidePreloader();
     }
   }
 

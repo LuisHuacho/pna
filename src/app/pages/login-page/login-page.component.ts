@@ -42,6 +42,8 @@ export class LoginPageComponent implements OnInit {
     e.preventDefault();
     let _root = this;
 
+    _root.tools.showPreloader();
+
     _root.loginProccess = true;
     _root.user.sipAddress = '192.100.20.5';
     _root.user.ssistOperativo = _root.tools.getOperatingSystem();
@@ -54,12 +56,14 @@ export class LoginPageComponent implements OnInit {
         localStorage.setItem('user_login', _root.tools.cryptrData(JSON.stringify(res)));
         window.location.href = `${_root._win.relativePath}/`;
       }
+      _root.tools.hidePreloader();
     })
     .catch(err => {
       _root.loginProccess = false;
       if(err.error.error !== undefined) {
         _root.tools.showToastr('ERROR', err.error.mensaje, 'error', 2000);
       }
+      _root.tools.hidePreloader();
     });
   }
 

@@ -27,6 +27,8 @@ export class ProfilePageComponent implements OnInit {
     let _root = this;
     let token = _root.tools.decryptrData(localStorage.getItem('access_token'));
 
+    _root.tools.showPreloader();
+
     if(_root.userProfile.numero_documento.length >= 8) {
       _root.userService.personaNatural(_root.userProfile.numero_documento, token)
       .then((res:any) => {
@@ -34,8 +36,10 @@ export class ProfilePageComponent implements OnInit {
           _root.userProfile.nombres = res.body.data.nombre;
           _root.userProfile.apellidos = `${res.body.data.apellidoPaterno} ${res.body.data.apellidoMaterno}`;
         }
+        _root.tools.hidePreloader();
       })
       .catch((err:any) => {
+        _root.tools.hidePreloader();
       });
     }
   }

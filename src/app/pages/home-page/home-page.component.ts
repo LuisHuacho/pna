@@ -22,6 +22,8 @@ export class HomePageComponent implements OnInit {
   ) {
     let _root = this;
 
+    _root.tools.showPreloader();
+
     localStorage.removeItem('postulacion');
     localStorage.removeItem('experiencia');
 
@@ -55,8 +57,10 @@ export class HomePageComponent implements OnInit {
           }
         }
       }
+      _root.tools.hidePreloader();
     })
     .catch((errp) => {
+      _root.tools.hidePreloader();
     });
   }
 
