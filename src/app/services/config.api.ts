@@ -1,6 +1,7 @@
 export class ConfigApi {
 
-    URL_API:string = 'https://pruebamesavirtual.minam.gob.pe:8443/myApp';
+    // URL_API:string = 'https://pruebamesavirtual.minam.gob.pe:8443/myApp';
+    URL_API:string = 'http://3.21.132.69:8080/premioAmbientalServicios';
 
     constructor() {
         
@@ -38,7 +39,7 @@ export class ConfigApi {
             personaJuridica: `${this.URL_API}/api/transparencia/persona-juridica?id=20535948594`,
 
             // FILES
-            uploadFile: `${this.URL_API}/api/alf/file/upload`,
+            uploadFile: `${this.URL_API}/api/file/upload`,
             document: `${this.URL_API}/api/documeto`,
 
             // CONTRASEÑA

@@ -853,10 +853,14 @@ export class FormTabComponent implements OnInit, OnChanges {
           _root.tipoPersona = _target.value;
 
           if(_root.tipoPersona == '2') {
+            if(_root.postulacion.numero_documento == '00000000') {
+              _root.postulacion.numero_documento = '';
+            }
             _root.postulacion.tipo_experiencia = '1';
             _root.postulacion.nombre_completo = 'nombre';
           }
           else {
+            _root.postulacion.numero_documento = '00000000';
             _root.postulacion.tipo_experiencia = '';
             _root.postulacion.nombre_completo = '';
           }

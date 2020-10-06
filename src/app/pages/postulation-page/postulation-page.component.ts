@@ -74,6 +74,10 @@ export class PostulationPageComponent implements OnInit {
             _root.saveExpProccess = true;
             let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
             postulacion.estado = '1';
+
+            if(postulacion.tipo_persona == '1') {
+              postulacion.numero_documento = '00000000';
+            }
             // postulacion.nom_representante = postulacion.nombre_completo;
 
             _root.apiService.postulacion(postulacion)
@@ -146,6 +150,10 @@ export class PostulationPageComponent implements OnInit {
             _root.saveExpProccess = true;
             let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
             postulacion.estado = '1';
+
+            if(postulacion.tipo_persona == '1') {
+              postulacion.numero_documento = '00000000';
+            }
             // postulacion.tipo_number_doc_declara = '1';
             // postulacion.nom_representante = postulacion.nombre_completo;
 
@@ -178,6 +186,10 @@ export class PostulationPageComponent implements OnInit {
             _root.saveExpProccess = true;
             let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
             postulacion.estado = '1';
+
+            if(postulacion.tipo_persona == '1') {
+              postulacion.numero_documento = '00000000';
+            }
 
             if(!postulacion.aceptacion_declara) {
               _root.saveExpProccess = false;
@@ -217,6 +229,10 @@ export class PostulationPageComponent implements OnInit {
       let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
       postulacion.estado = '1';
 
+      if(postulacion.tipo_persona == '1') {
+        postulacion.numero_documento = '00000000';
+      }
+
       _root.apiService.postulacion(postulacion)
       .then((res:any) => {
         _root.saveExpProccess = false;
@@ -241,6 +257,10 @@ export class PostulationPageComponent implements OnInit {
     if( _root.active == _root.tabs.length ) {
       // let _htmlpdf = document.getElementById('pdfdownload');
       let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
+
+      if(postulacion.tipo_persona == '1') {
+        postulacion.numero_documento = '00000000';
+      }
 
       postulacion.estado = '2';
 
