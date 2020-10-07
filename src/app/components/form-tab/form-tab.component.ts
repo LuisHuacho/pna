@@ -854,9 +854,16 @@ export class FormTabComponent implements OnInit, OnChanges {
     let _arr = (_target.value).split(' ');
     let _countArr = _root.countDeleteCleanData(_arr);
 
-    if( _countArr.length > (parseInt(limit.toString()) - 1) ) {
-      _countArr.slice(-1);
-      _target.value = _countArr.join(' ');
+    if( _countArr.length >= (parseInt(limit.toString()) - 1) ) {
+      let _narr = [];
+      for(let i = 0; i < (parseInt(limit.toString()) - 1); i++) {
+        _narr.push( _countArr[i] );
+      }
+      _target.value = _narr.join(' ');
+      _target.style.border = '2px solid red';
+    }
+    else {
+      _target.style.border = '1px solid #ced4da';
     }
   }
 
