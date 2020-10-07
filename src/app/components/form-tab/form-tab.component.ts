@@ -741,7 +741,11 @@ export class FormTabComponent implements OnInit, OnChanges {
       let postulacion = JSON.parse( _root.tools.decryptrData(localStorage.getItem('postulacion')) );
 
       if(postulacion.id_postulacion != '') {
+        
         if(_root.files.length > 0) {
+
+          let _counter = 0;
+          _root.tools.showPreloader();
   
           for(let file of _root.files) {
 
@@ -769,6 +773,13 @@ export class FormTabComponent implements OnInit, OnChanges {
       
                       _root.apiService.listFile(postulacion.id_postulacion)
                       .then((res:any) => {
+                        _counter = _counter + 1;
+
+                        console.log( _counter );
+                        if( _counter == _root.files.length) {
+                          _root.tools.hidePreloader();
+                        }
+
                         for(let file of res) {
                           if(file.tipo_documento == 'SU') {
                             _root.documents.push(file);
@@ -779,11 +790,11 @@ export class FormTabComponent implements OnInit, OnChanges {
                         }
                       })
                       .catch((err:any) => {
-      
+                        _root.tools.hidePreloader();
                       });
                     })
                     .catch((err:any) => {
-        
+                      _root.tools.hidePreloader();
                     });
                   }
                 })

@@ -79,7 +79,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 1,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 200
             },
             {
                 "descripcion": "<div class='desc-group'><p class='ml-3'><strong>b. Contenidos educativos</strong></p><p class='ml-3'>Describa en un máximo de 150 palabras cómo los contenidos educativos de su propuesta han sido adecuados a la realidad local para una mayor comprensión de los participantes.</p></div>",
@@ -89,7 +90,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 2,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>c. Didáctica</strong></p><p class='ml-3'>Describa en un máximo de 150 palabras al público objetivo (participantes) y la forma en la que interviene en las acciones desarrolladas.</p></div>",
@@ -99,7 +101,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 3,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>d. Uso de recursos y materiales locales</strong></p><p class='ml-3'>Señale qué recursos y materiales locales utiliza en la acción educativa y/o de comunicación y cómo se usan (Use máximo 150 palabras).</p></div>",
@@ -109,7 +112,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 4,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-5'><strong>¿Cuál es el Lenguaje predominante en la localidad? </strong></p></div>",
@@ -141,7 +145,8 @@ export class FormService {
                 "id_campo": 102,
                 "tipo_campo": "texto",
                 "sino": true,
-                "id_sino": "m1_1d"
+                "id_sino": "m1_1d",
+                "limit": 100
             },
             {
                 "descripcion": "<div class='desc-group'><p class='ml-3'><strong>e. Describa cómo el material educativo y/o de comunicación ha sido adaptado para facilitar la\ncomprensión de los participantes (use hasta 100 palabras).</strong></p></div>",
@@ -151,7 +156,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 103,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>2. Sobre el aporte al ejercicio de los derechos de acceso</strong></p> <p>se busca conocer sobre el abordaje de los derechos de acceso a la información pública ambiental, participación en la toma de decisiones sobre asuntos públicos ambientales, y acceso a la justicia en asuntos ambientales, consagrados en los Artículos II, III y IV de la Ley Nº 28611, Ley General del Ambiente.Desarrolle la información solicitada en cada punto.</p> <p class='ml-3'><strong>a. Información ambiental</strong></p><p>Indique cuáles son las principales fuentes oficiales de información ambiental que utiliza, y coméntenos cómo promueve el uso de esta información entre los participantes para que adopten decisiones (use hasta 100 palabras):</p></div>",
@@ -161,7 +167,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 104,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Participación ciudadana</strong></p><p>Indique si se ha impulsado desde la Experiencia, que los participantes presenten propuestas en instancias de participación ciudadana en la gestión ambiental frente a decisiones de políticas, estrategias, planes y proyectos ambientales. (use hasta 100 palabras):</p></div>",
@@ -171,7 +178,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 105,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>c. Justicia ambiental</strong></p><p>¿La experiencia ha impulsado que los participantes presenten denuncias para proteger derechos ambientales o corregir daños ambientales haciendo uso de los mecanismos públicos establecidos para las denuncias ambientales?. (use hasta 100 palabras):</p></div>",
@@ -181,7 +189,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 106,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>3. Aporte a la corresponsabilidad socio-ambiental</strong></p> <p>se busca conocer cómo se enfoca la promoción de compromisos en interesados directos mediante la detección de la integralidad de la problemática ambiental, y su interrelación con fenómenos naturales y sociales; el diseño y puesta en práctica de soluciones; y el cumplimiento del principio de cooperación público privada, establecido en la Política Nacional del Ambiente.</p><p class='ml-3'>a. Explique cómo la Experiencia ha contribuido a que los participantes identifiquen su vinculación\ncon el problema socio-ambiental y las posibles acciones de solución.</p></div>",
@@ -191,7 +200,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 107,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             },
             {
                 "descripcion": "<div class='desc-group'><p class='ml-3'>b. Señale cómo la experiencia ha contribuido a que los participantes asuman responsabilidad en\nla solución del problema socio-ambiental identificado.</p></div>",
@@ -201,7 +211,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 108,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             },
             {
                 "descripcion": "<div class='desc-group'><p class='ml-3'>c. Señale cómo la experiencia ha contribuido a que los participantes intervengan de manera\ncoordinada en la atención de los problemas socio-ambientales identificados.</p></div>",
@@ -211,7 +222,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 1,
                 "id_campo": 109,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             }
         ]
       },
@@ -227,7 +239,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 2,
                 "id_campo": 110,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 300
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Respaldo de la investigación por parte de una institución.</strong></p><p class='ml-3'>Anote el nombre de la institución que respalda su investigación y descríbala brevemente (Use hasta 50 palabras):</p><p class='ml-5'>Nombre de la Institución:</p></div>",
@@ -237,7 +250,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 2,
                 "id_campo": 111,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 50
             },
             {
                 "descripcion": "<div class='desc-group'><p class='ml-5'>Descripción de la Institución: </p></div>",
@@ -247,7 +261,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 2,
                 "id_campo": 112,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 50
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>2.Aporte de la investigación a la solución de un problema socio-ambiental:</strong></p> <p>Se evaluará el aporte de los conocimientos generados para atender problemas o responder necesidades socio-ambientales en un ámbito determinado.</p> <p class='ml-3'><strong>a. Aporte en la solución de problemas relacionados a los componentes y líneas priorizadas en Agenda de Investigación Ambiental 2021</strong></p><p class='ml-3'>De los componentes y líneas priorizadas en la Agenda de Investigación Ambiental 2021, describa el aporte de la propuesta de investigación para una posible solución de alguna de las problemáticas críticas relacionadas(Use hasta 200 palabras):</p><p class='ml-5'>Componente o línea priorizada:</p></div>",
@@ -257,7 +272,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 2,
                 "id_campo": 113,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 200
             },
             {
                 "descripcion": "<div class='desc-group'><p class='ml-5'>Aporte:</p></div>",
@@ -267,7 +283,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 2,
                 "id_campo": 119,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 200
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Conocimiento y/o trabajo novedoso en torno a un tema ambiental específico</strong></p><p class='ml-3'>Comente porqué la propuesta de investigación es novedosa y cómo responde a un tema ambiental específico (Use hasta 200 palabras): </p></div>",
@@ -277,7 +294,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 2,
                 "id_campo": 114,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 200
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>c. Aporte en la solución de problemas socio-ambientales priorizados por los tomadores de decisión.</strong></p><p class='ml-5'>Problema socio-ambiental identificado:</p></div>",
@@ -287,7 +305,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 2,
                 "id_campo": 115,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 200
             },
             {
                 "descripcion": "<div class='desc-group'><p class='ml-5'>Aporte</p></div>",
@@ -297,7 +316,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 2,
                 "id_campo": 120,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 200
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>d. Beneficio de la investigación en grupos sociales vulnerables a las amenazas y problemáticas ambientales</strong></p><p class='ml-3'>Señale si la investigación beneficia a grupos sociales vulnerables a las amenazas y problemáticas ambientales</p></div>",
@@ -309,7 +329,8 @@ export class FormService {
                 "id_campo": 116,
                 "tipo_campo": "texto",
                 "sino": true,
-                "id_sino": "m2_2d1"
+                "id_sino": "m2_2d1",
+                "limit": 200
             },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>e. Publicación de la investigación</strong></p><p class='ml-3'>Precise si la investigación ha sido publicada y en qué medio (revista científica, texto, otro):</p></div>",
@@ -347,7 +368,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 3,
                 "id_campo": 95,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>2. Contribución al empoderamiento de actores involucrados</strong></p> <p>cualidad por la cual se promueven mejores desempeños para la prevención o tratamiento de los problemas ambientales.</p> <p class='ml-3'><strong>b. Participación activa e involucramiento con la campaña</strong></p><p class='ml-3'>Comente cuál ha sido la estrategia utilizada para que los actores involucrados aporten a la solución del problema que se busca visibilizar con la campaña (use hasta 150 palabras)</p></div>",
@@ -357,7 +379,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 3,
                 "id_campo": 96,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Aporte a la solución del problema</strong></p> <p class='ml-3'>coméntenos cómo la experiencia ha motivado que los involucrados pongan en marcha acciones de solución al problema. (use hasta 150 palabras)</p></div>",
@@ -367,7 +390,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 3,
                 "id_campo": 97,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>3. Generación de sinergias</strong></p> <p>proceso que permite combinar los esfuerzos de dos o más actores involucrados y elevar su potencial de actuación frente a problemas ambientales.</p> <p class='ml-3'><strong>a. Mecanismos de coordinación</strong></p> <p class='ml-3'>describa cómo la campaña ha propiciado la formación de mecanismos de coordinación entre los actores involucrados en el problema ambiental (use hasta 150 palabras)</p></div>",
@@ -377,7 +401,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 3,
                 "id_campo": 98,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Intervención articulada</strong></p> <p class='ml-3'>Si han existido acciones conjuntas entre los actores involucrados, que hayan sido propiciadas gracias a la implementación de la campaña, descríbalas (use hasta 150 palabras).</p></div>",
@@ -387,7 +412,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 3,
               "id_campo": 99,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
               "descripcion": "<div class='desc-group'> <p class='group-title'><strong>4. Escalamiento de la experiencia en medios de comunicación</strong></p> <p>elevación de la iniciativa a medios de comunicación masiva para impactar en el público objetivo.</p> <p class='ml-3'><strong>a. Plataformas de difusión</strong></p> <p class='ml-3'>indique a través de qué medios de comunicación ha sido difundida la campaña y cuál ha sido su cobertura.</p></div>",
@@ -407,7 +433,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 3,
               "id_campo": 101,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           
         ]
@@ -424,7 +451,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 4,
               "id_campo": 7,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 200
           },
           {
             "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Precisión de la información</strong></p> <p class='ml-3'>Describa cómo ha buscado relevar el problema u oportunidad ambiental en el material periodístico</p></div>",
@@ -434,7 +462,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 4,
             "id_campo": 8,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 100
         },
         {
             "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>c. Uso de recursos audiovisuales</strong></p> <p class='ml-3'>Señale los recursos audiovisuales que ha utilizado y cómo ha buscado que éstos impacten en la audiencia (use hasta 100 palabras)</p></div>",
@@ -444,7 +473,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 4,
             "id_campo": 9,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 100
         },
           {
               "descripcion": "<div class='desc-group'> <p class='group-title'><strong>2. Capacidad de despertar conciencia ambiental</strong></p> <p>Busca conocer la cualidad o característica que permite transmitir la relevancia y urgencia de la actuación ciudadana para conservar el ambiente. Desarrolle la información solicitada en cada punto.</p> <p class='ml-3'><strong>a. Planteamiento de acción</strong></p> <p class='ml-3'>Comente sobre las propuestas de acción y/o ejemplos de buenas prácticas que ha incluido en el material periodístico, precisando qué cambios se busca alcanzar en el público objetivo al que van dirigidos (autoridades gubernamentales, empresas, instituciones u organizaciones y/o ciudadanía en general). (use hasta 100 palabras):</p></div>",
@@ -454,7 +484,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 4,
               "id_campo": 10,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 100
           },
           {
               "descripcion": "<div class='desc-group'> <p class='group-title'><strong>3. Calidad de la información e importancia para la producción de conocimiento</strong></p> <p>se busca conocer la confiabilidad de la información del material periodístico y su contribución a generar nuevos conocimientos para el desarrollo sostenible.</p> <p class='ml-3'><strong>a. Fuentes de información</strong></p> <p class='ml-3'>indique las fuentes de información a las que ha recurrido para sustentar el documento periodístico presentado (artículos, investigaciones científicas, textos publicados, entrevistas, testimonios, videos, otros)</p></div>",
@@ -464,7 +495,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 4,
               "id_campo": 11,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 100
           },
           {
             "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Contribución a la generación de nuevos conocimientos y/o toma de decisiones</strong></p> <p class='ml-3'>describa cómo el tema y/o problemática abordado/a en el material periodístico, ha generado nuevas corrientes de acción, opinión o discusión en la ciudadanía; o si ha permitido a las autoridades adoptar medidas que aporten al tema (use hasta 100 palabras).</p></div>",
@@ -474,7 +506,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 4,
             "id_campo": 12,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 100
         },
           {
               "descripcion": "<div class='desc-group'> <p class='group-title'><strong>4. Nivel de alcance del material periodístico</strong></p> <p>refiere la cantidad potencial de personas que pueden acceder al material periodístico a partir de la cobertura del medio empleado.</p> <p class='ml-3'><strong>a. Plataformas de difusión</strong></p> <p class='ml-3'>indique a través de qué medios de comunicación ha sido difundido el material periodístico presentado y cuál ha sido su cobertura </p></div>",
@@ -520,7 +553,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 5,
                 "id_campo": 16,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             },
           {
               "descripcion": "<div class='desc-group'><p class='ml-3'><strong>b. Buenas prácticas de los servidores</strong></p> <p class='ml-3'>describa los principales logros de los servidores públicos en relación a la adopción de buenas prácticas para el uso eficiente y responsable de los recursos en la institución (Use hasta 100 palabras).</p></div>",
@@ -530,7 +564,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 5,
               "id_campo": 17,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 100
           },
           {
               "descripcion": "<div class='desc-group'> <p class='group-title'><strong>4. Impacto de las medidas de ecoeficiencia implementadas</strong></p> <p>Se evaluará el grado en el que la experiencia ha contribuido a optimizar el uso de los recursos en la institución pública traduciéndose en un ahorro económico. Se consideran el ahorro de papel y materiales conexos, energía, agua y segregación y reciclado de residuos sólidos.</p><p class='ml-3'><strong>Respecto a la línea base, complete la siguiente información:</strong></p></div>",
@@ -556,7 +591,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 6,
                 "id_campo": 19,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 200
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-5'>Aporte</p></div>",
@@ -566,7 +602,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 6,
                 "id_campo": 121,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 100
             },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Producto o proceso con valor potencial para la solución de un problema ambiental</strong></p> <p class='ml-3'>Describa el valor potencial del producto o proceso ambiental en la solución de un problema ambiental (Use hasta 100 palabras)</p></div>",
@@ -576,7 +613,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 6,
               "id_campo": 20,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
             "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>c. Producto novedoso introducido en el mercado exitosamente</strong></p> <p class='ml-3'>Comente la estrategia utilizada para introducir su producto en el mercado (Use hasta 150 palabras)</p></div>",
@@ -586,7 +624,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 21,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
         {
             "descripcion": "<div class='desc-group'> <p class='group-title'><strong>2. Uso de recursos</strong></p> <p>Se evaluará el grado en el que la experiencia ha logrado reducir el uso de los recursos e insumos (materia y energía), en el diseño de su producto o servicio, en el proceso mismo, y generando la menor cantidad de residuos post consumo; habiendo integrando las consideraciones ambientales en toda la cadena de valor, que permitan minimizar sus impactos ambientales negativos.</p> <p class='ml-3'>a. Responda sobre los principales aspectos que han sido considerados para reducir la materia prima, insumos y componentes del producto y/o servicio (Use hasta 150 palabras), de acuerdo a:</p> <p class='ml-5'>Se han reducido los componentes o la cantidad de materiales y/o insumos del producto.</p></div>",
@@ -668,7 +707,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 28,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 100
         },
         {
             "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Implementación de tecnologías limpias</strong></p> <p class='ml-3'>describa cómo la experiencia promueve buenas prácticas y/o tecnologías limpias para el uso eficiente de:</p> <p class='ml-5'>Agua (use hasta 100 palabras):</p></div>",
@@ -678,7 +718,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 29,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 100
         },
         {
             "descripcion": "<div class='desc-group'> <p class='ml-5'>Energía (use hasta 100 palabras):</p></div>",
@@ -688,7 +729,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 30,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 100
         },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-5'>Transporte (use hasta 100 palabras):</p></div>",
@@ -698,7 +740,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 6,
               "id_campo": 31,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 100
           },
           {
             "descripcion": "<div class='desc-group'> <p class='group-title'><strong>4. Tratamiento y valorización interna</strong></p> <p>Se evaluará cómo se hace el tratamiento y reciclaje de los recursos sólidos, efluentes y emisiones del proceso productivo, si se da mediante técnicas ecoeficientes de tratamiento previo y/o la implementación de tecnologías de control.</p> <p class='ml-3'><strong>a. Gestión de residuos sólidos</strong></p> <p class='ml-3'>Precise si su empresa cuenta con un plan de gestión integral de residuos sólidos y/o cómo realiza el tratamiento de sus residuos sólidos para el reciclaje (Use hasta 150 palabras)</p></div>",
@@ -708,7 +751,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 32,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Gestión de aguas residuales. </strong></p> <p class='ml-3'>Precise si su empresa realiza el tratamiento de las aguas residuales en sus procesos y describa cómo se privilegia su reutilización (Use hasta 150 palabras)</p></div>",
@@ -718,7 +762,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 6,
               "id_campo": 33,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
             "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>c. Control de emisiones</strong></p> <p>Precise si su empresa realiza el control de emisiones reduciendo su potencial impacto (Use hasta 150 palabras).</p></div>",
@@ -728,7 +773,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 34,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
         {
             "descripcion": "<div class='desc-group'> <p class='group-title'><strong>5. Valorización externa</strong></p> <p>Se evaluará de qué forma los residuos sólidos que se generan y que no se incorporan al ciclo productivo se constituyen en un subproducto útil y comercializable, o son objeto de disposición final segura.</p> <p class='ml-3'><strong>a. Valorización de residuos sólidos</strong></p> <p class='ml-3'>Describa cómo la experiencia realiza el acondicionamiento y comercialización de sus residuos sólidos (use hasta 150 palabras).</p></div>",
@@ -738,7 +784,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 35,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
         {
             "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Disposición segura de residuos sólidos</strong></p> <p class='ml-3'>Describa cómo se realiza la recolección y transporte de los residuos sólidos generados (use hasta 150 palabras).</p></div>",
@@ -748,7 +795,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 36,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
         {
             "descripcion": "<div class='desc-group'> <p class='group-title'><strong>6. Consumo responsable</strong></p> <p>Se evaluará el grado en el que la experiencia ha realizado acciones de sensibilización e información que promuevan el consumo responsable al interno y externo.</p> <p class='ml-3'><strong>a. Sensibilización y buenas prácticas del personal</strong></p> <p class='ml-5'>Describa cómo la experiencia ha contribuido a que el personal sea sensibilizado sobre la importancia del uso eficiente y responsable de los recursos en la empresa (use hasta 150 palabras).</p></div>",
@@ -758,7 +806,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 37,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-5'>Describa cómo la experiencia ha promovido que el personal realice buenas prácticas para el uso eficiente y responsable de los recursos en la empresa (use hasta 150 palabras).</p></div>",
@@ -768,7 +817,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 6,
               "id_campo": 38,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
             "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Sensibilización e información a los aliados</strong></p> <p class='ml-5'>Comente cómo la experiencia ha permitido articular con los actores locales para poner en práctica el consumo responsable. (use hasta 150 palabras).</p></div>",
@@ -778,7 +828,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 6,
             "id_campo": 39,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-5'>Comente cómo la experiencia ha permitido sensibilizar e informar a los clientes sobre el consumo responsable. (use hasta 150 palabras)</p></div>",
@@ -788,7 +839,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 6,
               "id_campo": 40,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           }
         ]
       },
@@ -860,7 +912,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 8,
               "id_campo": 46,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Generación de ingresos económicos</strong></p> <p class='ml-3'>Describa cómo la experiencia ha generado ingresos económicos u otros beneficios para sus aliados (Use hasta 150 palabras).</p></div>",
@@ -870,7 +923,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 8,
               "id_campo": 47,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>c. Beneficios sociales</strong></p> <p class='ml-3'>Describa cómo la experiencia ha generado beneficios sociales (acceso a capacitación, servicios de salud, otros) para sus aliados (Use hasta 150 palabras).</p></div>",
@@ -880,7 +934,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 8,
               "id_campo": 48,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           }
         ]
       },
@@ -918,7 +973,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 9,
                 "id_campo": 122,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>2. Contribución a la recuperación de especies amenazadas o ecosistemas continentales o marinos degradados: </strong></p> <p>Se evaluarán las acciones que aporten en la recuperación de los ciclos y procesos ecológicos, y la reconstrucción de la estructura y funcionamiento de los ecosistemas, mediante la adopción de medidas de recuperación y rehabilitación de ecosistemas, tanto en el ambiente terrestre como marino, y especies amenazadas o CITES, que han sido degradados o dañados en el País. Asimismo, la recuperación de las especies se orienta a restablecer condiciones mínimas de supervivencia de las mismas y acciones para la recuperación de sus poblaciones, entre otros aspectos relacionados.</p> <p class='ml-3'><strong>a. Aporte a la recuperación del ecosistema y/o especie</strong></p> <p class='ml-3'>¿La experiencia cuenta con un instrumento para la recuperación del ecosistema terrestre o marino, o una especie o grupo de especies: (proyecto de restauración o acciones de recuperación), que sean reconocidas por instancias nacionales, regionales o locales, así como experiencias comunales, e iniciativas de organizaciones sociales, evidenciadas o documentadas por actas o acuerdos, según corresponda o, en el caso de experiencias comunales, ¿cuenta con actas o acuerdos?</p></div>",
@@ -951,7 +1007,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 9,
                 "id_campo": 55,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'>c. Destaque la contribución de la experiencia introduciendo nuevos procesos, instrumentos, metodologías, herramientas, técnicas u otros para la recuperación de especies/ecosistemas (Use hasta 150 palabras). </p></div>",
@@ -961,7 +1018,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 9,
                 "id_campo": 56,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>3. Contribución a la conservación de la agrobiodiversidad o agroecosistemas</strong></p> <p>Se evaluará las acciones que aporten a la conservación de los ciclos y procesos ecológicos propios de los agroecosistemas. Asimismo, abarca el mantenimiento y la utilización sostenible de los agroecosistemas y la mejora del entorno natural en el cual se sustentan los agroecosistemas. Los agroecosistemas considerados pueden ser los sistemas agroforestales, cultivo intercalados, cultivos en rotación, sistemas integrados de producción agropecuaria, silvopastoril, de regadío, de secano, acuícola, mixto, etc. La conservación de la agrobiodiversidad se orienta a establecer condiciones de conservación in situ y aprovechamiento sostenible de cultivos y crianzas</p> <p class='ml-3'><strong>a. Aporte a la conservación de la agrobiodiversidad y/o agroecosistemas</strong></p> <p class='ml-3'>¿La experiencia cuenta con un instrumento para la gestión y conservación de la agrobiodiversidad y/o agroecosistemas: (plan de gestión, manejo, conservación u otro instrumento), que sea reconocido o aprobado a través de norma nacional o regional o local? o, en el caso de experiencias comunales, ¿cuenta con actas o acuerdos?</p></div>",
@@ -993,7 +1051,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 9,
               "id_campo": 60,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'>c. Destaque la contribución de la experiencia introduciendo nuevos procesos, instrumentos, metodologías, herramientas, técnicas u otros para la conservación de la agrobiodiversidad y/o agroecosistemas (Use hasta 150 palabras).</p></div>",
@@ -1003,7 +1062,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 9,
               "id_campo": 61,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           }
         ]
       },
@@ -1019,7 +1079,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 10,
                 "id_campo": 62,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>2. Conservación del recurso de la biodiversidad que genera el producto o servicio</strong></p> <p>Se evaluarán las consideraciones adoptadas por la experiencia para conservar el recurso asociado a los productos o servicios que ofrece.</p> <p class='ml-3'><strong>a. Aprovechamiento y uso regulado de los recursos de la biodiversidad</strong></p> <p class='ml-3'>Responda. ¿La experiencia opera con tasas de extracción autorizadas del recurso mediante plan de manejo o permiso de autorización?</p></div>",
@@ -1041,7 +1102,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 10,
                 "id_campo": 64,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
           {
               "descripcion": "<div class='desc-group'> <p class='group-title'><strong>3. Apoyo al desarrollo de la actividad económica local</strong></p> <p>Se evaluarán los vínculos establecidos por la experiencia con las comunidades locales para beneficiarlas.</p> <p class='ml-3'>a. Describa cómo la experiencia incorpora productores locales en su cadena de producción. (Use hasta 150 palabras).</p></div>",
@@ -1051,7 +1113,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 10,
               "id_campo": 65,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-5'>Liste a los principales grupos de productores locales beneficiados</p></div>",
@@ -1061,7 +1124,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 10,
               "id_campo": 66,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
             "descripcion": "<div class='desc-group'> <p class='ml-3'>b. Señale las principales acciones de mejora de capacidades técnico-productivas de los productores implementadas por la Experiencia</p></div>",
@@ -1101,7 +1165,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 10,
               "id_campo": 70,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Certificaciones</strong></p> <p class='ml-3'>¿La Experiencia comercializa productos o servicios con certificaciones que incluyen estándares ambientales?</p></div>",
@@ -1139,7 +1204,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 11,
             "id_campo": 73,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
         {
             "descripcion": "<div class='desc-group'> <p class='group-title'><strong>2. Promoción de mecanismos con atención a poblaciones vulnerables</strong></p> <p>Se evaluará el grado en que los mecanismos empleados generan beneficios a favor de poblaciones vulnerables.</p> <p class='ml-3'><strong>a. Tipo de beneficios generados</strong></p> <p class='ml-3'>precise sobre los beneficios relacionados a la salud, desarrollo económico, acceso a servicios públicos, entre otros, que han sido generados por la Experiencia. (Use hasta 150 palabras).</p></div>",
@@ -1149,7 +1215,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 11,
             "id_campo": 74,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
         {
             "descripcion": "<div class='desc-group'> <p class='group-title'><strong>3. Mejora del conocimiento y sensibilización en la población del ámbito del proyecto</strong></p> <p>Se evaluará el grado en que la población del ámbito del proyecto ha visto ampliado su conocimiento sobre la mitigación de las fuentes de emisiones de GEI.</p> <p class='ml-3'><strong>a .Competencias desarrolladas en la población objetivo</strong></p> <p class='ml-3'>Describa cuáles han sido las competencias/capacidades locales generadas por la Experiencia para el desarrollo de actividades económicas y modos de vida bajos en emisiones de carbono o que contribuyen a mejorar la capacidad de captura de los sumideros de GEI. (Use hasta 150 palabras).</p></div>",
@@ -1159,7 +1226,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 11,
             "id_campo": 75,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
         {
             "descripcion": "<div class='desc-group'> <p class='group-title'><strong>4. Aporte en la conservación de ecosistemas locales</strong></p> <p>Se evaluará el grado en que la experiencia contribuye a mantener las condiciones de los ecosistemas y la provisión de bienes y servicios ambientales.el conocimiento y sensibilización en la población del ámbito del proyecto</p> <p class='ml-3'><strong>a. Contribución a la conservación</strong></p> <p class='ml-3'>Describa cómo la experiencia contribuye a conservar los ecosistemas locales. (Use hasta 150 palabras).</p></div>",
@@ -1169,7 +1237,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 11,
             "id_campo": 76,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         }
         ]
       },
@@ -1221,7 +1290,8 @@ export class FormService {
                 "id_campo_tipo": 1,
                 "id_formulario": 12,
                 "id_campo": 80,
-                "tipo_campo": "texto"
+                "tipo_campo": "texto",
+                "limit": 150
             },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'>b. Indique cómo a Experiencia permitió que la población implementara acciones y/o prácticas como medida de adaptación al cambio climático (Use hasta 150 palabras).</p></div>",
@@ -1231,7 +1301,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 12,
               "id_campo": 81,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           },
           {
             "descripcion": "<div class='desc-group'> <p class='ml-3'>c. Señale las acciones de adaptación al cambio climático que han sido incorporadas en políticas y/o planes, programas, o proyectos del nivel territorial.</p></div>",
@@ -1251,7 +1322,8 @@ export class FormService {
             "id_campo_tipo": 1,
             "id_formulario": 12,
             "id_campo": 83,
-            "tipo_campo": "texto"
+            "tipo_campo": "texto",
+            "limit": 150
         },
           {
               "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Generación y potencialización de actividades económicas en la zona de intervención</strong></p> <p class='ml-3'>Describa las principales acciones desarrolladas en el ecosistema, que contribuyeron al mejoramiento de las actividades productivas. (Use hasta 150 palabras).</p></div>",
@@ -1261,7 +1333,8 @@ export class FormService {
               "id_campo_tipo": 1,
               "id_formulario": 12,
               "id_campo": 84,
-              "tipo_campo": "texto"
+              "tipo_campo": "texto",
+              "limit": 150
           }
         ]
       },
@@ -1413,7 +1486,8 @@ export class FormService {
                 "id_campo_tipo":1,
                 "id_formulario":14,
                 "id_campo":124,
-                "tipo_campo":"texto"
+                "tipo_campo":"texto",
+                "limit": 150
              },
              {
                 "descripcion": "<div class='desc-group'> <p class='ml-5'>Señale el grupo e indique cómo ha sido favorecido</p></div>",
@@ -1445,7 +1519,8 @@ export class FormService {
                 "id_campo_tipo":1,
                 "id_formulario":14,
                 "id_campo":127,
-                "tipo_campo":"texto"
+                "tipo_campo":"texto",
+                "limit": 100
              },
              {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'>b. Comente sobre los eventos de capacitación realizados, orientados a promover buenas prácticas para combatir la discriminación en todas sus formas, abordando las causas fundamentales de la desigualdad. (use hasta 100 palabras):</p></div>",
@@ -1455,7 +1530,8 @@ export class FormService {
                 "id_campo_tipo":1,
                 "id_formulario":14,
                 "id_campo":128,
-                "tipo_campo":"texto"
+                "tipo_campo":"texto",
+                "limit": 100
              },
              {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>3. Aporte al ejercicio de los derechos de acceso</strong></p> <p>Se busca conocer sobre el abordaje de los derechos de acceso a la información pública ambiental, participación en la toma de decisiones sobre asuntos públicos ambientales, y acceso a la justicia en asuntos ambientales, consagrados en los Artículos II, III y IV de la Ley Nº 28611, Ley General del Ambiente.</p> <p class='ml-3'><strong>a. Información ambiental</strong></p> <p class='ml-3'>Indique cuáles son las principales fuentes oficiales de información ambiental que utiliza, y coméntenos cómo promueve el uso de esta información entre los participantes para que adopten decisiones (use hasta 100 palabras):</p></div>",
@@ -1465,7 +1541,8 @@ export class FormService {
                 "id_campo_tipo":1,
                 "id_formulario":14,
                 "id_campo":129,
-                "tipo_campo":"texto"
+                "tipo_campo":"texto",
+                "limit": 100
              },
              {
                 "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>b. Participación ciudadana</strong></p> <p class='ml-3'>Indique si se ha impulsado desde la Experiencia, que los participantes presenten propuestas en instancias de participación ciudadana en la gestión ambiental frente a decisiones de políticas, estrategias, planes y proyectos ambientales. (use hasta 100 palabras):</p></div>",
@@ -1475,7 +1552,8 @@ export class FormService {
                 "id_campo_tipo":1,
                 "id_formulario":14,
                 "id_campo":130,
-                "tipo_campo":"texto"
+                "tipo_campo":"texto",
+                "limit": 100
              },
             {
                "descripcion": "<div class='desc-group'> <p class='ml-3'><strong>c. Justicia ambiental</strong></p> <p class='ml-3'>¿La experiencia ha impulsado que los participantes presenten denuncias para proteger derechos ambientales o corregir daños ambientales haciendo uso de los mecanismos públicos establecidos para las denuncias ambientales?</p> <p>(use hasta 100 palabras):</p></div>",
@@ -1485,7 +1563,8 @@ export class FormService {
                "id_campo_tipo":1,
                "id_formulario":14,
                "id_campo":131,
-               "tipo_campo":"texto"
+               "tipo_campo":"texto",
+               "limit": 100
             }
          ]
       }

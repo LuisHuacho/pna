@@ -733,11 +733,21 @@
                         <br>
                         <small class="text-gray mt-3"><span *ngIf="item.titulo_campo != ''" [innerHTML]="item.titulo_campo"></span></small>
                     </div>
+
+                    <div *ngIf="item.limit !== undefined">
+                        <p *ngIf="item.tipo_campo == 'texto'">
+                            <textarea *ngIf="item.sino !== undefined" id="{{ item.id_sino }}" class="form-control" cols="30" rows="5" [style]="(getValueAnswer(item.value, 'sino') == 'si') ? 'display: block' : 'display: none'" (change)="onChangeAnswer($event, item, 'SN')">{{ getValueAnswer(item.value) }}</textarea>
+                            <textarea *ngIf="item.sino === undefined" name="{{ item.id_campo + '_field' }}" class="form-control" cols="30" rows="5" (change)="onChangeAnswer($event, item)" (focusout)="onKeyUp($event, item.limit)">{{ getValueAnswer(item.value) }}</textarea>
+                            <small *ngIf="item.limit !== undefined" class="text-danger msg-field" id="{{ item.id_campo + '_field' }}"></small>
+                        </p>
+                    </div>
+                    <div *ngIf="item.limit === undefined">
+                        <p *ngIf="item.tipo_campo == 'texto'">
+                            <textarea *ngIf="item.sino !== undefined" id="{{ item.id_sino }}" class="form-control" cols="30" rows="5" [style]="(getValueAnswer(item.value, 'sino') == 'si') ? 'display: block' : 'display: none'" (change)="onChangeAnswer($event, item, 'SN')">{{ getValueAnswer(item.value) }}</textarea>
+                            <textarea *ngIf="item.sino === undefined" class="form-control" cols="30" rows="5" (change)="onChangeAnswer($event, item)">{{ getValueAnswer(item.value) }}</textarea>
+                        </p>
+                    </div>
                     
-                    <p *ngIf="item.tipo_campo == 'texto'">
-                        <textarea *ngIf="item.sino !== undefined" id="{{ item.id_sino }}" maxlength="1000" class="form-control" cols="30" rows="5" [style]="(getValueAnswer(item.value, 'sino') == 'si') ? 'display: block' : 'display: none'" (change)="onChangeAnswer($event, item, 'SN')">{{ getValueAnswer(item.value) }}</textarea>
-                        <textarea *ngIf="item.sino === undefined" maxlength="1000" class="form-control" cols="30" rows="5" (change)="onChangeAnswer($event, item)">{{ getValueAnswer(item.value) }}</textarea>
-                    </p>
 
                     <div *ngIf="item.tipo_campo == 'tabla'">
                         <!--<textarea class="form-control" cols="30" rows="5">{{ item.value }}</textarea>-->
