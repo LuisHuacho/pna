@@ -855,7 +855,7 @@ export class FormTabComponent implements OnInit, OnChanges {
     let _countArr = _root.countDeleteCleanData(_arr);
     let _msg = document.getElementById( _target.name );
 
-    if( _countArr.length >= (parseInt(limit.toString()) - 1) ) {
+    if( _countArr.length >= (parseInt(limit.toString())) ) {
       let _narr = [];
       for(let i = 0; i < (parseInt(limit.toString()) - 1); i++) {
         _narr.push( _countArr[i] );
