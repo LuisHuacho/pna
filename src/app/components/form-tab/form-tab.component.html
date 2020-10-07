@@ -350,7 +350,8 @@
                         <small class="text-gray"><strong>a) Contexto en el que se desarrolla la experiencia. -</strong> Presente su experiencia de manera sintètica; destacando de forma abreviada, objetiva y precisa el ambiente en el que la historia se desarrolla (contexto), las caracterìsticas y atributos principales y conclusiones. Debe guardar correspondencia con los criterios de evaluaciòn generales y especìficos señalados en las Bases del Concurso para la categoria y menciòn a la cual postula (Use hasta 300 palabras)</small>
                     </p>
                     <p>
-                        <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.contexto_experiencia" (change)="onChange($event)" (focusout)="onKeyUp($event, 300)"></textarea>
+                        <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.contexto_experiencia" name="experiencia.contexto_experiencia" (change)="onChange($event)" (focusout)="onKeyUp($event, 300)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.contexto_experiencia"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -359,6 +360,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.aporte_solucion" (change)="onChange($event)" (focusout)="onKeyUp($event, 200)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.aporte_solucion"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -367,6 +369,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_principales_result" (change)="onChange($event)" (focusout)="onKeyUp($event, 300)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.detalle_principales_result"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -375,6 +378,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_resumen_experiencia" (change)="onChange($event)" (focusout)="onKeyUp($event, 300)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.detalle_resumen_experiencia"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -383,6 +387,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.poblacion_beneficiada" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.poblacion_beneficiada"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -408,6 +413,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.fuentes_financiamiento" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.fuentes_financiamiento"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -435,6 +441,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.recursos_accesibles" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.recursos_accesibles"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -443,6 +450,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.desarrollo_capacidades" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.desarrollo_capacidades"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -451,6 +459,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.incentvos_economicos" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.incentvos_economicos"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -459,6 +468,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.detalle_apropiacion_exp" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.detalle_apropiacion_exp"></small>
                     </p>
                 </div>
             </div>
@@ -478,6 +488,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.cambios_positivos" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.cambios_positivos"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -486,6 +497,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.factores_riesgo" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.factores_riesgo"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -494,6 +506,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.factores_exito" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.factores_exito"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -502,6 +515,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.condiciones_experiencia" (change)="onChange($event)" (focusout)="onKeyUp($event, 150)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.condiciones_experiencia"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -510,6 +524,7 @@
                     </p>
                     <p>
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.actividades_necesarias" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.actividades_necesarias"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -577,7 +592,8 @@
                         </small>
                     </p>
                     <p *ngIf="a1">
-                        <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle1" (change)="onChange($event)"></textarea>
+                        <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle1" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.seccion4_detalle1"></small>
                     </p>
                     <p class="app-txt-dark">
                         <small class="text-gray">- Se han desarrollado acciones específicas para favorecer la participación de la mujer.</small><br>
@@ -597,6 +613,7 @@
                     </p>
                     <p *ngIf="a2">
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle2" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.seccion4_detalle2"></small>
                     </p>
                     <p class="app-txt-dark">
                         <small class="text-gray">- Se ha tenido en cuenta los diferentes niveles de información o conocimiento que tienen los hombres y las mujeres sobre el problema ambiental.</small><br>
@@ -616,6 +633,7 @@
                     </p>
                     <p *ngIf="a3">
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle3" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.seccion4_detalle3"></small>
                     </p>
                 </div>
                 <div class="col col-12 col-sm-12">
@@ -643,6 +661,7 @@
                     </p>
                     <p *ngIf="a4">
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle4" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.seccion4_detalle4"></small>
                     </p>
                     <p class="app-txt-dark">
                         <small class="text-gray">- En la definición del problema ambiental o en el diseño de las soluciones han participado representantes de organizaciones de los grupos étnicos concernidos.</small><br>
@@ -662,6 +681,7 @@
                     </p>
                     <p *ngIf="a5">
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle5" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.seccion4_detalle5"></small>
                     </p>
                     <p class="app-txt-dark">
                         <small class="text-gray">- Los recursos educativos y/o comunicacionales desarrollados en la experiencia han tomado en cuenta la diversidad lingüística y cultural, así como características físicas y vestimenta de las poblaciones.</small><br>
@@ -681,6 +701,7 @@
                     </p>
                     <p *ngIf="a6">
                         <textarea class="form-control" cols="30" rows="5" [(ngModel)]="experiencia.seccion4_detalle6" (change)="onChange($event)" (focusout)="onKeyUp($event, 100)"></textarea>
+                        <small class="text-danger msg-field" id="experiencia.seccion4_detalle6"></small>
                     </p>
                 </div>
             </div>

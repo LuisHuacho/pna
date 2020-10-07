@@ -35,6 +35,10 @@ app-home-page {
                 border: solid 1px $app_blue!important;
 
                 .status-tag {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
                     padding: 8px 10px;
                     background-color: $app_gray_light;
                     border-radius: 8px;

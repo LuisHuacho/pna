@@ -853,6 +853,7 @@ export class FormTabComponent implements OnInit, OnChanges {
     let _target = event.target;
     let _arr = (_target.value).split(' ');
     let _countArr = _root.countDeleteCleanData(_arr);
+    let _msg = document.getElementById( _target.name );
 
     if( _countArr.length >= (parseInt(limit.toString()) - 1) ) {
       let _narr = [];
@@ -861,8 +862,12 @@ export class FormTabComponent implements OnInit, OnChanges {
       }
       _target.value = _narr.join(' ');
       _target.style.border = '2px solid red';
+      _msg.textContent = `Ud. superó el límite de ${limit} palabras.`;
+      _msg.style.display = 'block';
     }
     else {
+      _msg.textContent = ``;
+      _msg.style.display = 'none';
       _target.style.border = '1px solid #ced4da';
     }
   }
