@@ -274,6 +274,13 @@ export class PostulationPageComponent implements OnInit {
 
       postulacion.estado = '2';
 
+      if(postulacion.aceptacion_declara == true) {
+        postulacion.aceptacion_declara = '1';
+      }
+      else {
+        postulacion.aceptacion_declara = '0';
+      }
+
       _root.saveExpProccess = true;
 
       _root.apiService.postulacionValidaEnvio(postulacion.id_postulacion)
