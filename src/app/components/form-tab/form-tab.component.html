@@ -928,7 +928,7 @@
 </div>
 
 <div *ngIf="formName == 'img_repre'" class="tab-form">
-    <ngx-dropzone (change)="onSelect($event, 'IR')" class="mt-3">
+    <ngx-dropzone *ngIf="images_repre.length == 0" (change)="onSelect($event, 'IR')" class="mt-3">
         <ngx-dropzone-label>
             <p>
                 <small class="app-txt-dark">Arrastre Archivos aquí para subirlos</small>

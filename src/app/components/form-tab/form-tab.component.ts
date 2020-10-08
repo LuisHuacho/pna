@@ -774,8 +774,7 @@ export class FormTabComponent implements OnInit, OnChanges {
                       _root.apiService.listFile(postulacion.id_postulacion)
                       .then((res:any) => {
                         _counter = _counter + 1;
-
-                        console.log( _counter );
+                        
                         if( _counter == _root.files.length) {
                           _root.tools.hidePreloader();
                         }
@@ -800,13 +799,16 @@ export class FormTabComponent implements OnInit, OnChanges {
                 })
                 .catch((err:any) => {
                   console.log( err );
+                  _root.tools.hidePreloader();
                 });
               }
               else {
+                _root.tools.hidePreloader();
                 _root.tools.showToastr('', 'Archivo demasiado pesado', 'error', 2000);
               }
             }
             else {
+              _root.tools.hidePreloader();
               _root.tools.showToastr('', 'No se permiten ese tipo de extensiones.', 'error', 2000);
             }
           }

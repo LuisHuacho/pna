@@ -1,5 +1,5 @@
-// window.relativePath = '/premioAmbientalWeb';
-window.relativePath = '';
+window.relativePath = '/premioAmbientalFront';
+// window.relativePath = '';
 
 window.loginText = [
     {
