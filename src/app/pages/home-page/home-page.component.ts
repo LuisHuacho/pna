@@ -16,6 +16,8 @@ export class HomePageComponent implements OnInit {
   expierences:any = [];
   menciones:any = [];
 
+  expierencePrint:any = {};
+
   constructor(
     private userService: UserService,
     private apiService: ApiService
@@ -95,6 +97,36 @@ export class HomePageComponent implements OnInit {
     }
 
     return result;
+  }
+
+  onClickPreview(event, item) {
+    event.preventDefault();
+
+    let _root = this;
+    _root.expierencePrint = {
+      postulacion: item,
+      user: JSON.parse(_root.tools.decryptrData(localStorage.getItem('user_profile')))
+    };
+
+    console.log( _root.expierencePrint );
+
+    setTimeout(() => {
+      let printContents, popupWin;
+      printContents = document.getElementById('print_postulacion').innerHTML;
+      popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+      popupWin.document.open();
+      popupWin.document.write(`
+        <html>
+          <head>
+            <title>Print tab</title>
+          </head>
+          <body onload="window.print();window.close();">${printContents}</body>
+        </html>
+        `
+      );
+      popupWin.document.close();
+    }, 1000);
+
   }
 
 }

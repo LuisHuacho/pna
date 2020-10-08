@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPrintModule } from 'ngx-print';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
@@ -53,6 +54,7 @@ registerLocaleData(en);
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
+    NgxPrintModule,
     NgxDropzoneModule,
     NgxMaskModule.forRoot(),
     NzTreeSelectModule,

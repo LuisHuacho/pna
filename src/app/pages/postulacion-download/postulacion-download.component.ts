@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-postulacion-download',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostulacionDownloadComponent implements OnInit {
 
+  @Input() printData:any = {};
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log( this.printData );
   }
 
 }

@@ -44,13 +44,14 @@
                                         <span *ngIf="expierence.estado_sistema == '1'" class="status-tag process">En proceso</span>
                                     </td>
                                     <td>
-                                        <div ngbDropdown class="d-inline-block">
+                                        <div *ngIf="expierence.estado_sistema == '1'" ngbDropdown class="d-inline-block">
                                             <button *ngIf="expierence.estado_sistema == '1'" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acciones</button>
                                             <div *ngIf="expierence.estado_sistema == '1'" ngbDropdownMenu aria-labelledby="dropdownBasic1">
                                                 <a [href]="_win.relativePath + '/postulacion?id=' + expierence.id_postulacion" ngbDropdownItem>Editar</a>
                                                 <button ngbDropdownItem (click)="deletePostulacion(expierence.id_postulacion)">Eliminar</button>
                                             </div>
                                         </div>
+                                        <button *ngIf="expierence.estado_sistema == '2'" type="button" class="btn btn-light" (click)="onClickPreview($event, expierence)">Previsualizar <i class="fa fa-search" aria-hidden="true"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -63,3 +64,5 @@
 </div>
 
 <app-footer></app-footer>
+
+<app-postulacion-download *ngIf="expierencePrint.user !== undefined" id="print_postulacion" printData="expierencePrint"></app-postulacion-download>

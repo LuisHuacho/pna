@@ -99,7 +99,9 @@ export class PostulationPageComponent implements OnInit {
             })
             .catch((err:any) => {
               _root.saveExpProccess = false;
-              _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+              if(sout != 'tab') {
+                _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+              }
             });
           }
           break;
@@ -130,7 +132,9 @@ export class PostulationPageComponent implements OnInit {
             })
             .catch((err:any) => {
               _root.saveExpProccess = false;
-              _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+              if(sout != 'tab') {
+                _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+              }
             });
           }
           break;
@@ -176,7 +180,9 @@ export class PostulationPageComponent implements OnInit {
             })
             .catch((err:any) => {
               _root.saveExpProccess = false;
-              _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+              if(sout != 'tab') {
+                _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+              }
             });
           }
           break;
@@ -216,7 +222,9 @@ export class PostulationPageComponent implements OnInit {
               })
               .catch((err:any) => {
                 _root.saveExpProccess = false;
-                _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+                if(sout != 'tab') {
+                  _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+                }
               });
             }
 
@@ -247,7 +255,9 @@ export class PostulationPageComponent implements OnInit {
       })
       .catch((err:any) => {
         _root.saveExpProccess = false;
-        _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+        if(sout != 'tab') {
+          _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+        }
       });
     }
   }
