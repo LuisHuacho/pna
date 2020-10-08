@@ -10,17 +10,18 @@ export default class Tools {
     }
 
     getOperatingSystem() :string {
-        let OS = 'Unknown';
-        if (window.navigator.userAgent.indexOf('Windows NT 10.0')!= -1) OS='Windows 10';
-        if (window.navigator.userAgent.indexOf('Windows NT 6.2') != -1) OS='Windows 8';
-        if (window.navigator.userAgent.indexOf('Windows NT 6.1') != -1) OS='Windows 7';
-        if (window.navigator.userAgent.indexOf('Windows NT 6.0') != -1) OS='Windows Vista';
-        if (window.navigator.userAgent.indexOf('Windows NT 5.1') != -1) OS='Windows XP';
-        if (window.navigator.userAgent.indexOf('Windows NT 5.0') != -1) OS='Windows 2000';
-        if (window.navigator.userAgent.indexOf('Mac')            != -1) OS='Mac/iOS';
-        if (window.navigator.userAgent.indexOf('X11')            != -1) OS='UNIX';
-        if (window.navigator.userAgent.indexOf('Linux')          != -1) OS='Linux';
-
+        // let OS = 'Unknown';
+        // if (window.navigator.userAgent.indexOf('Windows NT 10.0')!= -1) OS='Windows 10';
+        // if (window.navigator.userAgent.indexOf('Windows NT 6.2') != -1) OS='Windows 8';
+        // if (window.navigator.userAgent.indexOf('Windows NT 6.1') != -1) OS='Windows 7';
+        // if (window.navigator.userAgent.indexOf('Windows NT 6.0') != -1) OS='Windows Vista';
+        // if (window.navigator.userAgent.indexOf('Windows NT 5.1') != -1) OS='Windows XP';
+        // if (window.navigator.userAgent.indexOf('Windows NT 5.0') != -1) OS='Windows 2000';
+        // if (window.navigator.userAgent.indexOf('Mac')            != -1) OS='Mac/iOS';
+        // if (window.navigator.userAgent.indexOf('X11')            != -1) OS='UNIX';
+        // if (window.navigator.userAgent.indexOf('Linux')          != -1) OS='Linux';
+        
+        let OS = window.navigator.userAgent;
         return OS.toUpperCase();
     }
 
