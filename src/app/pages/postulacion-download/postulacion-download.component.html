@@ -1,81 +1,1315 @@
-<!--<button type="button" onclick="window.print();">Imprimir</button>-->
-<table style="border-collapse:collapse;border-spacing:0" class="tg">
-    <thead>
-       <tr>
-          <th style="background-color:#68cbd0;border-color:inherit;border-style:solid;border-width:1px;color:#ffffff;font-family:Arial, sans-serif;font-size:14px;font-weight:bold;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal" colspan="2">I. DATOS GENERALES</th>
-       </tr>
-    </thead>
+<button type="button" onclick="window.print();">Imprimir</button>
+
+<!-- DATOS GENERALES -->
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:16px;font-family:"Arial",sans-serif;color:#002060;'>Ficha de Postulaci&oacute;n del Premio Nacional Ambiental Antonio Brack Egg</span></strong></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+<table style="width:138.75pt;margin-left:78%;border-collapse:collapse;border: none;">
     <tbody>
-       <tr>
-          <td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;font-weight:bold;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal" colspan="2">1. Persona que efectúa la postulación (Que a su vez será el contacto en caso de necesitarse mayor información sobre la experiencia postulada)</td>
-       </tr>
-       <tr>
-          <td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Nombre y apellidos:</td>
-          <td style="border-color:inherit;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal"><span *ngIf="printData.user.nombres !== undefined">{{ printData.user.nombres }}</span></td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Documento de identidad</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">{{ printData.user.apellidos }}</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">DNI: <span *ngIf="printData.user.id_tipo_documento == '1'">{{ printData.user.numero_documento }}</span></td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Carnet de extranjería: <span *ngIf="printData.user.id_tipo_documento == '2'">{{ printData.user.numero_documento }}</span></td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Nacionalidad:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">{{ printData.user.nacionalidad }}</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Domicilio:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">{{ printData.user.domicilio }}</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Teléfono y/o Celular:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">TELEFONO</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Correo electrónico:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">CORREO</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;font-weight:bold;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal" colspan="2">2. Categoría y mención a la que postula la experiencia: (Marque sólo una opción)</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Categoria:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">categ</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Mención</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">mencion</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;font-weight:bold;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal" colspan="2">3. Título de la experiencia: (Un buen título refiere de manera concisa en qué consiste la experiencia y dónde se ha realizado)</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal" colspan="2">TITULO DE LA EXPERIENCIA</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;font-weight:bold;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal" colspan="2">4. Localización de la experiencia:</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Región:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">lima</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Provincia:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">lima</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Distrito:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">lima</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Localidad/Dirección sede:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">localidad</td>
-       </tr>
-       <tr>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">Mar peruano:</td>
-          <td style="border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal">asas</td>
-       </tr>
+        <tr>
+            <td style="width: 63.55pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.15pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nro. Postulaci&oacute;n&nbsp;</span></p>
+            </td>
+            <td style="width: 75.2pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.15pt;vertical-align: top;">
+                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+            </td>
+        </tr>
     </tbody>
- </table>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
+        <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>DATOS GENERALES:</span></li>
+    </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol style="margin-bottom:0cm;list-style-type: decimal;margin-left:8px;">
+        <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Persona que efect&uacute;a la postulaci&oacute;n</span></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div align="center" style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <table style="width:100%!important;border-collapse:collapse;border:none;">
+        <tbody>
+            <tr>
+                <td style="width: 113.15pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Tipo de Documento:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Nombres completos</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>N&uacute;mero de documento:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Nacionalidad:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Domicilio:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Tel&eacute;fono:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol style="margin-bottom:0cm;list-style-type: undefined;margin-left:8px;">
+        <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Categor&iacute;a y menci&oacute;n a la que pertenece la experiencia</span></li>
+    </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div align="center" style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <table style="width:100%!important;border-collapse:collapse;border:none;">
+        <tbody>
+            <tr>
+                <td style="width: 113.15pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Categor&iacute;a:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Menci&oacute;n</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol style="margin-bottom:0cm;list-style-type: undefined;margin-left:8px;">
+        <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>T&iacute;tulo de la experiencia</span></li>
+    </ol>
+</div>
+<div align="center" style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <table style="width:100%!important;border-collapse:collapse;border:none;">
+        <tbody>
+            <tr>
+                <td style="width: 463.9pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol style="margin-bottom:0cm;list-style-type: undefined;margin-left:8px;">
+        <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Localizaci&oacute;n de la experiencia</span></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div align="center" style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <table style="width:100%!important;border-collapse:collapse;border:none;">
+        <tbody>
+            <tr>
+                <td style="width: 113.15pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Regi&oacute;n:</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Provincia:</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Distrito:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Localidad/Direcci&oacute;n sede:</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Mar peruano</span></p>
+                </td>
+                <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol style="margin-bottom:0cm;list-style-type: undefined;margin-left:8px;">
+        <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Identificaci&oacute;n del postulante</span></li>
+    </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div align="center" style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <table style="width:100%!important;border-collapse:collapse;border:none;">
+        <tbody>
+            <tr>
+                <td colspan="2" style="width: 233.9pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Persona natural</span></p>
+                </td>
+                <td colspan="2" style="width: 229.7pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Persona jur&iacute;dica</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tipo de experiencia:</span></p>
+                </td>
+                <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombre entidad:</span></p>
+                </td>
+                <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombres y apellidos de quien lidera o coordina la experiencia:</span></p>
+                </td>
+                <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>N&deg; de R.U.C.:</span></p>
+                </td>
+                <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>N&deg; de documento:</span></p>
+                </td>
+                <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Domicilio legal:</span></p>
+                </td>
+                <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Cargo:</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Representante legal:</span></p>
+                </td>
+                <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono:</span></p>
+                </td>
+                <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono:</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico:</span></p>
+                </td>
+                <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico:</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Redes sociales de la organizaci&oacute;n (opcional):</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Sitio Web de la organizaci&oacute;n (si tiene):</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+                <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- EXPERIENCIA -->
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>&nbsp;INFORMACI&Oacute;N GENERAL DE LA EXPERIENCIA</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: decimal;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Relevancia de la experiencia</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>a)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Contexto en el que se desarrolla la experiencia</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>b)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Aporte a la soluci&oacute;n del problema ambiental identificado</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>c)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Principales resultados</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>d)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Cambios positivos de la experiencia</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>e)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Caracter&iacute;sticas de la poblaci&oacute;n beneficiaria</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td rowspan="2" style="width: 11cm;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+           <td style="width: 127.55pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>N&deg; de personas beneficiadas directamente</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 127.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: undefined;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Sostenibilidad de la experiencia&nbsp;</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:53.25pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>a)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Fuentes de financiamiento&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>b)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Documentos orientadores</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>c)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Recursos accesibles en el mercado</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>d)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Desarrollo de capacidades</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>e)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Incentivos econ&oacute;micos</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>f)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Apropiaci&oacute;n de la experiencia</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+
+
+
+
+
+
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: decimal;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Replicabilidad de la experiencia</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="1" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Cambios positivos</span></li>
+   </ol>
+</div>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="2" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Factores de riesgo</span></li>
+   </ol>
+</div>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="3" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Factores de &eacute;xito</span></li>
+   </ol>
+</div>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="4" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Condiciones para que la experiencia pueda ser reproducida</span></li>
+   </ol>
+</div>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="5" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Actividades necesarias&nbsp;</span></li>
+   </ol>
+</div>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>f)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Datos de personas de contacto</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 205.6pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombre</span></strong></p>
+           </td>
+           <td style="width: 134.65pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono</span></strong></p>
+           </td>
+           <td style="width: 127.55pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 205.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 134.65pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 127.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 205.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 134.65pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 127.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 205.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 11.6pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 134.65pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 11.6pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 127.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 11.6pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: undefined;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Enfoques transversales de g&eacute;nero e interculturalidad</span></li>
+   </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="1" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Sobre sensibilidad al g&eacute;nero <span>(CUANDO ES&nbsp;</span></span><strong><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>SI</span></strong><span style='font-family:"Arial",sans-serif;color:#002060;'>&nbsp;, MOSTRAR LA INFORMACI&Oacute;N, DE LO CONTRARIO OCULTARLA)</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 353.35pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Identificaci&oacute;n de diferentes roles, necesidades y brechas concernientes a hombres y mujeres.</span></p>
+           </td>
+           <td style="width: 54.75pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>SI</span></p>
+           </td>
+           <td style="width: 59.7pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>NO</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="3" style="width: 467.8pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 353.35pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Acciones espec&iacute;ficas desarrolladas para favorecer la participaci&oacute;n de la mujer</span></p>
+           </td>
+           <td style="width: 54.75pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>SI</span></p>
+           </td>
+           <td style="width: 59.7pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>NO</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="3" style="width: 467.8pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 353.35pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Consideraci&oacute;n de los diferentes niveles de informaci&oacute;n o conocimiento que tienen los hombres y las mujeres sobre el problema ambiental.&nbsp;</span></p>
+           </td>
+           <td style="width: 54.75pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>SI</span></p>
+           </td>
+           <td style="width: 59.7pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>NO</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="3" style="width: 467.8pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="2" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Reconocimiento de la diversidad cultural <span>(CUANDO ES&nbsp;</span></span><strong><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>SI</span></strong><span style='font-family:"Arial",sans-serif;color:#002060;'>&nbsp;, MOSTRAR LA INFORMACI&Oacute;N, DE LO CONTRARIO OCULTARLA)</span></li>
+   </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 353.35pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Acciones diferenciadas seg&uacute;n grupos &eacute;tnicos para atender necesidades espec&iacute;ficas y acortar brechas con referencia al problema ambiental</span></p>
+           </td>
+           <td style="width: 54.75pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>SI</span></p>
+           </td>
+           <td style="width: 59.7pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>NO</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="3" style="width: 467.8pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 353.35pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Participaci&oacute;n de representantes de organizaciones de los grupos &eacute;tnicos concernidos en la definici&oacute;n del problema ambiental o en el dise&ntilde;o de las soluciones</span></p>
+           </td>
+           <td style="width: 54.75pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>SI</span></p>
+           </td>
+           <td style="width: 59.7pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>NO</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="3" style="width: 467.8pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 353.35pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Recursos educativos y/o comunicacionales usados tomando en cuenta la diversidad ling&uuml;&iacute;stica y cultural, as&iacute; como caracter&iacute;sticas f&iacute;sicas y vestimenta de las poblaciones</span></p>
+           </td>
+           <td style="width: 54.75pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>SI</span></p>
+           </td>
+           <td style="width: 59.7pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>NO</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="3" style="width: 467.8pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>INFORMACI&Oacute;N ESPEC&Iacute;FICA DE LA MENCI&Oacute;N&nbsp;</span><span style='font-family:"Arial",sans-serif;color:#0070C0;font-size:12px;'>ECOEFICIENCIA EN INSTITUCIONES P&Uacute;BLICAS</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: decimal;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Cumplimiento del Decreto Supremo N&deg; 009-2009-MINAM</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="1" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Medidas de ecoeficiencia en la instituci&oacute;n:&nbsp;</span></li>
+   </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 168.7pt;border: 1pt solid windowtext;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Medidas adoptadas</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>SI (X)</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>NO</span></strong></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>(X)</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Documento con el que se aprob&oacute; o avances realizados</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Establecimiento de una L&iacute;nea base de ecoeficiencia</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Diagn&oacute;stico de oportunidades de ecoeficiencia y buenas pr&aacute;cticas&nbsp;</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Plan de ecoeficiencia institucional&nbsp;</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Monitoreo y seguimiento a la implementaci&oacute;n de medidas de ecoeficiencia</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Medidas para el ahorro de papel y materiales conexos</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Medidas para el ahorro de energ&iacute;a</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Medidas para el ahorro de agua</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Medidas para la segregaci&oacute;n y reciclaje de residuos s&oacute;lidos</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 168.7pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Medidas de ecoeficiencia de segunda etapa</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: undefined;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Institucionalidad</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="1" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Incorporaci&oacute;n de la ecoeficiencia en la estructura org&aacute;nica y los procesos de la instituci&oacute;n p&uacute;blica</span></li>
+   </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 168.7pt;border: 1pt solid windowtext;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Aspectos considerados</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>SI</span></strong></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>(X)</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>NO</span></strong></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>(X)</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Contribuci&oacute;n a la implementaci&oacute;n de las medidas en la instituci&oacute;n</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width:168.7pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Compromiso de la alta direcci&oacute;n con la ecoeficiencia</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width:168.7pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Designaci&oacute;n de un responsable de asegurar y tomar acci&oacute;n respecto al nivel de implementaci&oacute;n de medidas de ecoeficiencia en la instituci&oacute;n</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width:168.7pt;border:solid windowtext 1.0pt;border-top:  none;padding:0cm 5.4pt 0cm 5.4pt;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Conformaci&oacute;n de un comit&eacute; responsable de la implementaci&oacute;n de las medidas de ecoeficiencia en la instituci&oacute;n.</span></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 35.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 8cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: undefined;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style="font-size:9.0pt;color:#002060;">Cultura de Ecoeficiencia</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="1" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Principales acciones realizadas para sensibilizar a los servidores p&uacute;blicos sobre la importancia del uso eficiente y responsable de los recursos en la instituci&oacute;n</span></li>
+   </ol>
+</div>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="2" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Principales logros de los servidores p&uacute;blicos en relaci&oacute;n a la adopci&oacute;n de buenas pr&aacute;cticas para el uso eficiente y responsable de los recursos en la instituci&oacute;n</span></li>
+   </ol>
+</div>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: undefined;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Impacto de las medidas de ecoeficiencia implementadas</span></li>
+   </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-family:"Arial",sans-serif;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol start="1" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Optimizaci&oacute;n del uso de los recursos en la instituci&oacute;n p&uacute;blica</span></li>
+   </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 94.6pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Aspectos considerados&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 101.35pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Indicadores</span></strong></p>
+           </td>
+           <td style="width: 59.25pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>%/Kg reducidos</span></strong></p>
+           </td>
+           <td style="width: 70.85pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Ahorro en soles S/.</span></strong></p>
+           </td>
+           <td style="width: 5cm;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Medio de verificaci&oacute;n usado (registro/m&eacute;todo de c&aacute;lculo/otros)</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 94.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Ahorro de papel y materiales conexos</span></p>
+           </td>
+           <td style="width: 101.35pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>% de reducci&oacute;n de consumo (kg de papel/ servidor/ a&ntilde;o)&nbsp;</span></p>
+           </td>
+           <td style="width: 59.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 70.85pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 5cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 94.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Ahorro de energ&iacute;a</span></p>
+           </td>
+           <td style="width: 101.35pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>% de reducci&oacute;n de consumo (kW/ servidor/ a&ntilde;o)</span></p>
+           </td>
+           <td style="width: 59.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 70.85pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 5cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 94.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Ahorro de agua</span></p>
+           </td>
+           <td style="width: 101.35pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>% de reducci&oacute;n de consumo (m3 de agua/ servidor/ a&ntilde;o).</span></p>
+           </td>
+           <td style="width: 59.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 70.85pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 5cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 94.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Segregaci&oacute;n y reciclaje de residuos s&oacute;lidos</span></p>
+           </td>
+           <td style="width: 101.35pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Kg de residuos s&oacute;lidos reciclados / Kg de residuos s&oacute;lidos generados/ por a&ntilde;o</span></p>
+           </td>
+           <td style="width: 59.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 70.85pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+           <td style="width: 5cm;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-family:"Arial",sans-serif;'>&nbsp;</span></strong></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: undefined;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>ANEXOS DE SUSTENTO</span></li>
+   </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border:none;">
+   <tbody>
+       <tr>
+           <td colspan="2" style="width: 467.35pt;border: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Evidencias que den cuenta de los resultados obtenidos con la experiencia: (SI, SOLO IMPRESI&Oacute;N DE LOS NOMBRES DE LOS ARCHIVOS)</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 72pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 1</span></p>
+           </td>
+           <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 72pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 2</span></p>
+           </td>
+           <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 72pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 3</span></p>
+           </td>
+           <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 72pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 4</span></p>
+           </td>
+           <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td style="width: 72pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 5</span></p>
+           </td>
+           <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2" style="width: 467.35pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Enlaces a p&aacute;ginas web o redes sociales: (SI)</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2" style="width: 467.35pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>-</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2" style="width: 467.35pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>-</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2" style="width: 467.35pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>-</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2" style="width: 467.35pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>-</span></p>
+           </td>
+       </tr>
+       <tr>
+           <td colspan="2" style="width: 467.35pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>-</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: undefined;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>&nbsp;DECLARACI&Oacute;N JURADA (SI, EN EL CASO DE LA CASILLA APARECER UNA X, CUANDO HA SIDO SELECCIONADO)</span></li>
+   </ol>
+</div>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid black;padding: 0cm 5.4pt;height: 25.45pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Yo, (Nombre de la persona que efect&uacute;a la postulaci&oacute;n) &shy;&shy;&shy;&shy;&shy;______________________________________________</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Identificado/a con (Tipo y n&uacute;mero de documento de identidad) ________________________________________</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Y con domicilio en (Indicar direcci&oacute;n exacta) ______________________________________________________</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;margin-left:35.4pt;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Declaro bajo juramento que la informaci&oacute;n consignada en la presente Ficha de Postulaci&oacute;n es veraz. Cualquier inexactitud no compromete la responsabilidad de Sector Ambiental, del equipo t&eacute;cnico evaluador, del jurado, o de los organizadores, patrocinadores y auspiciadores del Premio</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+   <ol style="margin-bottom:0cm;list-style-type: undefined;">
+       <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>IMAGEN REPRESENTATIVA</span><span style='font-family:"Arial",sans-serif;color:#002060;font-size:12px;color:#002060;'>&nbsp;(SI TIENE UNA IMAGEN, MOSTRAR EL NOMBRE DEL ARCHIVO DE LA IMAGEN)</span></li>
+   </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Fotograf&iacute;a m&aacute;s representativa de la experiencia:</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+<table style="width:100%!important;border-collapse:collapse;border: none;">
+   <tbody>
+       <tr>
+           <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+               <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+           </td>
+       </tr>
+   </tbody>
+</table>

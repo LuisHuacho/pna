@@ -120,7 +120,7 @@ export class HomePageComponent implements OnInit {
           <head>
             <title>Print tab</title>
           </head>
-          <body onload="window.print();window.close();">${printContents}</body>
+          <body>${printContents}</body>
         </html>
         `
       );

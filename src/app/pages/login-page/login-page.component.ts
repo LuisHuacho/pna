@@ -29,6 +29,7 @@ export class LoginPageComponent implements OnInit {
     private globalService: GlobalService,
     private userService: UserService
   ) {
+    console.log( window );
     if(localStorage.getItem('user_profile')) {
       window.location.href = `${this._win.relativePath}/`;
     }

@@ -22,6 +22,9 @@ export class PostulationPageComponent implements OnInit {
   idPostulacion:any = '';
   saveExpProccess:boolean = false;
 
+  showLightBox:boolean = false;
+  validateFormSendPostulacion:boolean = false;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private globalService: GlobalService,
@@ -264,6 +267,13 @@ export class PostulationPageComponent implements OnInit {
 
   onSaveFinish(tab, tabId, sout:string = 'N'): void {
     let _root = this;
+
+    _root.showLightBox = true;
+    _root.validateFormSendPostulacion = true;
+  }
+
+  onSaveFinishComplete() {
+    let _root = this;
     if( _root.active == _root.tabs.length ) {
       // let _htmlpdf = document.getElementById('pdfdownload');
       let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
@@ -311,6 +321,12 @@ export class PostulationPageComponent implements OnInit {
         _root.tools.showToastr('', 'No se puede validar la postulación', 'error', 2000);
       });
     }
+  }
+
+  onSaveFinishCancel() {
+    let _root = this;
+    _root.showLightBox = false;
+    _root.validateFormSendPostulacion = false;
   }
 
   getUpdatedvalue(event, field, currentTab): void {
