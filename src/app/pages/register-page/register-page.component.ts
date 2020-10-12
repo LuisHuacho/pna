@@ -111,14 +111,8 @@ export class RegisterPageComponent implements OnInit {
             }, 5000);
 
             if(res.status !== undefined) {
-              if(res.status == 203) {
-                _root.tools.showToastr('ERROR', 'No se pudo registrar', 'error', 2000);
-              }
-              else if(res.status == 400) {
+              if(res.status == 400) {
                 _root.tools.showToastr('', 'Este usuario ya existe', 'error', 2000);
-              }
-              else {
-                _root.tools.showToastr('ERROR', 'No se pudo registrar', 'error', 2000);
               }
             }
             _root.registerProccess = false;
@@ -132,7 +126,7 @@ export class RegisterPageComponent implements OnInit {
         _root.registerProccess = false;
         if(err.error.error !== undefined) {
           // _root.tools.showToastr('ERROR', err.error.mensaje, 'error', 2000);
-          _root.tools.showToastr('ERROR', 'No se pudo registrar', 'error', 2000);
+          // _root.tools.showToastr('ERROR', 'No se pudo registrar', 'error', 2000);
         }
       });
     }
