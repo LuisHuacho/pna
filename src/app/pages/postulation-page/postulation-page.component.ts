@@ -21,9 +21,11 @@ export class PostulationPageComponent implements OnInit {
   tabs:any = [];
   idPostulacion:any = '';
   saveExpProccess:boolean = false;
+  numeroPostulacion:any = '';
 
   showLightBox:boolean = false;
   validateFormSendPostulacion:boolean = false;
+  sendPostulacionMessage:boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -190,7 +192,45 @@ export class PostulationPageComponent implements OnInit {
           }
           break;
 
-        case 5:
+          case 5:
+            if( localStorage.getItem('postulacion') ) {
+              _root.saveExpProccess = true;
+              let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
+              postulacion.estado = '1';
+  
+              if(postulacion.tipo_persona == '1') {
+                postulacion.numero_documento = '00000000';
+              }
+              // postulacion.tipo_number_doc_declara = '1';
+              // postulacion.nom_representante = postulacion.nombre_completo;
+  
+              _root.apiService.postulacion(postulacion)
+              .then((res:any) => {
+                _root.saveExpProccess = false;
+                if( res.data.postulacion_id !== undefined ) {
+                  _root.idPostulacion = (res.data.postulacion_id).toString();
+                  postulacion.id_postulacion = (res.data.postulacion_id).toString();
+  
+                  if(sout == 'N') {
+                    localStorage.setItem('postulacion', _root.tools.cryptrData( JSON.stringify(postulacion) ));
+                    _root.active = parseInt(tabId) + 1;
+                    window.scrollTo(0, 0);
+                  }
+                  else if(sout == 'Y') {
+                    window.location.href = `${_root._win.relativePath}/`;
+                  }
+                }
+              })
+              .catch((err:any) => {
+                _root.saveExpProccess = false;
+                if(sout != 'tab') {
+                  _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
+                }
+              });
+            }
+            break;
+
+        case 6:
           if( localStorage.getItem('postulacion') ) {
             _root.saveExpProccess = true;
             let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
@@ -267,15 +307,25 @@ export class PostulationPageComponent implements OnInit {
 
   onSaveFinish(tab, tabId, sout:string = 'N'): void {
     let _root = this;
+    let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
 
-    _root.showLightBox = true;
-    _root.validateFormSendPostulacion = true;
+    _root.numeroPostulacion = postulacion.id_postulacion;
+
+    if(!postulacion.aceptacion_declara) {
+      _root.saveExpProccess = false;
+      _root.tools.showToastr('', 'Acepta la declaración jurada', 'error', 2000);
+    }
+    else {
+      _root.showLightBox = true;
+      _root.validateFormSendPostulacion = true;
+    }
   }
 
   onSaveFinishComplete() {
     let _root = this;
     if( _root.active == _root.tabs.length ) {
       // let _htmlpdf = document.getElementById('pdfdownload');
+      _root.tools.showPreloader();
       let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
 
       if(postulacion.tipo_persona == '1') {
@@ -301,22 +351,33 @@ export class PostulationPageComponent implements OnInit {
             postulacion.estado = '2';
             _root.apiService.postulacion(postulacion)
             .then((res:any) => {
+              _root.tools.hidePreloader();
               _root.saveExpProccess = false;
               if( res.data.postulacion_id !== undefined ) {
-                window.location.href = `${_root._win.relativePath}/`;
+                _root.validateFormSendPostulacion = false;
+                _root.sendPostulacionMessage = true;
+                setTimeout(() => {
+                  window.location.href = `${_root._win.relativePath}/`;
+                }, 5000);
               }
             })
             .catch((err:any) => {
+              _root.tools.hidePreloader();
               _root.saveExpProccess = false;
               _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
             });
           }
           else {
+            _root.tools.hidePreloader();
             _root.tools.showToastr('', 'No se puede enviar la postulación, la mención debe ser diferente', 'error', 2000);
           }
         }
+        else {
+          _root.tools.hidePreloader();
+        }
       })
       .catch((err:any) => {
+        _root.tools.hidePreloader();
         _root.saveExpProccess = false;
         _root.tools.showToastr('', 'No se puede validar la postulación', 'error', 2000);
       });

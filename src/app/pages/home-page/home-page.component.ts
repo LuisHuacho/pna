@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ApiService } from '../../services/api.service';
 import Tools from '../../utils/tools';
+import { FormService } from 'src/app/services/form.service';
 
 @Component({
   selector: 'app-home-page',
@@ -20,7 +21,8 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private formService: FormService
   ) {
     let _root = this;
 
@@ -105,28 +107,58 @@ export class HomePageComponent implements OnInit {
     let _root = this;
     _root.expierencePrint = {
       postulacion: item,
-      user: JSON.parse(_root.tools.decryptrData(localStorage.getItem('user_profile')))
+      experiencia: {},
+      user: JSON.parse(_root.tools.decryptrData(localStorage.getItem('user_profile'))),
+      anexos: [],
+      imagenes: []
     };
 
-    console.log( _root.expierencePrint );
+    _root.tools.showPreloader();
 
-    setTimeout(() => {
-      let printContents, popupWin;
-      printContents = document.getElementById('print_postulacion').innerHTML;
-      popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
-      popupWin.document.open();
-      popupWin.document.write(`
-        <html>
-          <head>
-            <title>Print tab</title>
-          </head>
-          <body>${printContents}</body>
-        </html>
-        `
-      );
-      popupWin.document.close();
-    }, 1000);
+    _root.apiService.experienciaById(item.id_postulacion)
+    .then((res:any) => {
+      if( res.data !== undefined ) {
+        _root.expierencePrint.experiencia = res.data;
+        // console.log( _root.expierencePrint );
+      }
 
+      return _root.apiService.listFile(item.id_postulacion);
+    })
+    .then((res:any) => {
+      let _docs = [];
+      let _imgs = [];
+
+      for(let file of res) {
+        if(file.tipo_documento == 'SU') {
+          _docs.push(file);
+        }
+        else if(file.tipo_documento == 'IR') {
+          _imgs.push(file);
+        }
+      }
+
+      setTimeout(() => {
+        let printContents, popupWin;
+        printContents = _root.formService.getPreviewPostulacion(_root.expierencePrint);
+        popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+        popupWin.document.open();
+        popupWin.document.write(`
+          <html>
+            <head>
+              <title>Print tab</title>
+            </head>
+            <body>${printContents}</body>
+          </html>
+          `
+        );
+        popupWin.document.close();
+      }, 1000);
+
+      _root.tools.hidePreloader();
+    })
+    .catch((err:any) => {
+      _root.tools.hidePreloader();
+    });
   }
 
 }

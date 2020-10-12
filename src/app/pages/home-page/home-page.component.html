@@ -22,10 +22,11 @@
                         <table class="table user-experience-table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">NOMBRE</th>
-                                    <th scope="col">REGIÓN</th>
+                                    <th scope="col">N° de postulación</th>
                                     <th scope="col">CATEGORÍA</th>
+                                    <th scope="col">MENCIÓN</th>
+                                    <th scope="col">TÍTULO DE LA EXPERIENCIA</th>
+                                    <th scope="col">REGIÓN</th>
                                     <th scope="col">FECHA</th>
                                     <th scope="col">ESTADO</th>
                                     <th scope="col">ACCIONES</th>
@@ -33,11 +34,12 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let expierence of expierences; let i = index">
-                                    <td>{{ (i + 1) }}</td>
+                                    <td>{{ expierence.id_postulacion }}</td>
+                                    <td>{{ expierence.desc_categoria }}</td>
+                                    <td>{{ expierence.desc_mencion }}</td>
                                     <td>{{ expierence.titulo_postulacion }}</td>
                                     <td>{{ expierence.desc_departamento }}</td>
                                     <!--<td>{{ expierence.desc_categoria }}</td>-->
-                                    <td>{{ getMencionByCategorie(expierence.id_mencion) }}</td>
                                     <td>{{ expierence.date }}</td>
                                     <td>
                                         <span *ngIf="expierence.estado_sistema == '2'" class="status-tag draft">Enviado</span>

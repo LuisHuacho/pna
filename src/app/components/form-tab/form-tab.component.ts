@@ -316,26 +316,37 @@ export class FormTabComponent implements OnInit, OnChanges {
               _root.postulacion.link_video2 = (DG.link_video2 !== null) ? DG.link_video2 : '';
               _root.postulacion.link_video3 = (DG.link_video3 !== null) ? DG.link_video3 : '';
               _root.postulacion.link_video4 = (DG.link_video4 !== null) ? DG.link_video4 : '';
-              _root.postulacion.tipo_number_doc_declara = (DG.tipo_number_doc_declara !== null) ? DG.tipo_number_doc_declara : '';
-              _root.postulacion.nombre_postulante_declara = (DG.nombre_postulante_declara !== null) ? DG.nombre_postulante_declara : '';
-              _root.postulacion.direccion_postulante_declara = (DG.direccion_postulante_declara !== null) ? DG.direccion_postulante_declara : '';
+              // _root.postulacion.tipo_number_doc_declara = (DG.tipo_number_doc_declara !== null) ? DG.tipo_number_doc_declara : '';
+              let _tdoc = '';
+              if(_root.userProfile.id_tipo_documento == '1') {
+                _tdoc = 'DNI - ';
+              }
+              else if(_root.userProfile.id_tipo_documento == '2') {
+                _tdoc = 'Carmet de extrnajería - ';
+              }
+              _root.postulacion.tipo_number_doc_declara = `${_tdoc}${_root.userProfile.numero_documento}`;
+              // _root.postulacion.nombre_postulante_declara = (DG.nombre_postulante_declara !== null) ? DG.nombre_postulante_declara : '';
+              _root.postulacion.nombre_postulante_declara = _root.userProfile.nombres;
+              // _root.postulacion.direccion_postulante_declara = (DG.direccion_postulante_declara !== null) ? DG.direccion_postulante_declara : '';
+              _root.postulacion.direccion_postulante_declara = _root.userProfile.domicilio;
               _root.postulacion.sitio_web_postulante = (DG.sitio_web_postulante !== null) ? DG.sitio_web_postulante : '';
               _root.postulacion.aceptacion_declara = (DG.aceptacion_declara !== null) ? DG.aceptacion_declara : 0;
 
               if(_root.formName == 'dec_jur') {
-                if(_root.postulacion.tipo_number_doc_declara != '') {
-                  let _arr = (_root.postulacion.tipo_number_doc_declara).split('-');
-  
-                  if(_arr[0] == 'DNI') {
-                    _root.tipoNumeroDocumentoDeclara = '1';
-                  }
-                  else if(_arr[0] == 'Carmet de extrnajería') {
-                    _root.tipoNumeroDocumentoDeclara = '2';
-                  }
-                  _root.numeroDocumentoDeclara = _arr[1];
-                }
+                _root.tipoNumeroDocumentoDeclara = _root.userProfile.id_tipo_documento;
+                _root.numeroDocumentoDeclara = _root.userProfile.numero_documento;
 
-                console.log( _root.postulacion.aceptacion_declara );
+                // if(_root.postulacion.tipo_number_doc_declara != '') {
+                //   let _arr = (_root.postulacion.tipo_number_doc_declara).split('-');
+  
+                //   if(_arr[0] == 'DNI') {
+                //     _root.tipoNumeroDocumentoDeclara = '1';
+                //   }
+                //   else if(_arr[0] == 'Carmet de extrnajería') {
+                //     _root.tipoNumeroDocumentoDeclara = '2';
+                //   }
+                //   _root.numeroDocumentoDeclara = _arr[1];
+                // }
   
                 if(!_root.postulacion.aceptacion_declara) {
                   _root.postulacion.aceptacion_declara = false;

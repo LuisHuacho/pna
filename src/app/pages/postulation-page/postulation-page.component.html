@@ -41,7 +41,7 @@
                                                 <span class="ml-4 mr-4">Guardar y continuar</span>
                                                 <app-preloader-widget *ngIf="saveExpProccess" [type]="'button'"></app-preloader-widget>
                                             </button>
-                                            <button *ngIf="(tab.id == tabs.length)" type="button" class="btn btn-primary btn-sm pt-2 pb-2 pl-4 pr-4 ml-2" (click)="onSaveFinish(tab, tab.id)">Guardar y enviar a revisión</button>
+                                            <button *ngIf="(tab.id == tabs.length)" type="button" class="btn btn-primary btn-sm pt-2 pb-2 pl-4 pr-4 ml-2" (click)="onSaveFinish(tab, tab.id)">Enviar postulación</button>
                                         </div>
                                     </div>
                                 </div>
@@ -63,14 +63,33 @@
             <div class="title">
                 <p class="text-center">
                     <span class="icon display-1 text-primary">
-                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        <!--<i class="fa fa-question-circle" aria-hidden="true"></i>-->
+                        <img class="app-logo-premio" src="assets/logo-premio.png" alt="logo premio">
                     </span>
                 </p>
                 <p class="text-center p-4 text-primary">¿Estas seguro de finalizar la postulación y enviarla a revisión?</p>
             </div>
             <div class="actions text-center">
                 <button class="btn btn-light ml-2" (click)="onSaveFinishCancel()">Cancelar</button>
-                <button class="btn btn-primary" (click)="onSaveFinishComplete()">Aceptar</button>
+                <button class="btn btn-primary" (click)="onSaveFinishComplete()">Continuar</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="sendPostulacionMessage" class="p-4 panel">
+        <div class="content">
+            <div class="header"></div>
+            <div class="title">
+                <p class="text-center">
+                    <span class="icon display-1 text-primary">
+                        <!--<i class="fa fa-question-circle" aria-hidden="true"></i>-->
+                        <img class="app-logo-premio" src="assets/logo-premio.png" alt="logo premio">
+                    </span>
+                </p>
+                <p class="text-center pl-4 pr-4 text-dark">¡Felicitaciones!</p>
+                <p class="pl-4 pr-4 text-dark">Su postulación ha sido registrada correctamente con el número {{ numeroPostulacion }}. Revise en su bandeja de entrada del correo que ha consignado, el acuse de recibo de su postulación.</p>
+                <p class="pl-4 pr-4 text-dark">Atentamente,</p>
+                <p class="text-center pl-4 pr-4 text-dark">Premio Nacional Ambiental Antonio Brack Egg</p>
+                <p class="text-center pl-4 pr-4 text-dark">MINISTERIO DEL AMBIENTE</p>
             </div>
         </div>
     </div>

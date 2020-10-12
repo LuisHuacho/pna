@@ -710,6 +710,7 @@
 </div>
 
 <div *ngIf="formName == 'info_esp'" class="tab-form">
+    <div *ngIf="mencionTitle == ''" class="tab-title mb-3">Debes guardar la postulación para visualizar estos campos.</div>
     <div class="tab-title mb-3">{{ mencionTitle }}</div>
     <small class="mb-3 app-txt-dark">{{ mencionDesc }}</small>
     <div class="tab-form-group fcollapse mt-4 mb-3">
@@ -887,7 +888,7 @@
                 <small class="app-txt-dark">Tipo de documento</small>
             </div>
             <div class="col col-12 col-sm-12 col-md-2">
-                <select class="form-control" name="tipo_documento_declara" [(ngModel)]="tipoNumeroDocumentoDeclara" (change)="onChange($event)">
+                <select class="form-control" name="tipo_documento_declara" [(ngModel)]="tipoNumeroDocumentoDeclara" (change)="onChange($event)" disabled>
                     <option value="" selected disabled></option>
                     <option value="1">DNI</option>
                     <option value="2">Carnet de extranjería</option>
@@ -899,8 +900,8 @@
                 <small class="app-txt-dark">Número</small>
             </div>
             <div class="col col-12 col-sm-12 col-md-3">
-                <input *ngIf="tipoNumeroDocumentoDeclara == '1'" type="tel" mask="00000000" class="form-control" name="numero_documento_declara" [(ngModel)]="numeroDocumentoDeclara" (change)="onChange($event)">
-                <input *ngIf="tipoNumeroDocumentoDeclara == '2'" type="tel" class="form-control" name="numero_documento_declara" [(ngModel)]="numeroDocumentoDeclara" (change)="onChange($event)">
+                <input *ngIf="tipoNumeroDocumentoDeclara == '1'" type="tel" mask="00000000" class="form-control" name="numero_documento_declara" [(ngModel)]="numeroDocumentoDeclara" (change)="onChange($event)" disabled>
+                <input *ngIf="tipoNumeroDocumentoDeclara == '2'" type="tel" class="form-control" name="numero_documento_declara" [(ngModel)]="numeroDocumentoDeclara" (change)="onChange($event)" disabled>
             </div>
         </div>
         <div class="row mb-2">
@@ -908,7 +909,7 @@
                 <small class="app-txt-dark">Nombre completo</small>
             </div>
             <div class="col col-12 col-sm-12 col-md-3">
-                <input type="text" class="form-control" [(ngModel)]="postulacion.nombre_postulante_declara" (change)="onChange($event)">
+                <input type="text" class="form-control" [(ngModel)]="postulacion.nombre_postulante_declara" (change)="onChange($event)" disabled>
             </div>
         </div>
         <div class="row mb-2">
@@ -916,7 +917,7 @@
                 <small class="app-txt-dark">Domicilio</small>
             </div>
             <div class="col col-12 col-sm-12 col-md-3">
-                <input type="text" class="form-control" [(ngModel)]="postulacion.direccion_postulante_declara" (change)="onChange($event)">
+                <input type="text" class="form-control" [(ngModel)]="postulacion.direccion_postulante_declara" (change)="onChange($event)" disabled>
             </div>
         </div>
         <div class="row mt-4">

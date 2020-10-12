@@ -17,11 +17,11 @@ export class RegisterPageComponent implements OnInit {
   user:IUser = {
     username: '',
     password: '',
-    smacAddress: 'AAAAAAAAA',
+    smacAddress: '',
     sipAddress: '',
     sappServer: 'PREMIO',
     ssistOperativo: '',
-    linkAplicativo: 'http://google.com'
+    linkAplicativo: ''
   };
   
   userRegister:IUserRegister = {
@@ -55,6 +55,28 @@ export class RegisterPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.ip_local());
+  }
+
+  ip_local() {
+    let ip = false;
+    this._win.RTCPeerConnection = this._win.RTCPeerConnection || this._win.mozRTCPeerConnection || this._win.webkitRTCPeerConnection || false;
+
+    if (this._win.RTCPeerConnection) {
+      let ip:any = []; 
+      let pc:any = new RTCPeerConnection({iceServers:[]}), noop = function(){};
+      pc.createDataChannel('');
+      pc.createOffer(pc.setLocalDescription.bind(pc), noop);
+
+      pc.onicecandidate = function(event) {
+        if (event && event.candidate && event.candidate.candidate) {
+          let s = event.candidate.candidate.split('\n');
+          ip.push(s[0].split(' ')[4]);
+        }
+      }
+    }
+
+    return ip;
   }
 
   register(e) {
@@ -67,8 +89,8 @@ export class RegisterPageComponent implements OnInit {
   
       _root.user.username = 'USUARIO_DEFECTO_BRACK';
       _root.user.password = '123';
-      _root.user.sipAddress = '192.100.20.5';
       _root.user.ssistOperativo = _root.tools.getOperatingSystem();
+      _root.user.linkAplicativo = _root.tools.getHostname();
   
       _root.userService.login(_root.user)
       .then((res:any) => {
