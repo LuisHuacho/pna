@@ -200,6 +200,7 @@ export class RegisterPageComponent implements OnInit {
       _root.user.password = '123';
       _root.user.sipAddress = '';
       _root.user.ssistOperativo = _root.tools.getOperatingSystem();
+      _root.user.linkAplicativo = _root.tools.getHostname();
 
       _root.userService.login(_root.user)
       .then((res:any) => {

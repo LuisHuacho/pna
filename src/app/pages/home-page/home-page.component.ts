@@ -119,7 +119,6 @@ export class HomePageComponent implements OnInit {
     .then((res:any) => {
       if( res.data !== undefined ) {
         _root.expierencePrint.experiencia = res.data;
-        // console.log( _root.expierencePrint );
       }
 
       return _root.apiService.listFile(item.id_postulacion);
@@ -130,12 +129,15 @@ export class HomePageComponent implements OnInit {
 
       for(let file of res) {
         if(file.tipo_documento == 'SU') {
-          _docs.push(file);
+          _docs.push(file.nombre_documento);
         }
         else if(file.tipo_documento == 'IR') {
-          _imgs.push(file);
+          _imgs.push(file.nombre_documento);
         }
       }
+
+      _root.expierencePrint.anexos = _docs;
+      _root.expierencePrint.imagenes = _imgs;
 
       setTimeout(() => {
         let printContents, popupWin;
