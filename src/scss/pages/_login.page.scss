@@ -25,6 +25,9 @@ app-login-page {
                 display: flex;
                 font-size: 0.9em;
                 color: $app_txt_light;
+                p {
+                    text-align: justify;
+                }
                 span {
                     color: $app_blue;
                     * {

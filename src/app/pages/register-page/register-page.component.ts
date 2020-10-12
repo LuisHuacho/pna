@@ -41,6 +41,9 @@ export class RegisterPageComponent implements OnInit {
   registerProccess:boolean = false;
   searchProccess:boolean = false;
 
+  showLightBox:boolean = false;
+  registerComplete:boolean = false;
+
   nombresEnabled:boolean = true;
   apellidosEnabled:boolean = true;
   documentMask:string = '00000000';
@@ -55,7 +58,7 @@ export class RegisterPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.ip_local());
+
   }
 
   ip_local() {
@@ -100,11 +103,15 @@ export class RegisterPageComponent implements OnInit {
   
           _root.userService.register(_root.userRegister, res.token)
           .then((res:any) => {
+            _root.showLightBox = true;
+            _root.registerComplete = true;
+
+            setTimeout(() => {
+              window.location.href = `${_root._win.relativePath}/`;
+            }, 5000);
+
             if(res.status !== undefined) {
-              if(res.status == 200) {
-                window.location.href = `${_root._win.relativePath}/`;
-              }
-              else if(res.status == 203) {
+              if(res.status == 203) {
                 _root.tools.showToastr('ERROR', 'No se pudo registrar', 'error', 2000);
               }
               else if(res.status == 400) {
@@ -124,7 +131,8 @@ export class RegisterPageComponent implements OnInit {
       .catch(err => {
         _root.registerProccess = false;
         if(err.error.error !== undefined) {
-          _root.tools.showToastr('ERROR', err.error.mensaje, 'error', 2000);
+          // _root.tools.showToastr('ERROR', err.error.mensaje, 'error', 2000);
+          _root.tools.showToastr('ERROR', 'No se pudo registrar', 'error', 2000);
         }
       });
     }
@@ -190,7 +198,7 @@ export class RegisterPageComponent implements OnInit {
       _root.searchProccess = true;
       _root.user.username = 'USUARIO_DEFECTO_BRACK';
       _root.user.password = '123';
-      _root.user.sipAddress = '192.100.20.5';
+      _root.user.sipAddress = '';
       _root.user.ssistOperativo = _root.tools.getOperatingSystem();
 
       _root.userService.login(_root.user)

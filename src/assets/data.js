@@ -5,6 +5,13 @@ window.loginText = [
     {
       content: `
       <p>
+      El 2020 es un año singular. Los efectos sociales, económicos y ambientales derivados de la pandemia COVID-19, están generando novedosas formas de reaccionar y actuar ante nuevos escenarios. Las empresas, organizaciones, instituciones e individuos se reinventan y las acciones que desarrollan, en muchos casos, buscan un mejor relacionamiento entre el hombre y la naturaleza. Es en este marco, que el MINAM busca reconocer en la edición 2020 a quienes desarrollan emprendimientos que se adaptan a este contexto, así como a quienes tienen experiencias que mantienen resultados vigentes que contribuyen a la protección ambiental, el manejo sostenible de los recursos naturales y la conservación.
+      </p>
+      `
+    },
+    {
+      content: `
+      <p>
       Cree una cuenta de usuario <span><a href="${window.relativePath}/register"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> (haga click aquí).</a></span> Mediante esta cuenta, usted tendrá acceso a una plataforma de postulación en línea, donde podrá completar una ficha de postulación y adjuntar los documentos solicitados.
       </p>
       `
@@ -48,6 +55,13 @@ window.loginText = [
       content: `
       <p>
       Usted puede postular una o varias experiencias. Si desea postular mas de una experiencia, debe completar una ficha de postulación para cada una de ellas.
+      </p>
+      `
+    },
+    {
+      content: `
+      <p>
+      EL MINISTERIO DEL AMBIENTE AGRADECE SU PARTICIPACIÓN
       </p>
       `
     },

@@ -136,4 +136,25 @@
     </div>
 </div>
 
+<div *ngIf="showLightBox" id="ligthbox">
+    <div *ngIf="registerComplete" class="p-4 panel">
+        <div class="content">
+            <div class="header"></div>
+            <div class="title">
+                <p class="text-center">
+                    <span class="icon display-1 text-primary">
+                        <!--<i class="fa fa-question-circle" aria-hidden="true"></i>-->
+                        <img class="app-logo-premio" src="assets/logo-premio.png" alt="logo premio">
+                    </span>
+                </p>
+                <p class="text-center pl-4 pr-4 text-dark">¡Felicitaciones!</p>
+                <p class="pl-4 pr-4 text-dark">Usted se ha registrado correctamente. Revise en su bandeja de entrada del correo que ha consignado, el acuse de registro y sus credenciales.</p>
+                <p class="pl-4 pr-4 text-dark">Atentamente,</p>
+                <p class="text-center pl-4 pr-4 text-dark">Premio Nacional Ambiental Antonio Brack Egg</p>
+                <p class="text-center pl-4 pr-4 text-dark">MINISTERIO DEL AMBIENTE</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <app-footer></app-footer>

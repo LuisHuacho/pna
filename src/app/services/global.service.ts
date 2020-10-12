@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { ConfigApi } from '../services/config.api';
+import Tools from '../utils/tools';
 
 import {jsPDF} from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -16,10 +17,27 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class GlobalService {
 
   configApi:any = new ConfigApi();
+  tools = new Tools();
 
   constructor(
     private http: HttpClient
   ) { }
+
+  checkPostulacionIdExist() {
+    let idp:any = true;
+    let _root = this;
+    if( localStorage.getItem('postulacion') ) {
+      let postulacion = JSON.parse( _root.tools.decryptrData( localStorage.getItem('postulacion') ) );
+      if(postulacion.id_postulacion != '0') {
+        idp = false
+      }
+      else {
+        idp = true;
+      }
+    }
+
+    return idp;
+  }
 
   getIpJson() {
     let promise = new Promise((resolve, reject) => {

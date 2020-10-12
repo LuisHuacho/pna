@@ -235,6 +235,36 @@ export class FormTabComponent implements OnInit, OnChanges {
     // _root.postulacion.email = _root.userProfile.correo;
     // _root.postulacion.numero_documento = _root.userProfile.numero_documento;
 
+    if(_root.formName == 'dec_jur') {
+      _root.tipoNumeroDocumentoDeclara = _root.userProfile.id_tipo_documento;
+      _root.numeroDocumentoDeclara = _root.userProfile.numero_documento;
+
+      setTimeout(() => {
+        let _spbtn:any = document.getElementById('sendPostulacionBtn');
+
+        if(!_root.postulacion.aceptacion_declara) {
+          _root.postulacion.aceptacion_declara = false;
+          _spbtn.disabled = true;
+        }
+        else {
+          _spbtn.disabled = false;
+          _root.postulacion.aceptacion_declara = true;
+        }
+      }, 500);
+
+      let _tdoc = '';
+      if(_root.userProfile.id_tipo_documento == '1') {
+        _tdoc = 'DNI - ';
+      }
+      else if(_root.userProfile.id_tipo_documento == '2') {
+        _tdoc = 'Carmet de extrnajería - ';
+      }
+
+      _root.postulacion.nombre_postulante_declara = _root.userProfile.nombres;
+      _root.postulacion.direccion_postulante_declara = _root.userProfile.domicilio;
+      _root.postulacion.tipo_number_doc_declara = `${_tdoc}${_root.userProfile.numero_documento}`;
+    }
+
     if(_root.idPostulacion != '') {
       _root.apiService.postulacionById(_root.idPostulacion)
       .then((res:any) => {
@@ -317,44 +347,44 @@ export class FormTabComponent implements OnInit, OnChanges {
               _root.postulacion.link_video3 = (DG.link_video3 !== null) ? DG.link_video3 : '';
               _root.postulacion.link_video4 = (DG.link_video4 !== null) ? DG.link_video4 : '';
               // _root.postulacion.tipo_number_doc_declara = (DG.tipo_number_doc_declara !== null) ? DG.tipo_number_doc_declara : '';
-              let _tdoc = '';
-              if(_root.userProfile.id_tipo_documento == '1') {
-                _tdoc = 'DNI - ';
-              }
-              else if(_root.userProfile.id_tipo_documento == '2') {
-                _tdoc = 'Carmet de extrnajería - ';
-              }
-              _root.postulacion.tipo_number_doc_declara = `${_tdoc}${_root.userProfile.numero_documento}`;
+              // let _tdoc = '';
+              // if(_root.userProfile.id_tipo_documento == '1') {
+              //   _tdoc = 'DNI - ';
+              // }
+              // else if(_root.userProfile.id_tipo_documento == '2') {
+              //   _tdoc = 'Carmet de extrnajería - ';
+              // }
+              // _root.postulacion.tipo_number_doc_declara = `${_tdoc}${_root.userProfile.numero_documento}`;
               // _root.postulacion.nombre_postulante_declara = (DG.nombre_postulante_declara !== null) ? DG.nombre_postulante_declara : '';
-              _root.postulacion.nombre_postulante_declara = _root.userProfile.nombres;
+              // _root.postulacion.nombre_postulante_declara = _root.userProfile.nombres;
               // _root.postulacion.direccion_postulante_declara = (DG.direccion_postulante_declara !== null) ? DG.direccion_postulante_declara : '';
-              _root.postulacion.direccion_postulante_declara = _root.userProfile.domicilio;
+              // _root.postulacion.direccion_postulante_declara = _root.userProfile.domicilio;
               _root.postulacion.sitio_web_postulante = (DG.sitio_web_postulante !== null) ? DG.sitio_web_postulante : '';
               _root.postulacion.aceptacion_declara = (DG.aceptacion_declara !== null) ? DG.aceptacion_declara : 0;
 
-              if(_root.formName == 'dec_jur') {
-                _root.tipoNumeroDocumentoDeclara = _root.userProfile.id_tipo_documento;
-                _root.numeroDocumentoDeclara = _root.userProfile.numero_documento;
+              // if(_root.formName == 'dec_jur') {
+              //   _root.tipoNumeroDocumentoDeclara = _root.userProfile.id_tipo_documento;
+              //   _root.numeroDocumentoDeclara = _root.userProfile.numero_documento;
 
-                // if(_root.postulacion.tipo_number_doc_declara != '') {
-                //   let _arr = (_root.postulacion.tipo_number_doc_declara).split('-');
+              //   // if(_root.postulacion.tipo_number_doc_declara != '') {
+              //   //   let _arr = (_root.postulacion.tipo_number_doc_declara).split('-');
   
-                //   if(_arr[0] == 'DNI') {
-                //     _root.tipoNumeroDocumentoDeclara = '1';
-                //   }
-                //   else if(_arr[0] == 'Carmet de extrnajería') {
-                //     _root.tipoNumeroDocumentoDeclara = '2';
-                //   }
-                //   _root.numeroDocumentoDeclara = _arr[1];
-                // }
+              //   //   if(_arr[0] == 'DNI') {
+              //   //     _root.tipoNumeroDocumentoDeclara = '1';
+              //   //   }
+              //   //   else if(_arr[0] == 'Carmet de extrnajería') {
+              //   //     _root.tipoNumeroDocumentoDeclara = '2';
+              //   //   }
+              //   //   _root.numeroDocumentoDeclara = _arr[1];
+              //   // }
   
-                if(!_root.postulacion.aceptacion_declara) {
-                  _root.postulacion.aceptacion_declara = false;
-                }
-                else {
-                  _root.postulacion.aceptacion_declara = true;
-                }
-              }
+              //   if(!_root.postulacion.aceptacion_declara) {
+              //     _root.postulacion.aceptacion_declara = false;
+              //   }
+              //   else {
+              //     _root.postulacion.aceptacion_declara = true;
+              //   }
+              // }
   
               localStorage.setItem('postulacion', _root.tools.cryptrData( JSON.stringify(_root.postulacion) ));
             }
@@ -983,9 +1013,15 @@ export class FormTabComponent implements OnInit, OnChanges {
           }
           break;
 
-        // case 'aceptacion_declara':
-          
-        //   break;
+        case 'aceptacion_declara':
+          let _spbtn:any = document.getElementById('sendPostulacionBtn');
+          if( _target.checked ) {
+            _spbtn.disabled = false;
+          }
+          else {
+            _spbtn.disabled = true;
+          }
+          break;
 
         case 'tipo_documento_declara':
           if(_target.value == '1') {

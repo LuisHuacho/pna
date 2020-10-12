@@ -8,7 +8,12 @@
         <div class="container">
             <div class="row">
                 <div class="col col-12 col-sm-12">
-                    <div class="content-title text-center mt-5 mb-5">BIENVENIDO(A): PREMIO NACIONAL AMBIENTAL ANTONIO BRACK EGG</div>
+                    <div class="content-title text-center mt-5 mb-5">PREMIO NACIONAL AMBIENTAL ANTONIO BRACK EGG</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-12 col-sm-12 mb-3">
+                    <div class="text-justify">En este espacio, usted podrá registrar nuevas postulaciones y acceder a la información de las postulaciones o información registrada.</div>
                 </div>
             </div>
             <div class="row">
@@ -16,7 +21,12 @@
                     <a href="{{ _win.relativePath }}/postulacion" class="btn btn-link add-expierence-btn">AGREGAR NUEVA EXPERIENCIA <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <div class="row">
+            <div *ngIf="expierences.length == 0" class="row">
+                <div class="col col-12 col-sm-12">
+                    <div class="text-center">Ud. aún no ha registrado postulaciones.</div>
+                </div>
+            </div>
+            <div *ngIf="expierences.length > 0" class="row">
                 <div class="col col-12 col-sm-12">
                     <div class="table-responsive">
                         <table class="table user-experience-table">
@@ -39,7 +49,6 @@
                                     <td>{{ expierence.desc_mencion }}</td>
                                     <td>{{ expierence.titulo_postulacion }}</td>
                                     <td>{{ expierence.desc_departamento }}</td>
-                                    <!--<td>{{ expierence.desc_categoria }}</td>-->
                                     <td>{{ expierence.date }}</td>
                                     <td>
                                         <span *ngIf="expierence.estado_sistema == '2'" class="status-tag draft">Enviado</span>

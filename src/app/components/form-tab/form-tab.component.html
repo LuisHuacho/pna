@@ -164,7 +164,7 @@
                  <div class="col col-12 col-md-6 col-sm-12">
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label col-form-label-sm">
-                           Localidad <span class="text-danger">*</span>
+                           Localidad
                         </label>
                         <div class="col-sm-7"><input class="form-control form-control-sm" type="text" [(ngModel)]="postulacion.localidad" (change)="onChange($event)"></div>
                      </div>
@@ -338,7 +338,8 @@
 </div>
 
 <div *ngIf="formName == 'info_gen'" class="tab-form mt-3">
-    <div class="tab-form-group fcollapse mb-3">
+    <div *ngIf="globalService.checkPostulacionIdExist()" class="tab-title mb-3">Debes guardar los DATOS GENERALES para visualizar estos campos.</div>
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="tab-form-group fcollapse mb-3">
         <div class="tab-form-group-title" (click)="onClickCollapse($event)">1. RELEVANCIA DE LA EXPERIENCIA</div>
         <div class="tab-form-group-fields mt-4">
             <div class="row">
@@ -400,7 +401,7 @@
         </div>
     </div>
 
-    <div class="tab-form-group fcollapse mb-3">
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="tab-form-group fcollapse mb-3">
         <div class="tab-form-group-title" (click)="onClickCollapse($event)">2. SOSTENIBILIDAD DE LA EXPERIENCIA</div>
         <div class="tab-form-group-fields collapse mt-4">
             <div class="row">
@@ -475,7 +476,7 @@
         </div>
     </div>
 
-    <div class="tab-form-group fcollapse mb-3">
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="tab-form-group fcollapse mb-3">
         <div class="tab-form-group-title" (click)="onClickCollapse($event)">3. REPLICABILIDAD DE LA EXPERIENCIA</div>
         <div class="tab-form-group-fields collapse mt-4">
             <div class="row">
@@ -564,7 +565,7 @@
         </div>
     </div>
 
-    <div class="tab-form-group fcollapse mb-3">
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="tab-form-group fcollapse mb-3">
         <div class="tab-form-group-title" (click)="onClickCollapse($event)">4. ENFOQUES TRANSVERSALES DE GÉNERO E INTERCULTURALIDAD</div>
         <div class="tab-form-group-fields collapse mt-4">
             <div class="row">
@@ -710,10 +711,10 @@
 </div>
 
 <div *ngIf="formName == 'info_esp'" class="tab-form">
-    <div *ngIf="mencionTitle == ''" class="tab-title mb-3">Debes guardar la postulación para visualizar estos campos.</div>
-    <div class="tab-title mb-3">{{ mencionTitle }}</div>
-    <small class="mb-3 app-txt-dark">{{ mencionDesc }}</small>
-    <div class="tab-form-group fcollapse mt-4 mb-3">
+    <div *ngIf="globalService.checkPostulacionIdExist()" class="tab-title mb-3">Debes guardar los DATOS GENERALES para visualizar estos campos.</div>
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="tab-title mb-3">{{ mencionTitle }}</div>
+    <small *ngIf="!globalService.checkPostulacionIdExist()" class="mb-3 app-txt-dark">{{ mencionDesc }}</small>
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="tab-form-group fcollapse mt-4 mb-3">
         <!--<div class="tab-form-group-title" (click)="onClickCollapse($event)">1. SOBRE LA PERTINENCIA DE LA EXPERIENCIA EDUCATIVA</div>-->
         <div class="tab-form-group-fields mt-4">
             <div class="row">
@@ -827,7 +828,8 @@
 </div>
 
 <div *ngIf="formName == 'anex_sust'" class="tab-form">
-    <ngx-dropzone (change)="onSelect($event, 'SU')" class="mt-3">
+    <div *ngIf="globalService.checkPostulacionIdExist()" class="tab-title mb-3">Debes guardar los DATOS GENERALES para visualizar estos campos.</div>
+    <ngx-dropzone *ngIf="!globalService.checkPostulacionIdExist()" (change)="onSelect($event, 'SU')" class="mt-3">
         <ngx-dropzone-label>
             <p>
                 <small class="app-txt-dark">Arrastre Archivos aquí para subirlos</small>
@@ -843,19 +845,19 @@
             </p>
         </ngx-dropzone-label>
     </ngx-dropzone>
-    <div class="row">
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="row">
         <div class="col col-sm-6 col-md-3" *ngFor="let f of documents">
             <ngx-dropzone-preview [removable]="true" (removed)="onRemove(f)">
                 <ngx-dropzone-label (click)="onClickFile(f)">{{ f.nombre_documento }}</ngx-dropzone-label>
             </ngx-dropzone-preview>
         </div>
     </div>
-    <div class="mt-5">
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="mt-5">
         <p>
             <small class="app-txt-dark">Enlaces a páginas web o redes sociales:</small>
         </p>
     </div>
-    <div class="conatiner-fluid mt-2">
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="conatiner-fluid mt-2">
         <div class="row">
             <div class="col col-12 col-sm-12 col-md-7">
                 <p>
@@ -882,7 +884,8 @@
 </div>
 
 <div *ngIf="formName == 'dec_jur'" class="tab-form">
-    <div class="conatiner-fluid mt-2">
+    <div *ngIf="globalService.checkPostulacionIdExist()" class="tab-title mb-3">Debes guardar los DATOS GENERALES para visualizar estos campos.</div>
+    <div *ngIf="!globalService.checkPostulacionIdExist()" class="conatiner-fluid mt-2">
         <div class="row mb-2">
             <div class="col col-12 col-sm-12 col-md-2">
                 <small class="app-txt-dark">Tipo de documento</small>
@@ -929,22 +932,25 @@
 </div>
 
 <div *ngIf="formName == 'img_repre'" class="tab-form">
-    <ngx-dropzone *ngIf="images_repre.length == 0" (change)="onSelect($event, 'IR')" class="mt-3">
-        <ngx-dropzone-label>
-            <p>
-                <small class="app-txt-dark">Arrastre Archivos aquí para subirlos</small>
-            </p>
-            <p>
-                <small class="app-txt-dark">ó</small>
-            </p>
-            <p>
-                <button type="button" class="btn btn-outline-primary">Seleccionar archivos</button>
-            </p>
-            <p>
-                <small class="app-txt-dark" style="font-size: 0.7em;">Tamaño máximo del fichero: 2 MB</small>
-            </p>
-        </ngx-dropzone-label>
-    </ngx-dropzone>
+    <div *ngIf="globalService.checkPostulacionIdExist()" class="tab-title mb-3">Debes guardar los DATOS GENERALES para visualizar estos campos.</div>
+    <div *ngIf="!globalService.checkPostulacionIdExist()">
+        <ngx-dropzone *ngIf="images_repre.length == 0" (change)="onSelect($event, 'IR')" class="mt-3">
+            <ngx-dropzone-label>
+                <p>
+                    <small class="app-txt-dark">Arrastre Archivos aquí para subirlos</small>
+                </p>
+                <p>
+                    <small class="app-txt-dark">ó</small>
+                </p>
+                <p>
+                    <button type="button" class="btn btn-outline-primary">Seleccionar archivos</button>
+                </p>
+                <p>
+                    <small class="app-txt-dark" style="font-size: 0.7em;">Tamaño máximo del fichero: 2 MB</small>
+                </p>
+            </ngx-dropzone-label>
+        </ngx-dropzone>
+    </div>
     <div class="row">
         <div class="col col-sm-6 col-md-3" *ngFor="let f of images_repre">
             <ngx-dropzone-preview [removable]="true" (removed)="onRemove(f)">
