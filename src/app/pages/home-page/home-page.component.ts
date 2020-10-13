@@ -105,17 +105,92 @@ export class HomePageComponent implements OnInit {
     event.preventDefault();
 
     let _root = this;
+    let preguntasMencion = [];
+    let preguntasTablaAnswer = [];
+    let _preguntasMencionTabla = [];
+
     _root.expierencePrint = {
       postulacion: item,
       experiencia: {},
       user: JSON.parse(_root.tools.decryptrData(localStorage.getItem('user_profile'))),
+      menciones: [],
       anexos: [],
-      imagenes: []
+      imagenes: [],
+      preguntasTablaAnswer: [],
+      mencionTitle: '',
+      mencionDesc: '',
     };
 
     _root.tools.showPreloader();
 
-    _root.apiService.experienciaById(item.id_postulacion)
+    _root.apiService.preguntaTablaSavedList(item.id_postulacion)
+    .then((res:any) => {
+      if(res.status == 200) {
+        if( res.body.data.length > 0 ) {
+          preguntasTablaAnswer = res.body.data;
+        }
+      }
+
+      return _root.apiService.preguntaTablaListar(item.id_mencion);
+    })
+    .then((res:any) => {
+      if(res.status == 200) {
+        if( res.body.data.length > 0 ) {
+          _preguntasMencionTabla = res.body.data;
+        }
+      }
+      
+      return _root.apiService.preguntaListar(item.id_mencion);
+    })
+    .then((res:any) => {
+      if(res.status == 200) {
+        if( res.body.data.length > 0 ) {
+          let _count = 0;
+          let _data = [];
+          for(let item of res.body.data) {
+            if( _count == 0 ) {
+              let _formMencion = _root.formService.getFormMencion(item.titulo_mencion);
+              _root.expierencePrint.mencionTitle = item.titulo_mencion;
+              _root.expierencePrint.mencionDesc = _formMencion.description;
+              _data = _formMencion.fields;
+            }
+            _count = (_count + 1);
+          }
+
+          for(let item of _data) {
+            if(item.tipo_campo == 'tabla') {
+              for(let ittem of _preguntasMencionTabla) {
+                if(item.id_campo == ittem.id_campo) {
+                  ittem.answers = {};
+                  item.tabla = ittem;
+                }
+              }
+            }
+            item.value = '';
+          }
+          preguntasMencion = _data;
+        }
+      }
+
+      return _root.apiService.preguntaSavedList(item.id_postulacion);
+    })
+    .then((res:any) => {
+      if(res.status == 200) {
+        if( res.body.data.length > 0 ) {
+          for(let item of res.body.data) {
+            for(let itemj of preguntasMencion) {
+              if(item.id_campo == itemj.id_campo) {
+                itemj.value = item.valor_texto;
+              }
+            }
+          }
+        }
+      }
+
+      _root.expierencePrint.menciones = preguntasMencion;
+
+      return _root.apiService.experienciaById(item.id_postulacion);
+    })
     .then((res:any) => {
       if( res.data !== undefined ) {
         _root.expierencePrint.experiencia = res.data;
@@ -138,6 +213,7 @@ export class HomePageComponent implements OnInit {
 
       _root.expierencePrint.anexos = _docs;
       _root.expierencePrint.imagenes = _imgs;
+      _root.expierencePrint.preguntasTablaAnswer = preguntasTablaAnswer;
 
       console.log( _root.expierencePrint );
 
@@ -149,7 +225,23 @@ export class HomePageComponent implements OnInit {
         popupWin.document.write(`
           <html>
             <head>
-              <title>Print tab</title>
+              <title>Mención</title>
+              <style>
+              .mencion-content {
+                padding: 0 10px!important;
+              }
+              .mencion-content p {
+                margin:0cm!important;
+                font-size:15px!important;
+                font-family:"Calibri",sans-serif!important;
+                color:#002060!important;
+              }
+              .mencion-content span, .mencion-content label {
+                font-size:12px!important;
+                font-family:"Arial",sans-serif!important;
+                color:#002060!important;
+              }
+              </style>
             </head>
             <body>${printContents}</body>
           </html>

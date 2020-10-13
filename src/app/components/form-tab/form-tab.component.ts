@@ -679,7 +679,7 @@ export class FormTabComponent implements OnInit, OnChanges {
               }
             }
 
-            return _root.apiService.preguntaTablaSavedList(_root.idPostulacion);
+            // return _root.apiService.preguntaTablaSavedList(_root.idPostulacion);
           })
           .catch((err:any) => {
 
