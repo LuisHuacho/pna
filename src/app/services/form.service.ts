@@ -2775,7 +2775,7 @@ export class FormService {
         <tbody>
             <tr>
                 <td colspan="2" style="width: 467.35pt;border: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Evidencias que den cuenta de los resultados obtenidos con la experiencia: (SI, SOLO IMPRESI&Oacute;N DE LOS NOMBRES DE LOS ARCHIVOS)</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Evidencias que den cuenta de los resultados obtenidos con la experiencia</span></p>
                 </td>
             </tr>
             <tr>
@@ -2783,7 +2783,7 @@ export class FormService {
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 1</span></p>
                 </td>
                 <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.anexos[0] !== undefined) ? data.anexos[0] : '' }</span></p>
                 </td>
             </tr>
             <tr>
@@ -2791,7 +2791,7 @@ export class FormService {
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 2</span></p>
                 </td>
                 <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.anexos[1] !== undefined) ? data.anexos[1] : '' }</span></p>
                 </td>
             </tr>
             <tr>
@@ -2799,7 +2799,7 @@ export class FormService {
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 3</span></p>
                 </td>
                 <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.anexos[2] !== undefined) ? data.anexos[2] : '' }</span></p>
                 </td>
             </tr>
             <tr>
@@ -2807,7 +2807,7 @@ export class FormService {
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 4</span></p>
                 </td>
                 <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.anexos[3] !== undefined) ? data.anexos[3] : '' }</span></p>
                 </td>
             </tr>
             <tr>
@@ -2815,7 +2815,7 @@ export class FormService {
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Anexo 5</span></p>
                 </td>
                 <td style="width: 395.35pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;height: 13.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.anexos[4] !== undefined) ? data.anexos[4] : '' }</span></p>
                 </td>
             </tr>
             <tr>
@@ -2853,7 +2853,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: undefined;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>&nbsp;DECLARACI&Oacute;N JURADA (SI, EN EL CASO DE LA CASILLA APARECER UNA X, CUANDO HA SIDO SELECCIONADO)</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>&nbsp;DECLARACI&Oacute;N JURADA</span></li>
         </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2875,7 +2875,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: undefined;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>IMAGEN REPRESENTATIVA</span><span style='font-family:"Arial",sans-serif;color:#002060;font-size:12px;color:#002060;'>&nbsp;(SI TIENE UNA IMAGEN, MOSTRAR EL NOMBRE DEL ARCHIVO DE LA IMAGEN)</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>IMAGEN REPRESENTATIVA</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2886,7 +2886,7 @@ export class FormService {
             <tr>
                 <td style="width: 467.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.imagenes).join(',') }</span></p>
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
                 </td>
             </tr>

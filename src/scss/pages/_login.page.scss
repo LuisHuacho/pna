@@ -12,8 +12,8 @@ app-login-page {
             color: $app_txt_dark;
         }
         .login-orientaciones {
-            list-style: none;
-            counter-reset: item;
+            list-style: none!important;
+            // counter-reset: item;
             overflow-x: hidden;
             overflow-y: auto;
             max-height: 500px;
@@ -22,9 +22,10 @@ app-login-page {
             border-radius: 8px;
             border: solid 1px $app_blue;
             li {
+                list-style: none!important;
                 display: flex;
                 font-size: 0.9em;
-                color: $app_txt_light;
+                color: #888888;
                 p {
                     text-align: justify;
                 }
@@ -37,12 +38,16 @@ app-login-page {
                         text-decoration: none;
                     }
                 }
-                &:before {
-                    content: counter(item) ". ";
-                    counter-increment: item;
-                    margin-right: 0.5rem;
-                    color: $app_blue!important;
+                .bullet {
+                    font-size: 0.8em;
+                    color: $app_blue;
                 }
+                // &:before {
+                //     content: counter(item) ". ";
+                //     counter-increment: item;
+                //     margin-right: 0.5rem;
+                //     color: $app_blue!important;
+                // }
             }
         }
     }

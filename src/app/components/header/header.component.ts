@@ -46,7 +46,6 @@ export class HeaderComponent implements OnInit {
       _root.userProfile = res.data;
     })
     .catch((err:any) => {
-      console.log(err);
     });
     
     if(localStorage.getItem('user_login')) {

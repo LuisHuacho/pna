@@ -5,13 +5,13 @@
         <div class="col col-12 col-sm-12 col-md-6 pt-5 pb-5 pl-4 pr-4 login-info">
             <div class="login-title-info">ORIENTACIONES PARA LA POSTULACIÓN VIRTUAL</div>
             <small class="login-subtitle-info pt-4">Para presentar una postulación al Premio Nacional Ambiental Antonio Brack Egg:</small>
-            <ol class="login-orientaciones mt-3" *ngIf="orientaciones.length > 0">
+            <ul class="login-orientaciones mt-3" *ngIf="orientaciones.length > 0">
                 <li *ngFor="let orientacion of orientaciones" [innerHTML]="orientacion.content"></li>
-            </ol>
+            </ul>
         </div>
         <div class="col col-12 col-sm-12 col-md-6 pt-5 pb-5 pl-4 pr-4 login-form">
             <div>
-                <h5 class="text-center text-white">REGISTRE SU POSTULACIÓN</h5>
+                <h5 class="text-center text-white">INICIAR SESIÓN</h5>
                 <div class="col-auto">
                     <label for="username">Usuario</label>
                     <div class="input-group mb-2">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-auto mt-5 btn-has-preloader">
                     <button class="btn btn-light btn-block login-btn" (click)="onClickLogin($event)" [disabled]="loginProccess ? 'disabled' : null">
-                        Iniciar sesión 
+                        Ingresar 
                     </button>
                     <app-preloader-widget *ngIf="loginProccess" [type]="'button'"></app-preloader-widget>
                 </div>

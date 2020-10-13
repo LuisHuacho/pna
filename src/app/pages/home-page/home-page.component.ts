@@ -139,6 +139,8 @@ export class HomePageComponent implements OnInit {
       _root.expierencePrint.anexos = _docs;
       _root.expierencePrint.imagenes = _imgs;
 
+      console.log( _root.expierencePrint );
+
       setTimeout(() => {
         let printContents, popupWin;
         printContents = _root.formService.getPreviewPostulacion(_root.expierencePrint);

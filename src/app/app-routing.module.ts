@@ -17,12 +17,10 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    // canActivate: [CheckLoginGuard],
     component: LoginPageComponent
   },
   {
     path: 'register',
-    // canActivate: [LoginGuard],
     component: RegisterPageComponent
   },
   {
@@ -39,6 +37,10 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     component: PostulationPageComponent
   },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({
