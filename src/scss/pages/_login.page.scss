@@ -48,6 +48,24 @@ app-login-page {
                 //     margin-right: 0.5rem;
                 //     color: $app_blue!important;
                 // }
+
+                &:nth-child(1) {
+                    p{
+                        font-weight: 600;
+                        color: #555555;
+                    }
+                }
+
+                &:last-child {
+                    display: flex;
+                    justify-content: center;
+                    p{
+                        display: block;
+                        text-align: center;
+                        font-weight: 600;
+                        color: #555555;
+                    }
+                }
             }
         }
     }

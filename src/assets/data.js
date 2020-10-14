@@ -61,7 +61,7 @@ window.loginText = [
     {
       content: `
       <p>
-      <i class="fa fa-circle bullet" aria-hidden="true"></i> EL MINISTERIO DEL AMBIENTE AGRADECE SU PARTICIPACIÓN
+      EL MINISTERIO DEL AMBIENTE AGRADECE SU PARTICIPACIÓN
       </p>
       `
     },
