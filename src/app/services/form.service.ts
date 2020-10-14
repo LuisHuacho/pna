@@ -1738,10 +1738,10 @@ export class FormService {
     <div class="mencion-content">
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>III. INFORMACIÓN ESPECÍFICA DE LA MENCIÓN</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;font-weight: bold;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold!important;'>III. INFORMACIÓN ESPECÍFICA DE LA MENCIÓN</span></li>
             </ol>
             <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>${ data.mencionTitle }</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>${ data.mencionTitle }</span></li>
             </ol>
             <p style='margin:15px 0;font-size:15px;font-family:"Calibri",sans-serif;'><span style='display:block;margin:15px 0;font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ data.mencionDesc }</span></p>
         </div>
@@ -1903,13 +1903,13 @@ export class FormService {
         <!-- DATOS GENERALES -->
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:16px;font-family:"Arial",sans-serif;color:#002060;'>Ficha de Postulaci&oacute;n del Premio Nacional Ambiental Antonio Brack Egg</span></strong></p>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
-        <table style="width:138.75pt;margin-left:70%;border-collapse:collapse;border: none;">
+        <table style="width:138.75pt;margin-left:75%;border-collapse:collapse;border: none;">
             <tbody>
                 <tr>
-                    <td style="width: 63.55pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.15pt;vertical-align: top;">
+                    <td style="width: 200pt;border: 1pt solid windowtext;padding: 5.4pt;height: 12.15pt;vertical-align: top;">
                         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nro. Postulaci&oacute;n&nbsp;</span></p>
                     </td>
-                    <td style="width: 75.2pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.15pt;vertical-align: top;">
+                    <td style="width: 100pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 5.4pt;height: 12.15pt;vertical-align: top;">
                         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.id_postulacion !== null) ? data.postulacion.id_postulacion : '' }</span></p>
                     </td>
                 </tr>
@@ -1918,13 +1918,13 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>I. DATOS GENERALES:</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>I. DATOS GENERALES:</span></li>
             </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: decimal;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>1. Persona que efect&uacute;a la postulaci&oacute;n</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>1. Persona que efect&uacute;a la postulaci&oacute;n</span></li>
             </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -1993,7 +1993,7 @@ export class FormService {
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: null;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>2. Categor&iacute;a y menci&oacute;n a la que pertenece la experiencia</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>2. Categor&iacute;a y menci&oacute;n a la que pertenece la experiencia</span></li>
             </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2023,7 +2023,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: null;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>3. T&iacute;tulo de la experiencia</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>3. T&iacute;tulo de la experiencia</span></li>
             </ol>
         </div>
         <div align="center" style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
@@ -2040,7 +2040,7 @@ export class FormService {
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: null;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>4. Localizaci&oacute;n de la experiencia</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>4. Localizaci&oacute;n de la experiencia</span></li>
             </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2095,7 +2095,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: null;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>5. Identificaci&oacute;n del postulante</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>5. Identificaci&oacute;n del postulante</span></li>
             </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2287,13 +2287,13 @@ export class FormService {
         <!-- EXPERIENCIA -->
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>II. &nbsp;INFORMACI&Oacute;N GENERAL DE LA EXPERIENCIA</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>II. &nbsp;INFORMACI&Oacute;N GENERAL DE LA EXPERIENCIA</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: decimal;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>1. Relevancia de la experiencia</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>1. Relevancia de la experiencia</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2371,7 +2371,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: null;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>2. Sostenibilidad de la experiencia&nbsp;</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>2. Sostenibilidad de la experiencia&nbsp;</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:53.25pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2455,7 +2455,7 @@ export class FormService {
 
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: decimal;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>3. Replicabilidad de la experiencia</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>3. Replicabilidad de la experiencia</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2598,7 +2598,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: null;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>4. Enfoques transversales de g&eacute;nero e interculturalidad</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>4. Enfoques transversales de g&eacute;nero e interculturalidad</span></li>
         </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2764,7 +2764,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-family:"Arial",sans-serif;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: null;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>IV. ANEXOS DE SUSTENTO</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>IV. ANEXOS DE SUSTENTO</span></li>
         </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2850,7 +2850,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: undefined;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>V. &nbsp;DECLARACI&Oacute;N JURADA</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>V. &nbsp;DECLARACI&Oacute;N JURADA</span></li>
         </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2872,7 +2872,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: undefined;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>VI. IMAGEN REPRESENTATIVA</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;font-weight: bold;'>VI. IMAGEN REPRESENTATIVA</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
