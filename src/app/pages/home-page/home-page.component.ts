@@ -225,21 +225,35 @@ export class HomePageComponent implements OnInit {
         popupWin.document.write(`
           <html>
             <head>
-              <title>Mención</title>
+              <title>${item.id_postulacion}</title>
               <style>
+              ol {
+                list-style: none!important;
+              }
               .mencion-content {
                 padding: 0 10px!important;
+                font-size: 13px!important;
+                font-weight: normal!important;
+              }
+              .mencion-content * {
+                font-size: 13px!important;
+                font-weight: normal!important;
               }
               .mencion-content p {
-                margin:0cm!important;
-                font-size:15px!important;
-                font-family:"Calibri",sans-serif!important;
+                font-size:12px!important;
+                font-family: "Arial",sans-serif!important;
                 color:#002060!important;
               }
               .mencion-content span, .mencion-content label {
                 font-size:12px!important;
                 font-family:"Arial",sans-serif!important;
                 color:#002060!important;
+              }
+              .ml-5 {
+                margin-left: 3rem!important;
+              }
+              .ml-3 {
+                margin-left: 1rem!important;
               }
               </style>
             </head>

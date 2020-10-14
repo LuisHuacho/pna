@@ -1646,11 +1646,100 @@ export class FormService {
       return tipo;
   }
 
+  checkDocNumber(doc) {
+      let _doc = '';
+      if(doc.length > 0) {
+          if(doc == '00000000') {
+            _doc = '';
+          }
+          else {
+              _doc = doc;
+          }
+      }
+      
+      return _doc;
+  }
+
+  getTypeInput(title) {
+    let type = 'text';
+    switch (title) {
+      case 'Fecha':
+        type = 'date';
+        break;
+
+      case 'Si':
+        type = 'sino';
+        break;
+
+      case 'Sí':
+        type = 'sino';
+        break;
+
+      case 'No':
+        type = 'sino';
+        break;
+    
+      default:
+        type = 'text';
+        break;
+    }
+
+    if(title !== undefined) {
+      if( title.indexOf('con una X') !== -1 ) {
+        type = 'check';
+      }
+    }
+
+    return type;
+  }
+
+  getValueSiNo(title) {
+    let type = '';
+    switch (title) {
+      case 'Si':
+        type = 'SI';
+        break;
+
+      case 'Sí':
+        type = 'SI';
+        break;
+
+      case 'No':
+        type = 'NO';
+        break;
+    }
+
+    if(title !== undefined) {
+      if( title.indexOf('con una X') !== -1 ) {
+        type = 'SI';
+      }
+    }
+
+    return type;
+  }
+
+  getTipoDocumento(id) {
+      let _id = id.trim();
+      let _tipo = 'DNI';
+
+      if(_id == '1') {
+        _tipo = 'DNI';
+      }
+      else {
+        _tipo = 'C.E.';
+      }
+
+      return _tipo;
+  }
+
   getPreviewPostulacion(data:any = {}) {
     let _root = this;
     let _menciones = `
     <div class="mencion-content">
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
+            <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>III. INFORMACIÓN ESPECÍFICA DE LA MENCIÓN</span></li>
+            </ol>
             <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
                 <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>${ data.mencionTitle }</span></li>
             </ol>
@@ -1737,7 +1826,24 @@ export class FormService {
                         else if(_j != 0) {
                             _menciones += `
                             <td style="width: 168.7pt;border: 1pt solid windowtext;background: rgb(242, 242, 242);padding: 0cm 5.4pt;vertical-align: top;">
-                                <p>${ (_root.getValueTablaRow( mencion.tabla.id_campo, (_i + 1), _j, data.preguntasTablaAnswer ) !== undefined) ? _root.getValueTablaRow( mencion.tabla.id_campo, (_i + 1), _j, data.preguntasTablaAnswer ) : '' }</p>
+                                ${
+                                    (_root.getTypeInput(mencion.tabla[('titulo_col_' + (_j))]) == 'sino')
+                                    ?
+                                    `
+                                    <span style="display: block; text-align: center;">${ (_root.getValueTablaRow( mencion.tabla.id_campo, (_i + 1), _j, data.preguntasTablaAnswer )) ? 'X' : '' }</span>
+                                    `
+                                    :
+                                    ``
+                                }
+                                ${
+                                    (_root.getTypeInput(mencion.tabla[('titulo_col_' + (_j))]) != 'sino')
+                                    ?
+                                    `
+                                    <p>${ (_root.getValueTablaRow( mencion.tabla.id_campo, (_i + 1), _j, data.preguntasTablaAnswer ) !== undefined) ? _root.getValueTablaRow( mencion.tabla.id_campo, (_i + 1), _j, data.preguntasTablaAnswer ) : '' }</p>
+                                    `
+                                    :
+                                    ``
+                                }
                             </td>
                             `;
                         }
@@ -1812,13 +1918,13 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:right;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>DATOS GENERALES:</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>I. DATOS GENERALES:</span></li>
             </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: decimal;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Persona que efect&uacute;a la postulaci&oacute;n</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>1. Persona que efect&uacute;a la postulaci&oacute;n</span></li>
             </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -1830,7 +1936,7 @@ export class FormService {
                             <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:  "Arial",sans-serif;color:#002060;'>Tipo de Documento:</span></p>
                         </td>
                         <td style="width: 350.9pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.desc_tipo_doc_persona !== null) ? data.postulacion.desc_tipo_doc_persona : '' }</span></p>
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.user.id_tipo_documento !== null) ? _root.getTipoDocumento(data.user.id_tipo_documento) : '' }</span></p>
                         </td>
                     </tr>
                     <tr>
@@ -1887,7 +1993,7 @@ export class FormService {
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: null;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Categor&iacute;a y menci&oacute;n a la que pertenece la experiencia</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>2. Categor&iacute;a y menci&oacute;n a la que pertenece la experiencia</span></li>
             </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -1917,7 +2023,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: null;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>T&iacute;tulo de la experiencia</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>3. T&iacute;tulo de la experiencia</span></li>
             </ol>
         </div>
         <div align="center" style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
@@ -1934,7 +2040,7 @@ export class FormService {
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: null;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Localizaci&oacute;n de la experiencia</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>4. Localizaci&oacute;n de la experiencia</span></li>
             </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -1972,7 +2078,7 @@ export class FormService {
                             <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Localidad/Direcci&oacute;n sede:</span></p>
                         </td>
                         <td style="width: 350.9pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.localidad_postulacion !== null) ? data.postulacion.localidad_postulacion : '' }</span></p>
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.localidad_postulacion !== null) ? data.postulacion.localidad_postulacion : '' } ${ (data.postulacion.direccion_postulacion !== null) ? `${ (data.postulacion.direccion_postulacion != '') ? ` . ${data.postulacion.direccion_postulacion}` : `` }` : '' }</span></p>
                         </td>
                     </tr>
                     <tr>
@@ -1989,7 +2095,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
             <ol style="margin-bottom:0cm;list-style-type: null;margin-left:8px;">
-                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Identificaci&oacute;n del postulante</span></li>
+                <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>5. Identificaci&oacute;n del postulante</span></li>
             </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -1997,115 +2103,182 @@ export class FormService {
             <table style="width:100%!important;border-collapse:collapse;border:none;">
                 <tbody>
                     <tr>
+                    ${ 
+                        (data.postulacion.tipo_persona == '1') 
+                        ? 
+                        `
                         <td colspan="2" style="width: 233.9pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
                             <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Persona natural</span></p>
                         </td>
+                        ` 
+                        : 
+                        `
                         <td colspan="2" style="width: 229.7pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
                             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Persona jur&iacute;dica</span></p>
                         </td>
+                        `
+                    }
                     </tr>
                     <tr>
-                        <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tipo de experiencia:</span></p>
-                        </td>
-                        <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.tipo_experiencia !== null) ? _root.getTipoExperiencia(data.postulacion.tipo_experiencia) : '' }</span></p>
-                        </td>
-                        <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombre entidad:</span></p>
-                        </td>
-                        <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
-                        </td>
+                        ${ 
+                            (data.postulacion.tipo_persona == '1') 
+                            ? 
+                            `
+                            <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tipo de experiencia:</span></p>
+                            </td>
+                            <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.tipo_experiencia !== null) ? _root.getTipoExperiencia(data.postulacion.tipo_experiencia) : '' }</span></p>
+                            </td>
+                            ` 
+                            : 
+                            `
+                            <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombre entidad:</span></p>
+                            </td>
+                            <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.nombre_organizacion !== null) ? data.postulacion.nombre_organizacion : '' }</span></p>
+                            </td>
+                            `
+                        }
                     </tr>
                     <tr>
-                        <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombres y apellidos de quien lidera o coordina la experiencia:</span></p>
-                        </td>
-                        <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.nombre_organizacion_natural !== null) ? data.postulacion.nombre_organizacion_natural : '' }</span></p>
-                        </td>
-                        <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>N&deg; de R.U.C.:</span></p>
-                        </td>
-                        <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.numero_documento !== null) ? data.postulacion.numero_documento : '' }</span></p>
-                        </td>
+                        ${ 
+                            (data.postulacion.tipo_persona == '1') 
+                            ? 
+                            `
+                            <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombres y apellidos de quien lidera o coordina la experiencia:</span></p>
+                            </td>
+                            <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.nombre_organizacion_natural !== null) ? data.postulacion.nombre_organizacion_natural : '' }</span></p>
+                            </td>
+                            ` 
+                            : 
+                            `
+                            <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>N&deg; de R.U.C.:</span></p>
+                            </td>
+                            <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.numero_documento !== null) ? _root.checkDocNumber(data.postulacion.numero_documento) : '' }</span></p>
+                            </td>
+                            `
+                        }
                     </tr>
                     <tr>
-                        <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>N&deg; de documento:</span></p>
-                        </td>
-                        <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.numero_documento !== null) ? data.postulacion.numero_documento : '' }</span></p>
-                        </td>
-                        <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Domicilio legal:</span></p>
-                        </td>
-                        <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.domicilio_legal !== null) ? data.postulacion.domicilio_legal : '' }</span></p>
-                        </td>
+                        ${ 
+                            (data.postulacion.tipo_persona == '1') 
+                            ? 
+                            `
+                            
+                            ` 
+                            : 
+                            `
+                            <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Domicilio legal:</span></p>
+                            </td>
+                            <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.domicilio_legal !== null) ? data.postulacion.domicilio_legal : '' }</span></p>
+                            </td>
+                            `
+                        }
                     </tr>
                     <tr>
-                        <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Cargo:</span></p>
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
-                        </td>
-                        <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.cargo_postulante !== null) ? data.postulacion.cargo_postulante : '' }</span></p>
-                        </td>
-                        <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Representante legal:</span></p>
-                        </td>
-                        <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.representante_legal !== null) ? data.postulacion.representante_legal : '' }</span></p>
-                        </td>
+                        ${ 
+                            (data.postulacion.tipo_persona == '1') 
+                            ? 
+                            `
+                            <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Cargo:</span></p>
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                            </td>
+                            <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.cargo_postulante !== null) ? data.postulacion.cargo_postulante : '' }</span></p>
+                            </td>
+                            ` 
+                            : 
+                            `
+                            <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Representante legal:</span></p>
+                            </td>
+                            <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.representante_legal !== null) ? data.postulacion.representante_legal : '' }</span></p>
+                            </td>
+                            `
+                        }
                     </tr>
                     <tr>
-                        <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono:</span></p>
-                        </td>
-                        <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.telefono_postulante !== null) ? data.postulacion.telefono_postulante : '' }</span></p>
-                        </td>
-                        <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono:</span></p>
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
-                        </td>
-                        <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.telefono_postulante !== null) ? data.postulacion.telefono_postulante : '' }</span></p>
-                        </td>
+                        ${ 
+                            (data.postulacion.tipo_persona == '1') 
+                            ? 
+                            `
+                            <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono:</span></p>
+                            </td>
+                            <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.telefono_postulante !== null) ? data.postulacion.telefono_postulante : '' }</span></p>
+                            </td>
+                            ` 
+                            : 
+                            `
+                            <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono:</span></p>
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                            </td>
+                            <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.telefono_postulante !== null) ? data.postulacion.telefono_postulante : '' }</span></p>
+                            </td>
+                            `
+                        }
                     </tr>
                     <tr>
-                        <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico:</span></p>
-                        </td>
-                        <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.correo_postulante !== null) ? data.postulacion.correo_postulante : '' }</span></p>
-                        </td>
-                        <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico:</span></p>
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
-                        </td>
-                        <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.correo_postulante !== null) ? data.postulacion.correo_postulante : '' }</span></p>
-                        </td>
+                        ${ 
+                            (data.postulacion.tipo_persona == '1') 
+                            ? 
+                            `
+                            <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico:</span></p>
+                            </td>
+                            <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.correo_postulante !== null) ? data.postulacion.correo_postulante : '' }</span></p>
+                            </td>
+                            ` 
+                            : 
+                            `
+                            <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico:</span></p>
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                            </td>
+                            <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.correo_postulante !== null) ? data.postulacion.correo_postulante : '' }</span></p>
+                            </td>
+                            `
+                        }
                     </tr>
                     <tr>
-                        <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Redes sociales de la organizaci&oacute;n (opcional):</span></p>
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
-                        </td>
-                        <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.red_social_postulante !== null) ? data.postulacion.red_social_postulante : '' }</span></p>
-                        </td>
-                        <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Sitio Web de la organizaci&oacute;n (si tiene):</span></p>
-                            <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
-                        </td>
-                        <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.sitio_web_postulante !== null) ? data.postulacion.sitio_web_postulante : '' }</span></p>
-                        </td>
+                        ${ 
+                            (data.postulacion.tipo_persona == '1') 
+                            ? 
+                            `
+                            <td style="width: 113.15pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Redes sociales de la organizaci&oacute;n (opcional):</span></p>
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                            </td>
+                            <td style="width: 120.75pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.red_social_postulante !== null) ? data.postulacion.red_social_postulante : '' }</span></p>
+                            </td>
+                            ` 
+                            : 
+                            `
+                            <td style="width: 100.45pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Sitio Web de la organizaci&oacute;n (si tiene):</span></p>
+                                <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                            </td>
+                            <td style="width: 129.25pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 13.3pt;vertical-align: top;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.postulacion.sitio_web_postulante !== null) ? data.postulacion.sitio_web_postulante : '' }</span></p>
+                            </td>
+                            `
+                        }
                     </tr>
                 </tbody>
             </table>
@@ -2114,13 +2287,13 @@ export class FormService {
         <!-- EXPERIENCIA -->
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: upper-roman;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>&nbsp;INFORMACI&Oacute;N GENERAL DE LA EXPERIENCIA</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>II. &nbsp;INFORMACI&Oacute;N GENERAL DE LA EXPERIENCIA</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: decimal;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Relevancia de la experiencia</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>1. Relevancia de la experiencia</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2136,7 +2309,7 @@ export class FormService {
             </tr>
         </tbody>
         </table>
-        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>b)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Aporte a la soluci&oacute;n del problema ambiental identificado</span></p>
         <table style="width:100%!important;border-collapse:collapse;border:none;">
         <tbody>
@@ -2149,7 +2322,7 @@ export class FormService {
             </tr>
         </tbody>
         </table>
-        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>c)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Principales resultados</span></p>
         <table style="width:100%!important;border-collapse:collapse;border:none;">
         <tbody>
@@ -2162,8 +2335,8 @@ export class FormService {
             </tr>
         </tbody>
         </table>
-        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
-        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>d)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Cambios positivos de la experiencia</span></p>
+        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>d)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Resumen de la experiencia</span></p>
         <table style="width:100%!important;border-collapse:collapse;border:none;">
         <tbody>
             <tr>
@@ -2175,7 +2348,7 @@ export class FormService {
             </tr>
         </tbody>
         </table>
-        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>e)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Caracter&iacute;sticas de la poblaci&oacute;n beneficiaria</span></p>
         <table style="width:100%!important;border-collapse:collapse;border:none;">
         <tbody>
@@ -2198,7 +2371,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: null;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Sostenibilidad de la experiencia&nbsp;</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>2. Sostenibilidad de la experiencia&nbsp;</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:53.25pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2221,7 +2394,7 @@ export class FormService {
             <tr>
                 <td style="width: 439.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 17.7pt;vertical-align: top;">
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.documentos_orientadores !== null) ? ( (data.experiencia.documentos_orientadores).split('|') ).join(' - ') : '' }</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.documentos_orientadores !== null) ? ( (data.experiencia.documentos_orientadores).split('|') ).join('</br>') : '' }</span></p>
                     <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
                 </td>
             </tr>
@@ -2282,13 +2455,13 @@ export class FormService {
 
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: decimal;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Replicabilidad de la experiencia</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>3. Replicabilidad de la experiencia</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol start="1" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Cambios positivos</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>a)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Cambios positivos</span></li>
         </ol>
         </div>
         <table style="width:100%!important;border-collapse:collapse;border: none;">
@@ -2305,7 +2478,7 @@ export class FormService {
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol start="2" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Factores de riesgo</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>b)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Factores de riesgo</span></li>
         </ol>
         </div>
         <table style="width:100%!important;border-collapse:collapse;border: none;">
@@ -2322,7 +2495,7 @@ export class FormService {
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol start="3" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Factores de &eacute;xito</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>c)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Factores de &eacute;xito</span></li>
         </ol>
         </div>
         <table style="width:100%!important;border-collapse:collapse;border: none;">
@@ -2339,7 +2512,7 @@ export class FormService {
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol start="4" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Condiciones para que la experiencia pueda ser reproducida</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>d)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Condiciones para que la experiencia pueda ser reproducida</span></li>
         </ol>
         </div>
         <table style="width:100%!important;border-collapse:collapse;border: none;">
@@ -2356,7 +2529,7 @@ export class FormService {
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:70.65pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol start="5" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:60.650000000000006px;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Actividades necesarias&nbsp;</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>e)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Actividades necesarias&nbsp;</span></li>
         </ol>
         </div>
         <table style="width:100%!important;border-collapse:collapse;border: none;">
@@ -2377,46 +2550,46 @@ export class FormService {
         <tbody>
             <tr>
                 <td style="width: 205.6pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombre</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Nombre</span></p>
                 </td>
                 <td style="width: 134.65pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Tel&eacute;fono</span></p>
                 </td>
                 <td style="width: 127.55pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>Correo electr&oacute;nico</span></p>
                 </td>
             </tr>
             <tr>
                 <td style="width: 205.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_nombre1 !== null) ? data.experiencia.contacto_nombre1 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_nombre1 !== null) ? data.experiencia.contacto_nombre1 : '' }</span></p>
                 </td>
                 <td style="width: 134.65pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_telefono1 !== null) ? data.experiencia.contacto_telefono1 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_telefono1 !== null) ? data.experiencia.contacto_telefono1 : '' }</span></p>
                 </td>
                 <td style="width: 127.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_correo1 !== null) ? data.experiencia.contacto_correo1 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_correo1 !== null) ? data.experiencia.contacto_correo1 : '' }</span></p>
                 </td>
             </tr>
             <tr>
                 <td style="width: 205.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_nombre2 !== null) ? data.experiencia.contacto_nombre2 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_nombre2 !== null) ? data.experiencia.contacto_nombre2 : '' }</span></p>
                 </td>
                 <td style="width: 134.65pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_telefono2 !== null) ? data.experiencia.contacto_telefono2 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_telefono2 !== null) ? data.experiencia.contacto_telefono2 : '' }</span></p>
                 </td>
                 <td style="width: 127.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_correo2 !== null) ? data.experiencia.contacto_correo2 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_correo2 !== null) ? data.experiencia.contacto_correo2 : '' }</span></p>
                 </td>
             </tr>
             <tr>
                 <td style="width: 205.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 11.6pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_nombre3 !== null) ? data.experiencia.contacto_nombre3 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_nombre3 !== null) ? data.experiencia.contacto_nombre3 : '' }</span></p>
                 </td>
                 <td style="width: 134.65pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 11.6pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_telefono3 !== null) ? data.experiencia.contacto_telefono3 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_telefono3 !== null) ? data.experiencia.contacto_telefono3 : '' }</span></p>
                 </td>
                 <td style="width: 127.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 11.6pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_correo3 !== null) ? data.experiencia.contacto_correo3 : '' }</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.contacto_correo3 !== null) ? data.experiencia.contacto_correo3 : '' }</span></p>
                 </td>
             </tr>
         </tbody>
@@ -2425,7 +2598,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: null;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>Enfoques transversales de g&eacute;nero e interculturalidad</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>4. Enfoques transversales de g&eacute;nero e interculturalidad</span></li>
         </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2498,9 +2671,9 @@ export class FormService {
             </tr>
             <tr>
                 <td colspan="3" style="width: 467.8pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 12.65pt;vertical-align: top;">
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.seccion4_detalle3 !== null) ? data.experiencia.seccion4_detalle3 : '' }</span></strong></p>
-                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></strong></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>${ (data.experiencia.seccion4_detalle3 !== null) ? data.experiencia.seccion4_detalle3 : '' }</span></p>
+                    <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
                 </td>
             </tr>
         </tbody>
@@ -2588,10 +2761,10 @@ export class FormService {
         ${_menciones}
         <!--FINALIZA MENCIONES-->
 
-        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><strong><span style='font-family:"Arial",sans-serif;'>&nbsp;</span></strong></p>
+        <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-indent:35.4pt;'><span style='font-family:"Arial",sans-serif;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: null;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>ANEXOS DE SUSTENTO</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>IV. ANEXOS DE SUSTENTO</span></li>
         </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2677,7 +2850,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: undefined;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>&nbsp;DECLARACI&Oacute;N JURADA</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>V. &nbsp;DECLARACI&Oacute;N JURADA</span></li>
         </ol>
         </div>
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
@@ -2699,7 +2872,7 @@ export class FormService {
         <p style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>
         <div style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'>
         <ol style="margin-bottom:0cm;list-style-type: undefined;">
-            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>IMAGEN REPRESENTATIVA</span></li>
+            <li style='margin:0cm;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-family:"Arial",sans-serif;font-size:9.0pt;color:#002060;'>VI. IMAGEN REPRESENTATIVA</span></li>
         </ol>
         </div>
         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:12px;font-family:"Arial",sans-serif;color:#002060;'>&nbsp;</span></p>

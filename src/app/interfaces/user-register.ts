@@ -10,5 +10,6 @@ export interface IUserRegister {
     apellidos:string,
     telefono1:string,
     telefono2:string,
-    correo:string
+    correo:string,
+    url?:string
 }

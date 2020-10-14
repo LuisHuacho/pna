@@ -1128,7 +1128,7 @@ export class FormTabComponent implements OnInit, OnChanges {
 
       
       _target.checked = true;
-      _value = _target.value;
+      _target.value = _target.getAttribute('data-value');
     }
 
     if(to == 'ch') {

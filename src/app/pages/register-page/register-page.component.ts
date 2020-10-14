@@ -58,7 +58,8 @@ export class RegisterPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    let _root = this;
+    console.log( `${_root.tools.getHostname()}${_root._win.relativePath}` );
   }
 
   ip_local() {
@@ -93,13 +94,14 @@ export class RegisterPageComponent implements OnInit {
       _root.user.username = 'USUARIO_DEFECTO_BRACK';
       _root.user.password = '123';
       _root.user.ssistOperativo = _root.tools.getOperatingSystem();
-      _root.user.linkAplicativo = _root.tools.getHostname();
+      _root.user.linkAplicativo = `${_root.tools.getHostname()}${_root._win.relativePath}`;
   
       _root.userService.login(_root.user)
       .then((res:any) => {
         if(res.token !== undefined) {
           _root.userRegister.usuario = _root.userRegister.numeroDocumento;
           _root.userRegister.telefono2 = _root.userRegister.telefono1;
+          _root.userRegister.url = `${_root.tools.getHostname()}${_root._win.relativePath}`;
   
           _root.userService.register(_root.userRegister, res.token)
           .then((res:any) => {

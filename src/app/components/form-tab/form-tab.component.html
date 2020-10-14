@@ -848,7 +848,7 @@
     <div *ngIf="!globalService.checkPostulacionIdExist()" class="row">
         <div class="col col-sm-6 col-md-3" *ngFor="let f of documents">
             <ngx-dropzone-preview [removable]="true" (removed)="onRemove(f)">
-                <ngx-dropzone-label (click)="onClickFile(f)">{{ f.nombre_documento }}</ngx-dropzone-label>
+                <ngx-dropzone-label (click)="onClickFile(f)">{{ 'sos nombres no pueden saltar de línea, tendré que meterle una masacara o recortarlo y ponerle puntos suspensivos'}}</ngx-dropzone-label>
             </ngx-dropzone-preview>
         </div>
     </div>
