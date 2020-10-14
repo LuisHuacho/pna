@@ -19,7 +19,7 @@ window.loginText = [
     {
       content: `
       <p>
-      <i class="fa fa-circle bullet" aria-hidden="true"></i> La ficha de postulación en línea consta de seis, Datos generales, Información general de la experiencia, información específica de la mención a la que postula, Anexos de sustento, Declaración jurada e imagen representativa (foto que mejor identifique la experiancia). <span><a href="${window.relativePath}/assets/ficha_postulacion.docx" download target="_blank"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> (Descargar ficha).</a></span>
+      <i class="fa fa-circle bullet" aria-hidden="true"></i> La ficha de postulación en línea consta de seis secciones, Datos generales, Información general. <span><a href="${window.relativePath}/assets/ficha_postulacion.docx" download target="_blank"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> (Descargar ficha).</a></span>
       </p>
       `
     },

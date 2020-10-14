@@ -103,16 +103,17 @@ export class RegisterPageComponent implements OnInit {
   
           _root.userService.register(_root.userRegister, res.token)
           .then((res:any) => {
-            _root.showLightBox = true;
-            _root.registerComplete = true;
-
-            setTimeout(() => {
-              window.location.href = `${_root._win.relativePath}/`;
-            }, 5000);
-
             if(res.status !== undefined) {
               if(res.status == 400) {
-                _root.tools.showToastr('', 'Este usuario ya existe', 'error', 2000);
+                _root.tools.showToastr('', 'Este usuario ya existe', 'error', 5000);
+              }
+              else {
+                _root.showLightBox = true;
+                _root.registerComplete = true;
+
+                setTimeout(() => {
+                  window.location.href = `${_root._win.relativePath}/`;
+                }, 5000);
               }
             }
             _root.registerProccess = false;
@@ -138,43 +139,43 @@ export class RegisterPageComponent implements OnInit {
 
     if(_root.userRegister.idTipoDocumento == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'Selecciona un tipo de documento', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'Selecciona un tipo de documento', 'error', 5000);
     }
     else if(_root.userRegister.numeroDocumento == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'Ingresa el número de documento', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'Ingresa el número de documento', 'error', 5000);
     }
     else if(_root.userRegister.nombres == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'El campo nombre es obligatorio', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'El campo nombre es obligatorio', 'error', 5000);
     }
     else if(_root.userRegister.apellidos == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'El campo apellido es obligatorio', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'El campo apellido es obligatorio', 'error', 5000);
     }
     else if(_root.userRegister.nacionalidad == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'Ingresa una nacionalidad', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'Ingresa una nacionalidad', 'error', 5000);
     }
     else if(_root.userRegister.sexo == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'Selecciona un sexo', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'Selecciona un sexo', 'error', 5000);
     }
     else if(_root.userRegister.domicilio == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'Ingresa tu domicilio', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'Ingresa tu domicilio', 'error', 5000);
     }
     else if(_root.userRegister.telefono1 == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'Ingresa un teléfono', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'Ingresa un teléfono', 'error', 5000);
     }
     else if(_root.userRegister.correo == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'Ingresa un correo', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'Ingresa un correo', 'error', 5000);
     }
     else if(_root.userRegister.contracena == '') {
       validate = false;
-      _root.tools.showToastr('ERROR', 'Ingresa una contraseña', 'error', 2000);
+      _root.tools.showToastr('ERROR', 'Ingresa una contraseña', 'error', 5000);
     }
     else {
       validate = true;

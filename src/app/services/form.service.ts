@@ -581,7 +581,7 @@ export class FormService {
       },
 
       'Economía circular': {
-        description: 'En esta sección se busca reconocer las iniciativas empresariales o emprendimientos o proyectos innovadores que buscan cambiar los patrones de producción y consumo actual, en el marco del modelo de economía circular, a partir de la reducción del uso de recursos naturales en sus productos o servicios, la optimización del uso de recursos en sus procesos, el aprovechando los residuos como materia prima, y que a su vez garantizan la protección del ambiente y la mejora en su desempeño económico.',
+        description: 'En esta sección se busca reconocer las iniciativas empresariales o emprendimientos o proyectos innovadores que buscan cambiar los patrones de producción y consumo actual, en el marco del modelo de economía circular, a partir de la reducción del uso de recursos naturales en sus productos o servicios, la optimización del uso de recursos en sus procesos, el aprovechamiento de los residuos como materia prima, y que a su vez garantizan la protección del ambiente y la mejora en su desempeño económico.',
         fields: [
             {
                 "descripcion": "<div class='desc-group'> <p class='group-title'><strong>1. Innovación ambiental</strong></p> <p>Se valorará el desarrollo de un nuevo producto y/o servicio; o la mejora de procesos o métodos en relación a las técnicas, materiales y soluciones que generen competitividad o cambios en los patrones de producción y/o consumo, con consideraciones ambientales a lo largo del ciclo de vida del producto o servicio.</p> <p class='ml-3'><strong>a. Contribución de la innovación en la resolución de problemas ambientales</strong></p> <p class='ml-3'>Comente cómo su proyecto aporta a la solución de un problema ambiental o responde a una necesidad ambiental (Use hasta 200 palabras):</p> <p class='ml-5'>Problema o necesidad ambiental</p></div>",
@@ -879,6 +879,42 @@ export class FormService {
               "tipo_campo": "tabla"
           }
         ]
+      },
+
+      'Mejora de la calidad ambiental': {
+          descripcion: 'En esta sección se busca conocer las medidas o instrumentos implementados para prevenir y reducir la contaminación ambiental, así como para minimizar sus impactos negativos.',
+          fields: [
+            {
+               "descripcion":"<div class='desc-group'> <p class='group-title'><strong>1. Reducción en los niveles de contaminación</strong></p> <p>Se evaluará la aplicación de acciones y/o medidas para disminuir las concentraciones de los parámetros establecidos en los ECA para aire, ECA para agua o ECA para suelo.</p> <p class='ml-3'><strong>a. Aspectos de evaluación</strong></p> <p class='ml-3'>amplíe la información sobre las acciones y/o medidas que ha realizado para disminuir contaminantes establecidos en el ECA Aire.</p></div>",
+               "nombre_maquina":"1_a",
+               "titulo_campo":"Aspectos de evaluación.",
+               "titulo_mencion":"Mejora de la calidad ambiental",
+               "id_campo_tipo":2,
+               "id_formulario":7,
+               "id_campo":41,
+               "tipo_campo":"tabla"
+            },
+            {
+                "descripcion":"<div class='desc-group'> <p class='group-title'><strong>2. Minimización de impactos negativos al ambiente</strong></p> <p>enfoca la aplicación de acciones o medidas para prevenir o reducir participativamente la problemática por contaminación ambiental.</p> <p class='ml-3'><strong>a. Aspectos de evaluación</strong></p> <p class='ml-3'>amplíe la información sobre las acciones y/o medidas que ha realizado para identificar participativamente y atender la problemática por contaminación ambiental.</p></div>",
+                "nombre_maquina":"2_a",
+                "titulo_campo":"Aspectos de evaluación.",
+                "titulo_mencion":"Mejora de la calidad ambiental",
+                "id_campo_tipo":2,
+                "id_formulario":7,
+                "id_campo":42,
+                "tipo_campo":"tabla"
+            },
+            {
+                "descripcion":"<div class='desc-group'> <p class='group-title'><strong>3. Actividades para promover el compromiso de la ciudadanía</strong></p> <p>comprende la aplicación de acciones y/o medidas que promuevan la participación de la ciudadanía en el mejoramiento de la calidad ambiental</p> <p class='ml-3'><strong>a. Actividades para promover el compromiso de la ciudadanía</strong></p> <p class='ml-3'>señale qué acciones y/o medidas ha realizado para promover la participación de la ciudadanía en el mejoramiento de la calidad ambiental y cual ha sido su impacto.</p></div>",
+                "nombre_maquina":"3_a",
+                "titulo_campo":"Actividades para promover el compromiso de la ciudadanía.",
+                "titulo_mencion":"Mejora de la calidad ambiental",
+                "id_campo_tipo":2,
+                "id_formulario":7,
+                "id_campo":43,
+                "tipo_campo":"tabla"
+            }
+         ]
       },
 
       'Manejo de residuos sólidos': {
