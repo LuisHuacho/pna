@@ -83,31 +83,36 @@ export class PostulationPageComponent implements OnInit {
             if(postulacion.tipo_persona == '1') {
               postulacion.numero_documento = '00000000';
             }
-            // postulacion.nom_representante = postulacion.nombre_completo;
 
-            _root.apiService.postulacion(postulacion)
-            .then((res:any) => {
+            if(!_root.tools.validateEmail(postulacion.email)) {
               _root.saveExpProccess = false;
-              if( res.data.postulacion_id !== undefined ) {
-                _root.idPostulacion = (res.data.postulacion_id).toString();
-                postulacion.id_postulacion = (res.data.postulacion_id).toString();
-
-                if(sout == 'N') {
-                  localStorage.setItem('postulacion', _root.tools.cryptrData( JSON.stringify(postulacion) ));
-                  _root.active = parseInt(tabId) + 1;
-                  window.scrollTo(0, 0);
+              _root.tools.showToastr('ERROR', 'Ingresa un correo válido', 'error', 5000);
+            }
+            else {
+              _root.apiService.postulacion(postulacion)
+              .then((res:any) => {
+                _root.saveExpProccess = false;
+                if( res.data.postulacion_id !== undefined ) {
+                  _root.idPostulacion = (res.data.postulacion_id).toString();
+                  postulacion.id_postulacion = (res.data.postulacion_id).toString();
+  
+                  if(sout == 'N') {
+                    localStorage.setItem('postulacion', _root.tools.cryptrData( JSON.stringify(postulacion) ));
+                    _root.active = parseInt(tabId) + 1;
+                    window.scrollTo(0, 0);
+                  }
+                  else if(sout == 'Y') {
+                    window.location.href = `${_root._win.relativePath}/`;
+                  }
                 }
-                else if(sout == 'Y') {
-                  window.location.href = `${_root._win.relativePath}/`;
+              })
+              .catch((err:any) => {
+                _root.saveExpProccess = false;
+                if(sout != 'tab') {
+                  _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
                 }
-              }
-            })
-            .catch((err:any) => {
-              _root.saveExpProccess = false;
-              if(sout != 'tab') {
-                _root.tools.showToastr('', 'No se pudo guardar la información', 'error', 2000);
-              }
-            });
+              });
+            }
           }
           break;
 

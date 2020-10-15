@@ -59,7 +59,6 @@ export class RegisterPageComponent implements OnInit {
 
   ngOnInit(): void {
     let _root = this;
-    console.log( `${_root.tools.getHostname()}${_root._win.relativePath}` );
   }
 
   ip_local() {
@@ -188,6 +187,10 @@ export class RegisterPageComponent implements OnInit {
     else if(_root.userRegister.correo == '') {
       validate = false;
       _root.tools.showToastr('ERROR', 'Ingresa un correo', 'error', 5000);
+    }
+    else if(!_root.tools.validateEmail(_root.userRegister.correo)) {
+      validate = false;
+      _root.tools.showToastr('ERROR', 'Ingresa un correo válido', 'error', 5000);
     }
     else if(_root.userRegister.contracena == '') {
       validate = false;

@@ -162,4 +162,15 @@ export default class Tools {
             document.getElementById('preloader-page').style.display = 'none';
         }, 1000);
     }
+
+    validateEmail(value) {
+        let response = false;
+        let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let validate = regex.test(value);
+        if( validate ) {
+            response = true;
+        }
+
+        return response;
+    }
 }
