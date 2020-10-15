@@ -128,7 +128,10 @@
     <div class="row justify-content-end mt-3 mb-5">
         <div class="actions-btn-form pr-3">
             <a href="{{ _win.relativePath }}/" class="btn btn-primary btn-sm pt-2 pb-2 pl-4 pr-4 ml-2"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Regresar</a>
-            <button href="#" class="btn btn-primary btn-sm pt-2 pb-2 pl-5 pr-5 ml-2 btn-has-preloader" (click)="register($event)">
+            <button *ngIf="userRegister.idTipoDocumento != ''" type="button" class="btn btn-primary btn-sm pt-2 pb-2 pl-5 pr-5 ml-2" (click)="cleanFields($event)">
+                LIMPIAR
+            </button>
+            <button type="button" class="btn btn-primary btn-sm pt-2 pb-2 pl-5 pr-5 ml-2 btn-has-preloader" (click)="register($event)">
                 ENVIAR
                 <app-preloader-widget *ngIf="registerProccess" [type]="'button'"></app-preloader-widget>
             </button>

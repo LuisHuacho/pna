@@ -83,6 +83,20 @@ export class RegisterPageComponent implements OnInit {
     return ip;
   }
 
+  cleanFields(e) {
+    let _root = this;
+
+    _root.userRegister.idTipoDocumento = '';
+    _root.userRegister.nombres = '';
+    _root.userRegister.apellidos = '';
+    _root.userRegister.nacionalidad = '';
+    _root.userRegister.sexo = '';
+    _root.userRegister.domicilio = '';
+    _root.userRegister.telefono1 = '';
+    _root.userRegister.correo = '';
+    _root.userRegister.contracena = '';
+  }
+
   register(e) {
     e.preventDefault();
 
