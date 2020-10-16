@@ -120,7 +120,7 @@ export class RegisterPageComponent implements OnInit {
           .then((res:any) => {
             if(res.status !== undefined) {
               if(res.status == 400) {
-                _root.tools.showToastr('', 'Este usuario ya existe', 'error', 5000);
+                _root.tools.showToastr('', 'El usuario ya está registrado. Inicie sesión para continuar o recupere su contraseña. Si presenta algún problema para hacerlo, escríbanos al correo premionacionalambiental@minam.gob.pe', 'error', 5000);
               }
               else if(res.status == 500) {
                 _root.tools.showToastr('', res.message, 'error', 5000);
@@ -232,6 +232,7 @@ export class RegisterPageComponent implements OnInit {
           })
           .catch((err:any) => {
             _root.searchProccess = false;
+            _root.tools.showAlert('Alerta', 'El servicio de RENIEC no se encuentra disponible!', 'warning');
           });
         }
         else {

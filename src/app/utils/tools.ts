@@ -1,5 +1,6 @@
 import * as CryptoJS from 'crypto-js';
 import * as toastr from 'toastr';
+import Swal from 'sweetalert2';
 
 import * as moment from 'moment';
 import 'moment/locale/es';
@@ -51,6 +52,28 @@ export default class Tools {
                 toastr.warning(title, message);
                 break;
         }
+    }
+
+    showAlert (title, message, type, btext = 'Ok') {
+        Swal.fire({
+            title: title,
+            icon: type,
+            html: message,
+            showCloseButton: true,
+            showCancelButton: false,
+            confirmButtonText: btext
+        }).then((result) => {
+            // if(  localStorage.getItem('inscrito') ) {
+            //     let _ins = cryptr.decrypt(  localStorage.getItem('inscrito') );
+            //     if( _ins == 'si' ) {
+            //         localStorage.setItem('inscrito', Tools.cryptrData(''));
+            //         window.location.href = '/';
+            //     }
+            //     else{
+            //         localStorage.setItem('inscrito', Tools.cryptrData(''));
+            //     }
+            // }
+        });
     }
 
     listToTree(arr:any = null) {
