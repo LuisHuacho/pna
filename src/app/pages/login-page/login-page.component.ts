@@ -61,14 +61,39 @@ export class LoginPageComponent implements OnInit {
       if(res.token !== undefined) {
         localStorage.setItem('access_token', _root.tools.cryptrData(res.token));
         localStorage.setItem('user_login', _root.tools.cryptrData(JSON.stringify(res)));
-        window.location.href = `${_root._win.relativePath}/`;
       }
-      _root.tools.hidePreloader();
+
+      _root.userService.profile(res.token)
+      .then((res:any) => {
+        _root.tools.hidePreloader();
+        if(res.status == 200) {
+          window.location.href = `${_root._win.relativePath}/`;
+        }
+        else if(res.status == 400) {
+          localStorage.removeItem('access_token');
+          localStorage.removeItem('user_login');
+          _root.tools.showToastr('ERROR', 'Su usuario no está registrado en el sistema. Regístrese para realizar su postulación.', 'error', 5000);
+        }
+      })
+      .catch((err:any) => {
+        _root.tools.hidePreloader();
+        if(err.status !== undefined) {
+          if(err.status == 403) {
+            localStorage.removeItem('access_token');
+          localStorage.removeItem('user_login');
+            _root.tools.showToastr('ERROR', 'Su usuario no está registrado en el sistema. Regístrese para realizar su postulación.', 'error', 5000);
+          }
+        }
+      });
     })
     .catch(err => {
       _root.loginProccess = false;
       if(err.error.error !== undefined) {
-        _root.tools.showToastr('ERROR', err.error.mensaje, 'error', 2000);
+        let _msg = err.error.mensaje;
+        if(err.error.mensaje == 'Error en autentificación: username o password') {
+          _msg = 'Usuario o contraseña incorrectas. Pruebe cambiando su contraseña o escríbanos al correo premionacionalambiental@minam.gob.pe';
+        }
+        _root.tools.showToastr('ERROR', _msg, 'error', 5000);
       }
       _root.tools.hidePreloader();
     })

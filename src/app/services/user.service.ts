@@ -67,11 +67,19 @@ export class UserService {
     return promise;
   }
 
-  profile() {
+  profile(token:string = '') {
+    let _token = '';
+
+    if(token != '') {
+      _token = token;
+    }
+    else {
+      _token = this.token;
+    }
     let promise = new Promise((resolve, reject) => {
       let httpHeaders: HttpHeaders = new HttpHeaders({
           'Content-Type': 'application/json; charset=utf-8',
-          'Authorization': `Bearer ${this.token}`
+          'Authorization': `Bearer ${_token}`
       });
 
       this.http.get(this.configApi.getEndpoint().user, {headers: httpHeaders})

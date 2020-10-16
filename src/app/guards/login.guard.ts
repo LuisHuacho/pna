@@ -40,7 +40,6 @@ export class LoginGuard implements CanActivate {
         return false;
       })
       .catch((err:any) => {
-        console.log( err );
         localStorage.removeItem('access_token');
         localStorage.removeItem('user_login');
         localStorage.removeItem('user_profile');

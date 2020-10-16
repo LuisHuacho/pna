@@ -12,6 +12,10 @@
     background-color: rgba(#ffffff, 0.7);
 }
 
+#toast-container.toast-bottom-center>div, #toast-container.toast-top-center>div {
+    width: 400px!important;
+}
+
 #ligthbox {
     z-index: 20;
     position: fixed;
