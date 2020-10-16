@@ -50,23 +50,31 @@ export class PasswordrecoverPageComponent implements OnInit {
     _root.recoverProccess = true;
     _root.userProfile.url = `${_root.tools.getHostname()}${window.location.pathname}`;
 
-    console.log( _root.userProfile );
-
     if(_root.userProfile.username.length >= 8) {
       _root.userService.recoverPassword(_root.userProfile)
       .then((res:any) => {
         _root.recoverProccess = false;
         if(res.status == 404) {
-          _root.tools.showToastr('ERROR', 'Este usuario no existe', 'error', 2000);
+          _root.tools.showToastr('ERROR', 'Este usuario no existe', 'error', 5000);
+        }
+        else if(res.status == 400) {
+          _root.tools.showToastr('ERROR', 'Este usuario no existe', 'error', 5000);
         }
         else if(res.status == 200) {
-          _root.tools.showToastr('', 'Te hemos enviado un correo', 'success', 2000);
+          _root.tools.showToastr('', 'Te hemos enviado un correo', 'success', 5000);
           setTimeout(() => {
             window.location.href = `${_root._win.relativePath}/`;
           }, 2000);
         }
       })
       .catch((err:any) => {
+        if(err.error !== undefined) {
+          if(err.error.status !== undefined) {
+            if(err.error.status == 400) {
+              _root.tools.showToastr('ERROR', err.error.message, 'error', 5000);
+            }
+          }
+        }
         _root.recoverProccess = false;
       });
     }

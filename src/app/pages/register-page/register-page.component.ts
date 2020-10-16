@@ -122,6 +122,9 @@ export class RegisterPageComponent implements OnInit {
               if(res.status == 400) {
                 _root.tools.showToastr('', 'Este usuario ya existe', 'error', 5000);
               }
+              else if(res.status == 500) {
+                _root.tools.showToastr('', res.message, 'error', 5000);
+              }
               else {
                 _root.showLightBox = true;
                 _root.registerComplete = true;
